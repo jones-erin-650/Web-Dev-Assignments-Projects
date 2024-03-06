@@ -1,8 +1,23 @@
 <template>
-  <div class="container">
-    
+  <div class="container.is-fullhs">
+    <!-- navbar will go here because it should show up on every page -->
+    <NavBar />
   </div>
 </template>
+
+<script>
+
+  // import components here
+  import NavBar from './components/NavBar.vue'
+
+  export default {
+    name: 'App',
+    // register components here 
+    components: {
+      NavBar,
+    },
+  }
+</script>
 
 <!-- bulma will be our default styling -->
 <style>
