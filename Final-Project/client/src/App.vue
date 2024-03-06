@@ -2,6 +2,10 @@
   <div class="container.is-fullhs">
     <!-- navbar will go here because it should show up on every page -->
     <NavBar />
+
+    <RouterView />
+    
+
   </div>
 </template>
 

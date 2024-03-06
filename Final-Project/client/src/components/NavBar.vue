@@ -15,21 +15,21 @@
           
             <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <a class="navbar-item">
+                <router-link :to="{name: 'Home'}" class="navbar-item">
                   Home
-                </a>
+                </router-link>
           
-                <a class="navbar-item">
+                <router-link :to="{name: 'MyActivity'}" class="navbar-item">
                   My Activity
-                </a>
+                </router-link>
           
-                <a class="navbar-item">
+                <router-link :to="{name: 'FriendActivity'}" class="navbar-item">
                   Friend Activity
-                </a>
+                </router-link>
 
-                <a class="navbar-item">
+                <router-link :to="{name: 'AdminPage'}" class="navbar-item">
                   Admin
-                </a>
+                </router-link>
 
               </div>
           
@@ -58,3 +58,10 @@
     // navbar burger functionality
     
 </script>
+
+<style scoped>
+  #nav a.router-link-exact-active {
+    
+    background: black;
+  }
+</style>
