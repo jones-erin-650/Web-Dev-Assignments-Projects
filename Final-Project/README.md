@@ -1,7 +1,8 @@
 # TO DO
 
 ## Setup framework
-- gut the examples
+- ~~gut the examples~~
+- import bulma for basic styling
 
 ## Create Routing
 - Main Page w/statistics
@@ -11,7 +12,7 @@
 - Statistics (extra credit)
 
 ## Components
-- navbar
+1. navbar
 - A way to render workout components
 - individual workout component
 - way to edit workout components
