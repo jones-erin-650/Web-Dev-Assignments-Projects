@@ -2,7 +2,7 @@
 
 ## Setup framework
 - ~~gut the examples~~
-- import bulma for basic styling
+- ~~import bulma for basic styling~~
 
 ## Create Routing
 - Main Page w/statistics
