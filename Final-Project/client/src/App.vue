@@ -20,6 +20,20 @@
     components: {
       NavBar,
     },
+    data() {
+      return {
+        // empty array of user objects
+        users: []
+      }
+    },
+    created() {
+      this.users = {
+        id: '1',
+        name: 'Erin Jones',
+        isAdmin: true,
+
+      }
+    }
   }
 </script>
 

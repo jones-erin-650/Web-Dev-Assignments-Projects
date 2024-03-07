@@ -30,6 +30,13 @@ const routes: Array<RouteRecordRaw> = [
     
     // lazy loaded
     component: () => import(/* webpackChunkName: "about" */ '../views/AdminPage.vue')
+  },
+  {
+    path: '/test',
+    name: 'TestPage',
+    
+    // lazy loaded
+    component: () => import(/* webpackChunkName: "about" */ '../views/TestPage.vue')
   }
 ]
 

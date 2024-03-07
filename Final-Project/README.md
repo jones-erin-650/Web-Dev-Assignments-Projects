@@ -30,6 +30,7 @@
 ### a way to log in
 ### render logged in user
 1. take's the logged in user and shows their pfp and name
+### basic button to log in
 
 ## Medium Priority 
 - can only be done after figuring out the log in
