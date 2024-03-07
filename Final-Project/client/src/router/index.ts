@@ -1,48 +1,12 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomePage from '../views/HomePage.vue'
-import MyActivity from '../views/MyActivity.vue'
-import FriendActivity from '../views/FriendActivity.vue'
-import AdminPage from '../views/AdminPage.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import { routes } from 'vue-router/auto-routes'
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/home',
-    name: 'Home',
-    component: HomePage
-  },
-  {
-    path: '/my-activity',
-    name: 'MyActivity',
-    
-    // lazy loaded
-    component: () => import(/* webpackChunkName: "about" */ '../views/MyActivity.vue')
-  },
-  {
-    path: '/friend-activity',
-    name: 'FriendActivity',
-    
-    // lazy loaded
-    component: () => import(/* webpackChunkName: "about" */ '../views/FriendActivity.vue')
-  },
-  {
-    path: '/admin',
-    name: 'AdminPage',
-    
-    // lazy loaded
-    component: () => import(/* webpackChunkName: "about" */ '../views/AdminPage.vue')
-  },
-  {
-    path: '/test',
-    name: 'TestPage',
-    
-    // lazy loaded
-    component: () => import(/* webpackChunkName: "about" */ '../views/TestPage.vue')
-  }
-]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: routes
+    
+  
 })
 
 export default router
