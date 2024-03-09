@@ -4,6 +4,11 @@
 - ~~gut the examples~~
 - ~~import bulma for basic styling~~
 
+## Setup template for each view
+- doesn't need to have any functionality yet, just a layout
+
+## Setup proper bulma functionality
+
 ## ~~Create Routing~~
 - Main Page w/statistics
 - My Activity
