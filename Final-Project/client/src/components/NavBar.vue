@@ -15,21 +15,21 @@
           
             <div :class="{ 'is-active': isActive }" id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-start">
-                <router-link :to="{name: 'Home'}" class="navbar-item">
+                <a class="navbar-item">
                   Home
-                </router-link>
+                </a>
           
-                <router-link :to="{name: 'MyActivity'}" class="navbar-item">
+                <a class="navbar-item">
                   My Activity
-                </router-link>
+                </a>
           
-                <router-link :to="{name: 'FriendActivity'}" class="navbar-item">
+                <a class="navbar-item">
                   Friend Activity
-                </router-link>
+                </a>
 
-                <router-link :to="{name: 'AdminPage'}" class="navbar-item">
+                <a class="navbar-item">
                   Admin
-                </router-link>
+                </a>
 
               </div>
           
