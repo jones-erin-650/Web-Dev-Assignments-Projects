@@ -26,9 +26,20 @@
 - will store users objects
 - I think each user should have an array of workout objects
 - should be made with a ts template
+- User Name/Handle
+- Profile Picture
+- First Name
+- Last Name
+- Workouts[]
 
 ## Workout Objects Array
 - should be made with a ts template like how he showed in class
+- Text
+- Location
+- Distance
+- Duration
+- Type
+- Picture
 
 # Components
 
