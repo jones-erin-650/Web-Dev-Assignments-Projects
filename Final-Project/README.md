@@ -7,7 +7,11 @@
 ## Setup template for each view
 - doesn't need to have any functionality yet, just a layout
 
-## Setup proper bulma functionality
+## ~~Setup proper bulma functionality~~
+
+## Known problems
+- when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens
+- navbar burger functionality doesn't work
 
 ## ~~Create Routing~~
 - Main Page w/statistics
@@ -15,6 +19,27 @@
 - Friends' Activity
 - Admin/Users
 - Statistics (extra credit)
+
+# Data Planning
+
+## Main Users Array
+- will store users objects
+- I think each user should have an array of workout objects
+- should be made with a ts template
+- User Name/Handle
+- Profile Picture
+- First Name
+- Last Name
+- Workouts[]
+
+## Workout Objects Array
+- should be made with a ts template like how he showed in class
+- Text
+- Location
+- Distance
+- Duration
+- Type
+- Picture
 
 # Components
 
