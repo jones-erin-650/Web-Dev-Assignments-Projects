@@ -13,13 +13,20 @@ const users = ref([] as User[])
     name: 'Erin Jones',
     isAdmin: true,
   
-  }]
+  },
+  {
+    id: 2,
+    name: 'Bruno Almiron',
+    isAdmin: false
+  }
+
+]
 
 </script>
 
 <template>
   <NavBar />
-  <div class="container">
+  <div class="container.is-widescreen">
     <RouterView />
   </div>
   
