@@ -25,6 +25,7 @@
         </tr>
         <!-- each user in the array should make a new table row  -->
         <tr v-for="user in users" :key="user.id">
+          <!-- pfp testing -->
           <th></th>
           <th>{{user.firstName}}</th>
           <th>{{user.lastName}}</th>

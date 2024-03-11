@@ -74,11 +74,16 @@
 1. there needs to be a loggedInUser variable somewhere that changes according to a sign in and log out button
 
 ### render all users
-1. should show their name, pfp, email, username, and admin status
+~~1. should show their name, pfp, email, username, and admin status~~
+2. render their pfp in the first box (not working)
+3. fix the styling; the stripes just arent working for some reason
    
 ### render logged in user
 1. take's the logged in user and shows their pfp and name
-### basic button to log in
+
+### basic button 
+1. props for color and text
+2. used to log in, log out, delete user, etc
 
 ## Medium Priority 
 - can only be done after figuring out the log in
