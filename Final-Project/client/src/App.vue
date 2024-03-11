@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue';
-import { type User } from "../model/user.ts";
+import { type User } from "../model/user";
 
 
 // components
