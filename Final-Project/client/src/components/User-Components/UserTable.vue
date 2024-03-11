@@ -1,5 +1,7 @@
-<script>
-  // import User from './User'
+<script setup lang="ts">
+  import { getUsers, type User } from '@/model/User'
+  import { ref } from 'vue';
+  const users = ref([] as User[]) 
 
   // needs to take in the user array as a prop
 </script>
@@ -18,6 +20,7 @@
         <th>ID</th>
         <th>isAdmin</th>
       </tr>
+      
     </thead>
   </table>
 </template>

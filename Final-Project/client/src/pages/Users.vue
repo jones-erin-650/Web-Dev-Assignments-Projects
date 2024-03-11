@@ -1,6 +1,6 @@
-<script>
+<script setup lang="ts">
   import { ref } from 'vue';  
-  import UserTable from '../components/User-Components/UserTable.vue'
+  import UserTable from '@/components/User-Components/UserTable.vue'
 
 </script>
 
