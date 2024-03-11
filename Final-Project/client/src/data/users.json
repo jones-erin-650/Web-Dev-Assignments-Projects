@@ -3,37 +3,47 @@
     
         {
             "id": 1,
-            "name": "Erin Jones",
+            "firstName": "Erin",
+            "lastName": "Jones",
             "userName": "@eribrin",
+            "profilePicture": "https://avatars.githubusercontent.com/u/158182442?v=4",
             "isAdmin": true,
             "userWorkouts": []
             
             },
             {
             "id": 2,
-            "name": "Bruno Almiron",
+            "name": "Bruno",
+            "lastName": "",
             "userName": "@isthecakesayaka",
+            "profilePicture": "",
             "isAdmin": false,
             "userWorkouts": []
             },
             {
             "id": 3,
             "name": "Mars",
+            "lastName": "",
             "userName": "@willoow",
+            "profilePicture": "",
             "isAdmin": false,
             "userWorkouts": []
             },
             {
             "id": 4,
             "name": "Pat",
+            "lastName": "",
             "userName": "@itssthestars",
+            "profilePicture": "",
             "isAdmin": false,
             "userWorkouts": []
             },
             {
             "id": 5,
             "name": "Stephen",
+            "lastName": "",
             "userName": "@enderburgery",
+            "profilePicture": "",
             "isAdmin": true,
             "userWorkouts": []
             }
