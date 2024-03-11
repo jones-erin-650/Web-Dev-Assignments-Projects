@@ -6,6 +6,7 @@
 
 <template>
   <div class="container">
+    <h3>Users</h3>
     <div class="columns">
       <!-- spacing column -->
       <div class="column"></div>
