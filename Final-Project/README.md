@@ -79,13 +79,18 @@
 
 ### A way to render all workout components
 1. Needs to take in data about workouts and cycle through them
+2. means going through all of the users' workout arrays and rendering each object
+
 ### render user workout components
 1. only takes in workout components and renders them if they are made by the user
-### individual workout component
-1. store the info somewhere
+2. just goes through the currently logged in user and renders their workout array
+
 ### way to edit workout components
+1. another form but this time it edits pre-existing workout objects
+
 ### add workout
 1. basic form that creates a new workout object using the inputs
+2. review v-model stuff for this
 
 ## Lower Priority
 - can only be done after figuring out workout components
@@ -94,7 +99,7 @@
 1. needs to take in given statistics information and render them on screen
 
 ### render statistics
-- each will be its own components
+- each will be its own component
 
 1. render today's statistics
 - probably checks if the date variable is the same and renders it if it does
