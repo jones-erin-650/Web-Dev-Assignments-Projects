@@ -16,9 +16,13 @@ console.log(users)
 </script>
 
 <template>
-  <NavBar />
-  <div class="container.is-widescreen">
-    <RouterView />
+  <div>
+    <NavBar />
+    <!-- this column is just here to add some space between the navbar and page view, not a good solution but it is a solution -->
+    <div class="column"></div>
+    <div class="container.is-widescreen">
+      <RouterView />
+    </div>
   </div>
   
 </template>

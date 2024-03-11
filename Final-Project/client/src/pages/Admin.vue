@@ -1,5 +1,5 @@
 <template>
-    <h3>Admin</h3>
+  <h3>User Information</h3>
 </template>
 
 <script>

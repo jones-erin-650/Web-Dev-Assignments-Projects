@@ -1,3 +1,4 @@
+<!-- should be a table with the variable at the top then each row being the user's variable -->
 <template>
     <div class="container">
         <div :key="user.id" v-for="user in users">
