@@ -1,6 +1,10 @@
+import data from "../data/users.json";
+
 type User = {
     id: number,
     name: string,
-    isAdmin: boolean
+    userName: string,
+    isAdmin: boolean,
+    userWorkouts: []
   }
   

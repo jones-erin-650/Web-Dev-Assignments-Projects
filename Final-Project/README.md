@@ -22,6 +22,10 @@
 
 # Data Planning
 
+## ~~Create Model for User objects~~
+
+## create model for workout objects
+
 ## Main Users Array
 - will store users objects
 - I think each user should have an array of workout objects
@@ -57,7 +61,10 @@
 
 ### individual user components
 1. need to store their data
+2. should take in the user array as a ref
+3. the user array should be passed in as a parameter in whatever page calls it
 ### a way to log in
+1. there needs to be a loggedInUser variable somewhere that changes according to a sign in and log out button
 ### render logged in user
 1. take's the logged in user and shows their pfp and name
 ### basic button to log in

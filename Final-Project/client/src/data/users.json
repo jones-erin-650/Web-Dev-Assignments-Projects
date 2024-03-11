@@ -1,0 +1,42 @@
+{
+    "items": [
+    
+        {
+            "id": 1,
+            "name": "Erin Jones",
+            "userName": "@eribrin",
+            "isAdmin": true,
+            "userWorkouts": []
+            
+            },
+            {
+            "id": 2,
+            "name": "Bruno Almiron",
+            "userName": "@isthecakesayaka",
+            "isAdmin": false,
+            "userWorkouts": []
+            },
+            {
+            "id": 3,
+            "name": "Mars",
+            "userName": "@willoow",
+            "isAdmin": false,
+            "userWorkouts": []
+            },
+            {
+            "id": 4,
+            "name": "Pat",
+            "userName": "@itssthestars",
+            "isAdmin": false,
+            "userWorkouts": []
+            },
+            {
+            "id": 5,
+            "name": "Stephen",
+            "userName": "@enderburgery",
+            "isAdmin": true,
+            "userWorkouts": []
+            }
+            
+        ]
+    }
