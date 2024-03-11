@@ -9,6 +9,7 @@ export interface User {
   isAdmin: boolean,
   profilePicture: string,
   userWorkouts: Workout[]
+  email?: string,
 }
   
 // gets the data out of the user.json file and returns an array of users

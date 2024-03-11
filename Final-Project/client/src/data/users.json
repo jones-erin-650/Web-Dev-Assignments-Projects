@@ -6,43 +6,48 @@
             "firstName": "Erin",
             "lastName": "Jones",
             "userName": "@eribrin",
-            "profilePicture": "https://avatars.githubusercontent.com/u/158182442?v=4",
+            "email": "eribrin@gmail.com",
+            "profilePicture": "",
             "isAdmin": true,
             "userWorkouts": []
             
             },
             {
             "id": 2,
-            "name": "Bruno",
-            "lastName": "",
+            "firstName": "Bruno",
+            "lastName": "Almiron",
             "userName": "@isthecakesayaka",
             "profilePicture": "",
+            "email": "almironbruno@gmail.com",
             "isAdmin": false,
             "userWorkouts": []
             },
             {
             "id": 3,
-            "name": "Mars",
-            "lastName": "",
+            "firstName": "Mars",
+            "lastName": "Willow",
             "userName": "@willoow",
             "profilePicture": "",
+            "email": "mars@gmail.com",
             "isAdmin": false,
             "userWorkouts": []
             },
             {
             "id": 4,
-            "name": "Pat",
-            "lastName": "",
+            "firstName": "Pat",
+            "lastName": "Rover",
             "userName": "@itssthestars",
+            "email": "marsthejokeis@gmail.com",
             "profilePicture": "",
             "isAdmin": false,
             "userWorkouts": []
             },
             {
             "id": 5,
-            "name": "Stephen",
-            "lastName": "",
+            "firstName": "Stephen",
+            "lastName": "Alphano",
             "userName": "@enderburgery",
+            "email": "stephens@gmail.com",
             "profilePicture": "",
             "isAdmin": true,
             "userWorkouts": []

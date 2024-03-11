@@ -26,6 +26,12 @@
 
 ## ~~create model for workout objects~~
 
+## for god's sake fix the fucking dummy data
+- all the types and names are in different orders
+- most users don't have pfps
+- help
+- i don't think i even finished the workout template
+
 ## Main Users Array
 - will store users objects
 - I think each user should have an array of workout objects
