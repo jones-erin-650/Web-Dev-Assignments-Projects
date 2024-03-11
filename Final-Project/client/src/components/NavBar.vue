@@ -1,6 +1,6 @@
 <template>
     <div >
-        <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
               <!-- <a class="navbar-item" href="https://bulma.io">
                 <img src="src/assets/png-transparent-vue-js-hd-logo" width="112" height="28">
@@ -27,12 +27,18 @@
                   Friend Activity
                 </RouterLink>
 
-                <RouterLink to="/Admin" class="navbar-item">
-                  Admin
-                </RouterLink>
-
-              </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link">
+                    Admin
+                  </a>
           
+                  <div class="navbar-dropdown">
+                    <RouterLink to="/Users" class="navbar-item">
+                      Users
+                    </RouterLink>
+                  </div>
+              </div>
+          </div>
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
@@ -46,7 +52,7 @@
                 </div>
               </div>
             </div>
-          </nav>
+        </nav>
     </div>
 </template>
 
