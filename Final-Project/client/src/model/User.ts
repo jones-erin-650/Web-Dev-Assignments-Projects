@@ -1,8 +1,8 @@
 import data from "../data/users.json";
 
-type User = {
+export interface User {
     id: number,
-    name: string,
+    firstName: string,
     userName: string,
     isAdmin: boolean,
     userWorkouts: []
