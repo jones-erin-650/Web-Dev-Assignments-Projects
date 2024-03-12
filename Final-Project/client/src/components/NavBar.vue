@@ -56,7 +56,7 @@
     </div>
 </template>
 
-<script seetup lang="ts">
+<script setup lang="ts">
   import { ref } from 'vue';
 
   let isActive = ref(false);
