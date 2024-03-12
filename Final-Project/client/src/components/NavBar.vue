@@ -1,3 +1,24 @@
+<script setup lang="ts">
+  import { ref } from 'vue';
+  import LoginDropdown from './User-Components/LoginDropdown.vue';
+
+  let isActive = ref(false);
+
+  // navbar burger functionality
+  function toggleMenu() {
+    isActive.value = !isActive.value;
+  }
+
+
+    
+</script>
+
+<style scoped>
+  .router-link-active {
+    border-bottom: 2px solid white;
+  }
+</style>
+
 <template>
     <div >
         <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
@@ -42,11 +63,9 @@
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
+                    <LoginDropdown />
                     <a class="button is-info">
                       <strong>Sign up</strong>
-                    </a>
-                    <a class="button is-light">
-                      Log in
                     </a>
                   </div>
                 </div>
@@ -55,23 +74,3 @@
         </nav>
     </div>
 </template>
-
-<script setup lang="ts">
-  import { ref } from 'vue';
-
-  let isActive = ref(false);
-
-  // navbar burger functionality
-  function toggleMenu() {
-    isActive.value = !isActive.value;
-  }
-
-
-    
-</script>
-
-<style scoped>
-  .router-link-active {
-    border-bottom: 2px solid white;
-  }
-</style>

@@ -4,8 +4,6 @@
 
   const users = ref([] as User[]) 
   users.value = getUsers()
-
-  // needs to take in the user array as a prop
 </script>
 
 <!-- should be a table of all the registered users with the variable at the top then each row being the user's variable -->

@@ -1,12 +1,16 @@
 <script setup lang="ts">
+  import { getUsers, type User } from '@/model/User'
+  import { ref } from 'vue';
 
+  const users = ref([] as User[]) 
+  users.value = getUsers()
 </script>
 
 <template>
   <div class="dropdown is-active">
     <div class="dropdown-trigger">
       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-        <span>Dropdown button</span>
+        <span>Log In</span>
         <span class="icon is-small">
           <i class="fas fa-angle-down" aria-hidden="true"></i>
         </span>
@@ -14,21 +18,12 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item">
-          Dropdown item
-        </a>
-        <a class="dropdown-item">
-          Other dropdown item
-        </a>
-        <a href="#" class="dropdown-item is-active">
-          Active dropdown item
-        </a>
-        <a href="#" class="dropdown-item">
-          Other dropdown item
+        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id">
+          {{user.firstName}} {{ user.lastName }}
         </a>
         <hr class="dropdown-divider">
         <a href="#" class="dropdown-item">
-          With a divider
+          Add Another User
         </a>
       </div>
     </div>
