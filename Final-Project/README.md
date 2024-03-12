@@ -26,6 +26,9 @@
 
 ## ~~create model for workout objects~~
 
+## current user
+- for now the current user will be stored in app.vue, this probably won't be permenant but we haven't gone over where else to store it yet
+
 ## for god's sake fix the dummy data
 - all the types and names are in different orders
 - most users don't have pfps
