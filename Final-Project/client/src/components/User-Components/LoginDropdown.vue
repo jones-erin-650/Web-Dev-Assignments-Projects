@@ -4,6 +4,11 @@
 
   const users = ref([] as User[]) 
   users.value = getUsers()
+
+  const props = defineProps({
+    text: String,
+  })
+
 </script>
 
 <template>
@@ -23,7 +28,7 @@
         </a>
         <hr class="dropdown-divider">
         <a href="#" class="dropdown-item">
-          Add Another User
+          {{ text }}
         </a>
       </div>
     </div>
