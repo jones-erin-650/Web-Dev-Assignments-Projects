@@ -1,0 +1,18 @@
+{
+    "items": [
+        {
+            "distance": "30",
+            "distanceUnit": "mi",
+            "duration": "50",
+            "durationUnit": "min",
+            "coordinates": {
+                "lat": "36.853252",
+                "lng": "-77.693752"
+            },
+            "text": "Ran through campus",
+            "postId": "1",
+            "user": "@eribrin",
+            "picture": "string"
+        }
+    ]
+}
