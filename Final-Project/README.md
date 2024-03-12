@@ -70,7 +70,7 @@
 8. have the admin button only show up if the active user is an admin
    
 ### a way to log in
-1. there needs to be a loggedInUser variable somewhere that changes according to a sign in and log out button
+1. ~~there needs to be a currentUser variable somewhere that changes according to a sign in and log out button~~
 
 ### log in drop down
 1. ~~add js scripts to close and open the dropdown on click~~
@@ -85,8 +85,8 @@
 2. render their pfp in the first box (not working)
 3. fix the styling; the stripes just arent working for some reason
    
-### render logged in user
-1. takes the logged in user and shows their pfp and name
+### welcome message to show the current user's name
+1. could update it to take it in as a prop to be more reusable but as it is now it works fine
 
 ## Medium Priority 
 - can only be done after figuring out the log in
