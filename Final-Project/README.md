@@ -73,6 +73,14 @@
 ### a way to log in
 1. there needs to be a loggedInUser variable somewhere that changes according to a sign in and log out button
 
+### log in drop down
+1. add js scripts to close and open the dropdown on click
+2. add a check to see if there is a loggedInUser, if there is then change the text to "Switch Users"
+3. create a prop for that
+
+### sign up button
+1. have it not render if there's already a user logged in
+
 ### render all users
 ~~1. should show their name, pfp, email, username, and admin status~~
 2. render their pfp in the first box (not working)
@@ -80,10 +88,6 @@
    
 ### render logged in user
 1. take's the logged in user and shows their pfp and name
-
-### basic button 
-1. props for color and text
-2. used to log in, log out, delete user, etc
 
 ## Medium Priority 
 - can only be done after figuring out the log in
