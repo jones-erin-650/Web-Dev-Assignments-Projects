@@ -12,6 +12,7 @@
 ## Known problems
 - when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens
 - ~~navbar burger functionality doesn't work~~
+- when you switch the currentUser components that use it don't update until you go to another page and go back
 
 ## ~~Create Routing~~
 - Main Page w/statistics
