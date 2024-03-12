@@ -3,15 +3,14 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue';
 import { type User } from "../model/user";
 
-
 // components
 import NavBar from './components/NavBar.vue'
 
-
 const users = ref([] as User[])
 
-console.log('hello')
-console.log(users)
+// currentUser is declared here right now, probably won't be stored here permenantly
+const currentUser = ref();
+currentUser.value = null;
 
 </script>
 
