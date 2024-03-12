@@ -9,10 +9,19 @@
     text: String,
   })
 
+  // dropdown functionality
+  let isActive = ref(false);
+
+  // navbar burger functionality
+  function toggleMenu() {
+    isActive.value = !isActive.value;
+  }
+
 </script>
 
 <template>
-  <div class="dropdown is-active">
+  <!-- on click it adds the is-active class, presence of the active class will be determined by thetruthiness of the variable is active -->
+  <div class="dropdown" @click="toggleMenu" :class="{ 'is-active': isActive }">
     <div class="dropdown-trigger">
       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
         <span>Log In</span>
