@@ -11,7 +11,7 @@
 
 ## Known problems
 - when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens
-- navbar burger functionality doesn't work
+- ~~navbar burger functionality doesn't work~~
 
 ## ~~Create Routing~~
 - Main Page w/statistics
@@ -26,7 +26,7 @@
 
 ## ~~create model for workout objects~~
 
-## for god's sake fix the fucking dummy data
+## for god's sake fix the dummy data
 - all the types and names are in different orders
 - most users don't have pfps
 - help
@@ -64,19 +64,14 @@
 6. get a logo working 
 7. style it better, have the button with the current page be darker
 8. have the admin button only show up if the active user is an admin
-
-### individual user components
-1. need to store their data
-2. should take in the user array as a ref
-3. the user array should be passed in as a parameter in whatever page calls it
    
 ### a way to log in
 1. there needs to be a loggedInUser variable somewhere that changes according to a sign in and log out button
 
 ### log in drop down
-1. add js scripts to close and open the dropdown on click
+1. ~~add js scripts to close and open the dropdown on click~~
 2. add a check to see if there is a loggedInUser, if there is then change the text to "Switch Users"
-3. create a prop for that
+3. ~~create a prop for that~~
 
 ### sign up button
 1. have it not render if there's already a user logged in
@@ -87,7 +82,7 @@
 3. fix the styling; the stripes just arent working for some reason
    
 ### render logged in user
-1. take's the logged in user and shows their pfp and name
+1. takes the logged in user and shows their pfp and name
 
 ## Medium Priority 
 - can only be done after figuring out the log in
