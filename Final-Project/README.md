@@ -13,6 +13,7 @@
 - when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens
 - ~~navbar burger functionality doesn't work~~
 - when you switch the currentUser components that use it don't update until you go to another page and go back
+- when you try to go to a page that uses a currentUser variable while you're not logged in the entire thing breaks (not good)
 
 ## ~~Create Routing~~
 - Main Page w/statistics
@@ -27,10 +28,11 @@
 
 ## ~~create model for workout objects~~
 
-## current user
+## ~~current user~~
 - this is going to be stored in its own typescript file called currentuser.ts
 - will be declared and stored here
 - will have a function called refCurrentUser which just returns the currentUser variable, allowing other files to import and use it
+- has a function to set its value
 
 ## for god's sake fix the dummy data
 - all the types and names are in different orders
@@ -98,8 +100,11 @@
 2. means going through all of the users' workout arrays and rendering each object
 
 ### render user workout components
-1. only takes in workout components and renders them if they are made by the user
-2. just goes through the currently logged in user and renders their workout array
+1. ~~only takes in workout components and renders them if they are made by the user~~
+2. ~~just goes through the currently logged in user and renders their workout array~~
+3. make it look prettier
+4. get the date and time working on it
+5. fix the image scaling issues
 
 ### way to edit workout components
 1. another form but this time it edits pre-existing workout objects
@@ -107,6 +112,10 @@
 ### add workout
 1. basic form that creates a new workout object using the inputs
 2. review v-model stuff for this
+3. will need a function probably in user.ts to append to a user's workout property
+
+### a way to delete users in the admin page
+1. needs to edit the users array to remove their entry
 
 ## Lower Priority
 - can only be done after figuring out workout components
