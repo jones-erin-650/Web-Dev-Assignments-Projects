@@ -2,14 +2,13 @@
 import { ref } from 'vue';
 import currentUser from '@/App.vue'
 
-
 </script>
 
 <template>
     <section class="hero is-info">
         <div class="hero-body">
           <p class="title">
-            Welcome Back {{ currentUser.value.firstName}}!
+            <!-- Welcome Back {{ currentUser.firstName}}! -->
           </p>
           <p class="subtitle">
             Do any workouts today?

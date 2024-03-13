@@ -4,6 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue';
 import { type User } from "../model/user";
 
+
 // components
 import NavBar from './components/NavBar.vue'
 
@@ -17,8 +18,6 @@ window.onload = function() {
   currentUser.value = null;
 };
 
-
-
 </script>
 
 <template>
@@ -29,6 +28,7 @@ window.onload = function() {
     <div class="container.is-widescreen">
       <RouterView />
     </div>
+
   </div>
   
 </template>

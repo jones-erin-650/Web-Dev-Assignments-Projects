@@ -23,6 +23,7 @@
   function setCurrentUser(user: User ) {
     currentUser.value = user
     console.log(currentUser.value)
+    console.log(currentUser.value.firstName)
   }
 
 
