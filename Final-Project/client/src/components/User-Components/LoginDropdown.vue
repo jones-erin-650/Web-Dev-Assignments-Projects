@@ -30,7 +30,7 @@
   <div class="dropdown" @click="toggleMenu" :class="{ 'is-active': isActive }">
     <div class="dropdown-trigger">
       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-        <span>Log In</span>
+        <span>{{text}}</span>
         <span class="icon is-small">
           <i class="fas fa-angle-down" aria-hidden="true"></i>
         </span>

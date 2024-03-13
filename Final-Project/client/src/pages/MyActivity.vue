@@ -1,10 +1,12 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import WorkoutPost from '@/components/WorkoutPost.vue';
   import { getUsers, getUserWorkouts, type User } from '@/model/User'
   import { type Workout } from '@/model/Workout';
   import { refCurrentUser } from '@/viewModel/currentuser';
   import type { RefSymbol } from '@vue/reactivity';
+
+  // components
+  import WorkoutPost from '@/components/WorkoutPost.vue';
 
     // want to first import the current user using refCurrentUser
     const currentUser = refCurrentUser()
@@ -28,23 +30,22 @@
         <title></title>
     </head>
   <body>
+    <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
+      :firstName="currentUser.firstName"
+      :lastName="currentUser.lastName"
+      :email="currentUser.email"
+      :profilePicture="currentUser.profilePicture"
 
-  <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
-    :firstName="currentUser.firstName"
-    :lastName="currentUser.lastName"
-    :email="currentUser.email"
-    :profilePicture="currentUser.profilePicture"
+      :location="workout.location"
 
-    :location="workout.location"
-
-    :distance="workout.distance"
-    :distanceUnit="workout.distanceUnit"
-    :duration="workout.duration"
-    :durationUnit="workout.durationUnit"
-    :postId="workout.postId"
-    :picture="workout.picture"
-    :text="workout.text"
-  />
+      :distance="workout.distance"
+      :distanceUnit="workout.distanceUnit"
+      :duration="workout.duration"
+      :durationUnit="workout.durationUnit"
+      :postId="workout.postId"
+      :picture="workout.picture"
+      :text="workout.text"
+    />
   </body>
 </html>
 </template>

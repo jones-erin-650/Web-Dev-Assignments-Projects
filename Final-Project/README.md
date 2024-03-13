@@ -65,6 +65,7 @@
 
 ### Allow the pages to be accessed even if there's not a current user
 - have a SignIn form component that promps the user to sign in
+- the way im currently doing it has a looooooooot of repeated code, it works but it needs to be optimized
 
 ### navbar
 1. ~~Create boilerplate navbar~~
