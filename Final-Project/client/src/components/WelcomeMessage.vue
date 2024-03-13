@@ -1,22 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { refCurrentUser } from '@/viewModel/currentuser';
-
-// imports the current user
-  const currentUser = ref()
-  currentUser.value = refCurrentUser()
 
 </script>
 
 <template>
     <section class="hero is-info">
         <div class="hero-body">
-          <p v-if="currentUser===null" class="title">
-            Login to post workouts!
+          <p class="title">
+            Welcome!
           </p>
-          <!-- <p v-else class="title">Welcome Back {{ currentUser.value.firstName }}!</p> -->
           <p class="subtitle">
-            Do any workouts today?
+            Log in to view and add workouts!
           </p>
         </div>
       </section>

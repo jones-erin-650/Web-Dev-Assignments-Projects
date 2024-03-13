@@ -63,11 +63,8 @@
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                    <!-- check if there's a signed in user, if so then have it say switch user -->
+                    <!-- way to change users -->
                     <LoginDropdown text="Switch User"/>
-                    <a class="button is-info">
-                      <strong>Sign up</strong>
-                    </a>
                   </div>
                 </div>
               </div>

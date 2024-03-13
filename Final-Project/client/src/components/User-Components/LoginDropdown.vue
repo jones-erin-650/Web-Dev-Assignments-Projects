@@ -3,6 +3,12 @@
   import { ref } from 'vue';
   import { refCurrentUser, setRefCurrentUser } from '@/viewModel/currentuser';
 
+  // this needs to be imported in order to refresh the page when there's a new login
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
+
+
   // bringing in the user array
   const users = ref([] as User[]) 
   users.value = getUsers()

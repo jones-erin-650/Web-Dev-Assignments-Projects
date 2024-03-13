@@ -37,9 +37,7 @@
           <div class="field">
             <label class="label">Signed In Users</label>
             <div class="control">
-              <div class="select">
-                <LoginDropdown />
-              </div>
+              <LoginDropdown text="Log in"/>
             </div>
           </div>
         

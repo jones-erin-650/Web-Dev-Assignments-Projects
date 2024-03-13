@@ -8,6 +8,7 @@
   // components
   import NavBar from './components/NavBar.vue'
   import SignInForm from './components/User-Components/SignInForm.vue';
+  import WelcomeMessage from './components/WelcomeMessage.vue';
   // want to first import the current user using refCurrentUser to check if it's undefined
   const currentUser = refCurrentUser()
 </script>
@@ -16,6 +17,8 @@
   <div>
     <!-- if there's no current user logged in then it should show a sign in field -->
     <div v-if="currentUser === undefined">
+      <WelcomeMessage />
+      <br>
       <SignInForm />
     </div>
     
