@@ -1,17 +1,56 @@
+<script setup lang="ts">
+  const props = defineProps({
+    // user props
+    firstName: String,
+    lastName: String,
+    email: String,
+    profilePicture: String,
+    // workout props
+    location: String,
+    year: Number,
+    month: Number,
+    day: Number,
+    hours: Number,
+    minutes: Number,
+    seconds: Number,
+    distance: Number,
+    distanceUnit: String,
+    duration: Number,
+    durationUnit: String,
+    postId: Number,
+    picture: String,
+    text: String,
+  })
+</script>
+
 <template>
     <article class="media">
         <figure class="media-left">
-          <p class="image is-64x64">
+          <p class="image is-64x64 is-rounded">
             <img src="https://bulma.io/images/placeholders/128x128.png">
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+              <strong>{{firstName}} {{lastName}}</strong> <small>{{email}}</small> <small>31m</small>
               <br>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+              {{text}}
             </p>
+            <!-- post image -->
+            <p class="image is-128x128">
+              <img src="@/assets/images/newpaltz_03.jpg" width="640" height="360">
+            </p>
+            <p>
+              <span class="icon is-small"><i class="fas fa-location-dot"></i></span>
+              <small>{{location}}</small>
+            </p>
+            <p>
+              {{ duration }} {{ durationUnit }} 
+              <span></span>
+              {{ distance }} {{ distanceUnit }}
+            </p>
+
           </div>
           <nav class="level is-mobile">
             <div class="level-left">

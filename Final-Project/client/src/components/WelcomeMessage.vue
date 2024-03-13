@@ -11,9 +11,10 @@ import { refCurrentUser } from '@/viewModel/currentuser';
 <template>
     <section class="hero is-info">
         <div class="hero-body">
-          <p class="title">
-            Welcome Back {{ currentUser.value.firstName }}!
+          <p v-if="currentUser===null" class="title">
+            Login to post workouts!
           </p>
+          <!-- <p v-else class="title">Welcome Back {{ currentUser.value.firstName }}!</p> -->
           <p class="subtitle">
             Do any workouts today?
           </p>

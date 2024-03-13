@@ -7,13 +7,17 @@ export interface User {
   firstName: string,
   lastName: string,
   userName: string,
-  isAdmin: boolean,
-  profilePicture: string,
-  userWorkouts: Workout[]
   email: string,
+  profilePicture: string,
+  isAdmin: boolean,
+  userWorkouts: Workout[]
+  
 }
   
 // gets the data out of the user.json file and returns an array of users
 export function getUsers(): User[] {
   return data.items;
 }
+
+// input a user and get a return of their workout array
+export const getUserWorkouts = (user: User) => user.userWorkouts

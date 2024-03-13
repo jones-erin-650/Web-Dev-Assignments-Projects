@@ -11,10 +11,6 @@
             "isAdmin": true,
             "userWorkouts": [
                 {
-                  "coordinates": {
-                    "lat": "-33.47203",
-                    "lng": "1.45964"
-                  },
                   "date": {
                     "year": 2023,
                     "month": 3,
@@ -27,31 +23,29 @@
                   "distanceUnit": "mi",
                   "duration": 1.02,
                   "durationUnit": "hr",
-                  "postID": 1,
+                  "location": "NP Campus",
+                  "postId": 1,
                   "picture": "@/assets/images/newpaltz_03.jpg",
                   "text": "Walked through campus"
 
                 },
                 {
-                  "coordinates": {
-                    "lat": "50.11345",
-                    "lng": "65.97883"
-                  },
                   "date": {
                     "year": 2023,
-                    "month": 3,
-                    "day": 14,
+                    "month": 2,
+                    "day": 15,
                     "hours": 17,
-                    "minutes": 23,
-                    "seconds": 34
+                    "minutes": 45,
+                    "seconds": 12
                   },
-                  "distance": 3,
+                  "distance": 6,
                   "distanceUnit": "mi",
-                  "duration": 31,
+                  "duration": 34,
                   "durationUnit": "min",
-                  "postID": 2,
+                  "location": "Poughkeepsie",
+                  "postId": 2,
                   "picture": "@/assets/images/newpaltz_03.jpg",
-                  "text": "Biked to town"
+                  "text": "Biked through town"
 
                 }
             ]
