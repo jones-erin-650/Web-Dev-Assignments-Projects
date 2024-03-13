@@ -7,9 +7,54 @@
             "lastName": "Jones",
             "userName": "@eribrin",
             "email": "eribrin@gmail.com",
-            "profilePicture": "",
+            "profilePicture": "@/assets/images/ErinPFP.jpg",
             "isAdmin": true,
-            "userWorkouts": []
+            "userWorkouts": [
+                {
+                  "coordinates": {
+                    "lat": "-33.47203",
+                    "lng": "1.45964"
+                  },
+                  "date": {
+                    "year": 2023,
+                    "month": 3,
+                    "day": 13,
+                    "hours": 15,
+                    "minutes": 53,
+                    "seconds": 34
+                  },
+                  "distance": 2,
+                  "distanceUnit": "mi",
+                  "duration": 1.02,
+                  "durationUnit": "hr",
+                  "postID": 1,
+                  "picture": "@/assets/images/newpaltz_03.jpg",
+                  "text": "Walked through campus"
+
+                },
+                {
+                  "coordinates": {
+                    "lat": "50.11345",
+                    "lng": "65.97883"
+                  },
+                  "date": {
+                    "year": 2023,
+                    "month": 3,
+                    "day": 14,
+                    "hours": 17,
+                    "minutes": 23,
+                    "seconds": 34
+                  },
+                  "distance": 3,
+                  "distanceUnit": "mi",
+                  "duration": 31,
+                  "durationUnit": "min",
+                  "postID": 2,
+                  "picture": "@/assets/images/newpaltz_03.jpg",
+                  "text": "Biked to town"
+
+                }
+            ]
             
             },
             {
