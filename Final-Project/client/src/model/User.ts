@@ -1,6 +1,7 @@
 import data from "../data/users.json";
 import type { Workout } from "./Workout";
 
+
 export interface User {
   id: number,
   firstName: string,

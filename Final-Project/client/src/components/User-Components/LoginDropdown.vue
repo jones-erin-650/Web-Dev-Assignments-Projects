@@ -1,10 +1,15 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import currentUser from "@/App.vue"
+  import { refCurrentUser } from '@/viewModel/currentuser';
 
+  // bringing in the user array
   const users = ref([] as User[]) 
   users.value = getUsers()
+
+  // bringing in the current user variable
+  const currentUser = ref()
+  currentUser.value = refCurrentUser
 
   const props = defineProps({
     text: String,

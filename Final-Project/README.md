@@ -28,7 +28,9 @@
 ## ~~create model for workout objects~~
 
 ## current user
-- for now the current user will be declared and stored in app.vue, this probably won't be permenant but we haven't gone over where else to store it yet
+- this is going to be stored in its own typescript file called currentuser.ts
+- will be declared and stored here
+- will have a function called refCurrentUser which just returns the currentUser variable, allowing other files to import and use it
 
 ## for god's sake fix the dummy data
 - all the types and names are in different orders
