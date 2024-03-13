@@ -3,6 +3,14 @@ export interface Workout {
         lat: number,
         lng: number
     }
+    date: {
+        year: number,
+        month: number,
+        day: number,
+        hours: number,
+        minutes: number,
+        seconds: number,
+    },
     distance: number,
     distanceUnit: string,
     duration: number,
@@ -10,5 +18,4 @@ export interface Workout {
     postId: number,
     picture: string,
     text: string,
-    user: string,
 }
