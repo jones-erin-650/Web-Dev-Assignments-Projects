@@ -28,32 +28,23 @@
         <title></title>
     </head>
   <body>
-      <div class="columns ">
-      <!-- broken down into three horizontal columns, middle one being half the screen -->
-      <!-- welcome back message -->
-        <div class="column"></div>
-        <!-- [part with the posts] -->
-        <div class="column is-10 ">
-          <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
-            :firstName="currentUser.firstName"
-            :lastName="currentUser.lastName"
-            :email="currentUser.email"
-            :profilePicture="currentUser.profilePicture"
 
-            :location="workout.location"
+  <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
+    :firstName="currentUser.firstName"
+    :lastName="currentUser.lastName"
+    :email="currentUser.email"
+    :profilePicture="currentUser.profilePicture"
 
-            :distance="workout.distance"
-            :distanceUnit="workout.distanceUnit"
-            :duration="workout.duration"
-            :durationUnit="workout.durationUnit"
-            :postId="workout.postId"
-            :picture="workout.picture"
-            :text="workout.text"
-          />
-        </div>
+    :location="workout.location"
 
-        <div class="column"></div>
-      </div>  
+    :distance="workout.distance"
+    :distanceUnit="workout.distanceUnit"
+    :duration="workout.duration"
+    :durationUnit="workout.durationUnit"
+    :postId="workout.postId"
+    :picture="workout.picture"
+    :text="workout.text"
+  />
   </body>
 </html>
 </template>

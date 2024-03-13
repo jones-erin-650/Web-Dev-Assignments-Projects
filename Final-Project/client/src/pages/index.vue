@@ -17,21 +17,10 @@ import WelcomeMessage from '../components/WelcomeMessage.vue'
       <title></title>
   </head>
 <body>
-    <div class="columns ">
-    <!-- broken down into three horizontal columns, middle one being half the screen -->
-    <!-- welcome back message -->
-      <div class="column">
-          <WelcomeMessage />
-      </div>
-      <!-- [part with the posts] -->
-      <div class="column is-half ">
-        <WorkoutPost />
-      </div>
-
-      <div class="column">
-          third
-      </div>
-    </div>  
+  <!-- [part with the statistics] -->
+  <div class="column is-half ">
+    <WorkoutPost />
+  </div>
 </body>
 </html>
 </template>

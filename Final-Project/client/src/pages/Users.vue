@@ -5,18 +5,12 @@
 </script>
 
 <template>
-  <div class="container">
+  <div>
+    
     <h3>Users</h3>
-    <div class="columns">
-      <!-- spacing column -->
-      <div class="column"></div>
-      <!-- main part with the table -->
-      <div class="column is-11">
-        <UserTable />
-      </div>
-      <!-- spacing column -->
-      <div class="column"></div>
-    </div>
+    
+    <UserTable />
   </div>
+
 </template>
 

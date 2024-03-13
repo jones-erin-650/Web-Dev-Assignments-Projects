@@ -63,6 +63,9 @@
 
 ## Highest Priority
 
+### Allow the pages to be accessed even if there's not a current user
+- have a SignIn form component that promps the user to sign in
+
 ### navbar
 1. ~~Create boilerplate navbar~~
 2. ~~set it up in app.vue~~

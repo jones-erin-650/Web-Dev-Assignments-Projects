@@ -1,0 +1,1 @@
+<!-- this is just for when the user first enters the site. since there's no currentUser value a lot of stuff breaks if we don't have them log in first -->
