@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import currentUser from '@/App.vue'
+import { refCurrentUser } from '@/viewModel/currentuser';
+
+// imports the current user
+  const currentUser = ref()
+  currentUser.value = refCurrentUser()
 
 </script>
 
@@ -8,7 +12,7 @@ import currentUser from '@/App.vue'
     <section class="hero is-info">
         <div class="hero-body">
           <p class="title">
-            <!-- Welcome Back {{ currentUser.value.firstName}}! -->
+            Welcome Back {{ currentUser.value.firstName }}!
           </p>
           <p class="subtitle">
             Do any workouts today?

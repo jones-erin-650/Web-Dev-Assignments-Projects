@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser, setRefCurrentUser } from '@/viewModel/currentuser';
 
   // bringing in the user array
   const users = ref([] as User[]) 
@@ -9,7 +9,7 @@
 
   // bringing in the current user variable
   const currentUser = ref()
-  currentUser.value = refCurrentUser
+  currentUser.value = refCurrentUser()
 
   const props = defineProps({
     text: String,
@@ -22,16 +22,6 @@
   function toggleMenu() {
     isActive.value = !isActive.value;
   }
-
-  // sets the current user when you click their name
-  // takes in a user as a parameter, the current user in the v-loop is passed
-  function setCurrentUser(user: User ) {
-    currentUser.value = user
-    console.log(currentUser.value)
-    console.log(currentUser.value.firstName)
-  }
-
-
 
 </script>
 
@@ -48,7 +38,7 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="setCurrentUser( user )">
+        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="setRefCurrentUser( user )">
           {{user.firstName}} {{ user.lastName }}
         </a>
         <hr class="dropdown-divider">
