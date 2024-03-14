@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import SignInForm from '@/components/User-Components/SignInForm.vue';
 </script>
 
 <template>

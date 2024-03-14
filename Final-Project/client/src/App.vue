@@ -1,8 +1,6 @@
 <script setup lang="ts">
 
-  import { RouterLink, RouterView } from 'vue-router'
-  import { ref } from 'vue';
-  import { type User } from "../model/user";
+  import { RouterView } from 'vue-router'
   import { refCurrentUser } from '@/viewModel/currentuser';
 
   // components

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import type { Workout } from '@/model/Workout';
   import BasicButton from '../BasicButton.vue';
   import { addWorkout, editWorkout, refNewWorkout, setEmptyWorkout } from '@/viewModel/new-workout';
 
