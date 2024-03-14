@@ -22,12 +22,3 @@ export const setRefCurrentUser = (input: User) => {
     console.log("name: " + currentUser.value.firstName)
 }
 
-// appends inputted workout to the current user's workout array
-export const addWorkout = (newWorkout: Workout) => {
-  currentUser.value.userWorkouts.push(newWorkout)
-} 
-
-// replaces the data of a specific workout
-export const editWorkout = (newWorkout: Workout) => {
-  
-}

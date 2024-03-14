@@ -1,26 +1,11 @@
 <script setup lang="ts">
   import type { Workout } from '@/model/Workout';
   import BasicButton from '../BasicButton.vue';
-  import { addWorkout, editWorkout } from '@/viewModel/currentuser';
+  import { addWorkout, editWorkout, refNewWorkout, setEmptyWorkout } from '@/viewModel/new-workout';
 
-  const newWorkout: Workout = {
-    date: {
-        year: 0,
-        month: 0,
-        day: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-    },
-    distance: 0,
-    distanceUnit: '',
-    duration: 0,
-    durationUnit: '',
-    location: '',
-    postId: 0,
-    picture: '',
-    text: '',
-  }
+  // clears out the newWorkout object in new-workout.ts to be filled with new values, then imports it by using refNewWorkout
+  setEmptyWorkout()
+  const newWorkout = refNewWorkout()
 
   const props = defineProps({
     isActive: Boolean,
@@ -36,7 +21,7 @@
 
 <template>
   <div class="modal" :class="{ 'is-active': isActive }">
-    <div class="modal-background" @click="isActive = !isActive" ></div>
+    <div class="modal-background" ></div>
     <div class="modal-content has-background-white">
       
       <div class="field">
@@ -117,8 +102,8 @@
       <div class="field is-grouped">
         <!-- passes in the newWorkout to be added or edited, text determines which action it does -->
         <div class="control">
-          <BasicButton v-if="submitType === 'Create Workout'" :text="submitType" :newWorkout="newWorkout" :color="'is-link'" @click="addWorkout(newWorkout)"/>
-          <BasicButton v-else-if="submitType === 'Edit Workout'" :text="submitType" :newWorkout="newWorkout" :color="'is-link'" @on-click="editWorkout(newWorkout)"/>
+          <BasicButton v-if="submitType === 'Create Workout'" :text="submitType" :newWorkout="newWorkout" :color="'is-link'" @click="addWorkout(newWorkout), isActive=!isActive"/>
+          <BasicButton v-else-if="submitType === 'Edit Workout'" :text="submitType" :newWorkout="newWorkout" :color="'is-link'" @on-click="editWorkout(newWorkout), isActive=!isActive"/>
         </div>
         <div class="control">
           <button class="button is-link is-light" @click="isActive = !isActive">Cancel</button>
