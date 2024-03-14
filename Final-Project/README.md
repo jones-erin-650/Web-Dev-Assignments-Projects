@@ -120,6 +120,7 @@
 4. get the date and time working on it
 5. fix the image scaling issues
 6. have workouts be sorted according to date
+7. i think that the check for the user being the same as the current user is just current user passing and checking itself rn
 
 ### way to edit workout components
 1. another form but this time it edits pre-existing workout objects
@@ -141,10 +142,8 @@
 - can only be done after figuring out workout components
 
 ### render statistics
-1. needs to take in given statistics information and render them on screen
-
-### render statistics
 - each will be its own component
+- first thing you do should convert feet to miles and minutes to hours to keep it consistent
 
 1. render today's statistics
 - probably checks if the date variable is the same and renders it if it does

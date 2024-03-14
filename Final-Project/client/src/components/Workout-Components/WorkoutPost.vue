@@ -30,29 +30,35 @@
     <article class="media">
         <figure class="media-left">
           <p class="image is-64x64 is-rounded">
-            <img src="https://bulma.io/images/placeholders/128x128.png">
+            <img :src="currentUser.profilePicture">
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>{{currentUser.firstName}} {{currentUser.lastName}}</strong> <small>{{currentUser.email}}</small> <small>31m</small>
-              <br>
-              {{workout.text}}
+              <strong>{{currentUser.firstName}} {{currentUser.lastName}}</strong> 
+              <span>&nbsp</span>
+              <small>{{currentUser.email}}</small>
+              <span>&nbsp</span>
+              <span>&#183;</span> 
+              <span>&nbsp</span>
+              <small>31m</small>
             </p>
+            <p>{{workout.text}}</p>
+            <h3>
+              {{ workout.duration }} {{ workout.durationUnit }} 
+              <span>&#183;</span>
+              {{ workout.distance }} {{ workout.distanceUnit }}
+            </h3>
             <!-- post image -->
-            <p class="image is-128x128">
-              <img :src="workout.picture" width="640" height="360">
+            <p class="image" width="200" height="200">
+              <img :src="workout.picture">
             </p>
             <p>
               <span class="icon is-small"><i class="fas fa-location-dot"></i></span>
               <small>{{workout.location}}</small>
             </p>
-            <p>
-              {{ workout.duration }} {{ workout.durationUnit }} 
-              <span></span>
-              {{ workout.distance }} {{ workout.distanceUnit }}
-            </p>
+            
 
           </div>
           <nav class="level is-mobile">

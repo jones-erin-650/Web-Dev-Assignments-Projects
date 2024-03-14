@@ -7,7 +7,7 @@
             "lastName": "Jones",
             "userName": "@eribrin",
             "email": "eribrin@gmail.com",
-            "profilePicture": "@/assets/images/ErinPFP.jpg",
+            "profilePicture": "https://avatars.githubusercontent.com/u/158182442?v=4",
             "isAdmin": true,
             "userWorkouts": [
                 {
@@ -25,7 +25,7 @@
                   "durationUnit": "hr",
                   "location": "NP Campus",
                   "postId": 1,
-                  "picture": "@/assets/images/newpaltz_03.jpg",
+                  "picture": "https://sites.newpaltz.edu/news/wp-content/uploads/sites/24/2022/12/atrium-22-drone-at-night.jpg",
                   "text": "Walked through campus"
 
                 },
