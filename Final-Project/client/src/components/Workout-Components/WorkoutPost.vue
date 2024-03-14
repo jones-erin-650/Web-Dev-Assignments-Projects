@@ -1,6 +1,10 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import { refCurrentUser } from '@/viewModel/currentuser';
   import WorkoutModal from './WorkoutModal.vue';
+
+  // this is needed for the check to see if the edit and delete button should show up
+  const currentUser = refCurrentUser()
 
   // dropdown functionality
   let isActive = ref(false);
@@ -16,6 +20,7 @@
     // user props
     firstName: String,
     lastName: String,
+    userName: String,
     email: String,
     profilePicture: String,
     // workout props
@@ -80,7 +85,8 @@
           </nav>
         </div>
         <div class="media-right">
-          <div class="dropdown post-options" :class="{ 'is-active': isActive }">
+          <!-- only appears if the current user posted the workout -->
+          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.userName === userName">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
                 <span class="icon is-small">

@@ -39,6 +39,7 @@
       <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
         :firstName="currentUser.firstName"
         :lastName="currentUser.lastName"
+        :userName="currentUser.userName"
         :email="currentUser.email"
         :profilePicture="currentUser.profilePicture"
         :location="workout.location"
