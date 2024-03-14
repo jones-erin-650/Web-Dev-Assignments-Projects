@@ -37,6 +37,9 @@
 - will have a function called refCurrentUser which just returns the currentUser variable, allowing other files to import and use it
 - has a function to set its value
 
+## modal activation
+- right now any component that uses the WorkoutModal component needs to have its own isActive prop and pass it prop, this really isn't ideal and it would be best to have them all share a ref variable but getting that working hasn't worked so far
+
 ## for god's sake fix the dummy data
 - all the types and names are in different orders
 - most users don't have pfps
