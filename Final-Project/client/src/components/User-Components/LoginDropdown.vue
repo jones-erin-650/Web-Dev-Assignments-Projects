@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import { refCurrentUser, setRefCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser, setRefCurrentUser, logOut } from '@/viewModel/currentuser';
 
   // this needs to be imported in order to refresh the page when there's a new login
   import { useRouter } from 'vue-router';
@@ -46,8 +46,8 @@
           {{user.firstName}} {{ user.lastName }}
         </a>
         <hr class="dropdown-divider">
-        <a href="#" class="dropdown-item">
-          {{ text }}
+        <a href="#" class="dropdown-item" @click="logOut()">
+          Log Out
         </a>
       </div>
     </div>
