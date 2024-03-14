@@ -9,79 +9,79 @@
   <div class="modal" :class="{ 'is-active': isActive }">
     <div class="modal-background" @click="isActive = !isActive" ></div>
     <div class="modal-content has-background-white">
-      <div class="field">
-        <label class="label">Name</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
-        </div>
-      </div>
       
       <div class="field">
-        <label class="label">Username</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input is-success" type="text" placeholder="Text input" value="bulma">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
+        <label class="label">Workout Type</label>
+        <div class="select">
+          <select>
+            <option>Walking</option>
+            <option>Running</option>
+            <option>Biking</option>
+            <option>Swimming</option>
+          </select>
         </div>
-        <p class="help is-success">This username is available</p>
+      </div>
+
+      <div class="field">
+        <div class="columns">
+          <div class="column is-one-fifth">
+            <label class="label">Distance</label>
+            <div class="control">
+              <input class="input" placeholder="Distance" >
+          </div>
+            <div class="select">
+              <select>
+                <option>MI</option>
+                <option>FT</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
       </div>
       
-      <div class="field">
-        <label class="label">Email</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-exclamation-triangle"></i>
-          </span>
+      <div class="columns">
+        <div class="column is-one-fifth">
+          <label class="label">Duration</label>
+          <div class="control">
+            <input class="input" placeholder="Duration" >
         </div>
-        <p class="help is-danger">This email is invalid</p>
-      </div>
-      
-      <div class="field">
-        <label class="label">Subject</label>
-        <div class="control">
           <div class="select">
             <select>
-              <option>Select dropdown</option>
-              <option>With options</option>
+              <option>Min(s)</option>
+              <option>Hour(s)</option>
             </select>
           </div>
         </div>
       </div>
+
+      <div class="field">
+        <div class="columns">
+          <div class="column is-half">
+            <label class="label">Location</label>
+            <div class="control">
+              <input class="input" placeholder="Location" >
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="columns">
+          <div class="column is-half">
+            <label class="label">Post Image</label>
+            <div class="control">
+              <input class="input" placeholder="Image URL" >
+          </div>
+          </div>
+        </div>
+      </div>
+
       
       <div class="field">
-        <label class="label">Message</label>
+        <label class="label">Post Text</label>
         <div class="control">
           <textarea class="textarea" placeholder="Textarea"></textarea>
-        </div>
-      </div>
-      
-      <div class="field">
-        <div class="control">
-          <label class="checkbox">
-            <input type="checkbox">
-            I agree to the <a href="#">terms and conditions</a>
-          </label>
-        </div>
-      </div>
-      
-      <div class="field">
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="question">
-            Yes
-          </label>
-          <label class="radio">
-            <input type="radio" name="question">
-            No
-          </label>
         </div>
       </div>
       
@@ -90,7 +90,7 @@
           <button class="button is-link">Submit</button>
         </div>
         <div class="control">
-          <button class="button is-link is-light">Cancel</button>
+          <button class="button is-link is-light" @click="isActive = !isActive">Cancel</button>
         </div>
       </div>
     </div>
