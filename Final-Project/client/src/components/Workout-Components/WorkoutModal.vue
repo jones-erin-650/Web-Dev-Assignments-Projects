@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import type { Workout } from '@/model/Workout';
-  import { ref } from 'vue';
+  import SubmitButton from './SubmitButton.vue';
   import { addWorkout } from '@/viewModel/currentuser';
 
   const newWorkout: Workout = {
@@ -22,12 +22,11 @@
     text: '',
   }
 
-  const createEmptyWorkout = () => {
-
-  }
-
   const props = defineProps({
-    isActive: Boolean
+    isActive: Boolean,
+
+    // this gets passed down to the submit button to determine whether you're adding a new workout or editing a preexisting one
+    submitButtonText: String
   })
 
 </script>
@@ -113,8 +112,9 @@
       </div>
       
       <div class="field is-grouped">
+        <!-- passes in the newWorkout to be added or edited, text determines which action it does -->
         <div class="control">
-          <button class="button is-link" @click="addWorkout(newWorkout), isActive = !isActive">Submit</button>
+          <SubmitButton :text="submitButtonText" :newWorkout="newWorkout" />
         </div>
         <div class="control">
           <button class="button is-link is-light" @click="isActive = !isActive">Cancel</button>

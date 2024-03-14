@@ -1,6 +1,5 @@
 <script setup lang="ts">
   // components
-  import WorkoutPost from '../components/WorkoutPost.vue'
 </script>
 
 <template>
@@ -12,4 +11,4 @@
   </div>
 </body>
 
-</template>
+</template>../components/Workout-Components/WorkoutPost.vue

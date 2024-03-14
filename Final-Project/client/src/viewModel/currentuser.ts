@@ -26,3 +26,8 @@ export const setRefCurrentUser = (input: User) => {
 export const addWorkout = (newWorkout: Workout) => {
   currentUser.value.userWorkouts.push(newWorkout)
 } 
+
+// replaces the data of a specific workout
+export const editWorkout = (newWorkout: Workout) => {
+  
+}

@@ -7,8 +7,8 @@
   
 
   // components
-  import WorkoutPost from '@/components/WorkoutPost.vue';
-  import AddWorkoutModal from '@/components/AddWorkoutModal.vue';
+  import WorkoutPost from '@/components/Workout-Components/WorkoutPost.vue';
+  import WorkoutModal from '@/components/Workout-Components/WorkoutModal.vue';
   import BasicButton from '@/components/BasicButton.vue';
 
   // want to first import the current user using refCurrentUser
@@ -33,7 +33,7 @@
 
     <div>
       <BasicButton text="Add Workout" color="is-dark" @click="isActive = !isActive"/>
-      <AddWorkoutModal :isActive="isActive" />
+      <WorkoutModal :isActive="isActive" :submitButtonText="'Create Workout'" />
       <br>
       <br>
       <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
