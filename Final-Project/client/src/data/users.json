@@ -20,9 +20,9 @@
                     "seconds": 34
                   },
                   "distance": 2,
-                  "distanceUnit": "mi",
+                  "distanceUnit": "Feet",
                   "duration": 1.02,
-                  "durationUnit": "hr",
+                  "durationUnit": "Hour(s)",
                   "location": "NP Campus",
                   "postId": 1,
                   "picture": "https://sites.newpaltz.edu/news/wp-content/uploads/sites/24/2022/12/atrium-22-drone-at-night.jpg",
@@ -39,9 +39,9 @@
                     "seconds": 12
                   },
                   "distance": 6,
-                  "distanceUnit": "mi",
+                  "distanceUnit": "Mile(s)",
                   "duration": 34,
-                  "durationUnit": "min",
+                  "durationUnit": "Minute(s)",
                   "location": "Poughkeepsie",
                   "postId": 2,
                   "picture": "@/assets/images/newpaltz_03.jpg",

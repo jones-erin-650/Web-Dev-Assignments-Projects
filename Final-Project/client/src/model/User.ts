@@ -19,6 +19,9 @@ export function getUsers(): User[] {
   return data.items;
 }
 
+
+// this code should probably be moved to a folder in viewmodel
+
 // input a user and get a return of their workout array
 export const getUserWorkouts = (user: User) => user.userWorkouts
 

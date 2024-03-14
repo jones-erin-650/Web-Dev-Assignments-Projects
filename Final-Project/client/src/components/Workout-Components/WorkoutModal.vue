@@ -45,13 +45,12 @@
           </div>
             <div class="select">
               <select v-model="newWorkout.distanceUnit">
-                <option>MI</option>
-                <option>FT</option>
+                <option>Mile(s)</option>
+                <option>Feet</option>
               </select>
             </div>
           </div>
         </div>
-
       </div>
       
       <div class="columns">
@@ -62,7 +61,7 @@
         </div>
           <div class="select">
             <select v-model="newWorkout.distanceUnit">
-              <option>Min(s)</option>
+              <option>Minute(s)</option>
               <option>Hour(s)</option>
             </select>
           </div>
