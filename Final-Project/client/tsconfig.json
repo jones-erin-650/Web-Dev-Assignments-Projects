@@ -7,10 +7,6 @@
     {
       "path": "./tsconfig.app.json"
     }
-  ],
-  "compilerOptions": {
-    "noImplicitAny": false
-  },
-  "noImplicitAny": false
+  ]
 
 }

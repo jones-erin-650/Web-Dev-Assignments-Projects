@@ -1,6 +1,7 @@
 // this will be imported to get the current user
 import { ref } from "vue";
 import type { User } from "@/model/User";
+import type { Workout } from "@/model/Workout";
 
 // currentUser is declared here
 
@@ -21,3 +22,7 @@ export const setRefCurrentUser = (input: User) => {
     console.log("name: " + currentUser.value.firstName)
 }
 
+// appends inputted workout to the current user's workout array
+export const addWorkout = (workout: Workout) => {
+  currentUser.value.userWorkouts.push(workout)
+} 
