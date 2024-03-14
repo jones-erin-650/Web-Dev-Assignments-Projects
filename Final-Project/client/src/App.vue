@@ -28,9 +28,9 @@
       <div class="column"></div>
       <div class="container.is-widescreen">
         <!-- these columns set the current page's router view in the middle of the page, this way we don't have to retype this in every page -->
-        <div class="columns">
+        <div class="columns is-gapless">
           <div class="column"></div>
-          <div class="column is-10">
+          <div class="column is-10 ">
             <RouterView />
           </div>
           <div class="column"></div>
@@ -42,3 +42,8 @@
   
 </template>
 
+<style scoped>
+  .column {
+    max-width: 100%
+  }
+</style>

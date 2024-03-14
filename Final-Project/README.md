@@ -15,6 +15,8 @@
 - when you switch the currentUser components that use it don't update until you go to another page and go back
 - current page doesn't refresh on login
 - when you try to go to a page that uses a currentUser variable while you're not logged in the entire thing breaks (not good)
+- the addworkout button requires two clicks to open the modal
+- the isActive variable in MyActivity that gets passed to the AddWorkoutModal component is readonly for some reason, the functionality still works but it's weird that there's an error
 
 ## ~~Create Routing~~
 - Main Page w/statistics
