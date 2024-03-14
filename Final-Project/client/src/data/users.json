@@ -10,86 +10,104 @@
             "profilePicture": "https://avatars.githubusercontent.com/u/158182442?v=4",
             "isAdmin": true,
             "userWorkouts": [
-                {
-                  "date": {
-                    "year": 2023,
-                    "month": 3,
-                    "day": 13,
-                    "hours": 15,
-                    "minutes": 53,
-                    "seconds": 34
-                  },
-                  "distance": 2,
-                  "distanceUnit": "Feet",
-                  "duration": 1.02,
-                  "durationUnit": "Hour(s)",
-                  "location": "NP Campus",
-                  "postId": 1,
-                  "picture": "https://sites.newpaltz.edu/news/wp-content/uploads/sites/24/2022/12/atrium-22-drone-at-night.jpg",
-                  "text": "Walked through campus"
-
+              {
+                "date": {
+                  "year": 2023,
+                  "month": 3,
+                  "day": 13,
+                  "hours": 15,
+                  "minutes": 53,
+                  "seconds": 34
                 },
-                {
-                  "date": {
-                    "year": 2023,
-                    "month": 2,
-                    "day": 15,
-                    "hours": 17,
-                    "minutes": 45,
-                    "seconds": 12
-                  },
-                  "distance": 6,
-                  "distanceUnit": "Mile(s)",
-                  "duration": 34,
-                  "durationUnit": "Minute(s)",
-                  "location": "Poughkeepsie",
-                  "postId": 2,
-                  "picture": "@/assets/images/newpaltz_03.jpg",
-                  "text": "Biked through town"
+                "distance": 2,
+                "distanceUnit": "Feet",
+                "duration": 1.02,
+                "durationUnit": "Hour(s)",
+                "location": "NP Campus",
+                "postId": 1,
+                "picture": "https://sites.newpaltz.edu/news/wp-content/uploads/sites/24/2022/12/atrium-22-drone-at-night.jpg",
+                "text": "Walked through campus"
 
-                }
+              },
+              {
+                "date": {
+                  "year": 2023,
+                  "month": 2,
+                  "day": 15,
+                  "hours": 17,
+                  "minutes": 45,
+                  "seconds": 12
+                },
+                "distance": 6,
+                "distanceUnit": "Mile(s)",
+                "duration": 34,
+                "durationUnit": "Minute(s)",
+                "location": "Poughkeepsie",
+                "postId": 2,
+                "picture": "@/assets/images/newpaltz_03.jpg",
+                "text": "Biked through town"
+
+              }
             ]
             
             },
             {
-            "id": 2,
-            "firstName": "Bruno",
-            "lastName": "Almiron",
-            "userName": "@isthecakesayaka",
-            "profilePicture": "",
-            "email": "almironbruno@gmail.com",
-            "isAdmin": false,
-            "userWorkouts": []
+              "id": 2,
+              "firstName": "Bruno",
+              "lastName": "Almiron",
+              "userName": "@isthecakesayaka",
+              "profilePicture": "https://imgix.ranker.com/list_img_v2/4571/3244571/original/3244571?fit=crop&fm=pjpg&q=80&dpr=2&w=1200&h=720",
+              "email": "almironbruno@gmail.com",
+              "isAdmin": false,
+              "userWorkouts": [
+                {
+                  "date": {
+                    "year": 2023,
+                    "month": 1,
+                    "day": 11,
+                    "hours": 12,
+                    "minutes": 23,
+                    "seconds": 22
+                  },
+                  "distance": 2,
+                  "distanceUnit": "Mile(s)",
+                  "duration": 32,
+                  "durationUnit": "Minute(s)",
+                  "location": "Islip",
+                  "postId": 1,
+                  "picture": "https://lh3.googleusercontent.com/p/AF1QipP6duzjkL09FTrxEdH-1Zgmo3h1LGK15c596gsN=s1360-w1360-h1020",
+                  "text": "Ran to the beach"
+                }
+              ]
             },
             {
-            "id": 3,
-            "firstName": "Mars",
-            "lastName": "Willow",
-            "userName": "@willoow",
-            "profilePicture": "",
-            "email": "mars@gmail.com",
-            "isAdmin": false,
-            "userWorkouts": []
-            },
-            {
-            "id": 4,
-            "firstName": "Pat",
-            "lastName": "Rover",
-            "userName": "@itssthestars",
-            "email": "marsthejokeis@gmail.com",
-            "profilePicture": "",
-            "isAdmin": false,
-            "userWorkouts": []
-            },
-            {
-            "id": 5,
-            "firstName": "Stephen",
-            "lastName": "Alphano",
-            "userName": "@enderburgery",
-            "email": "stephens@gmail.com",
-            "profilePicture": "",
-            "isAdmin": true,
-            "userWorkouts": []
+              "id": 5,
+              "firstName": "Stephen",
+              "lastName": "Alphano",
+              "userName": "@enderburgery",
+              "email": "stephens@gmail.com",
+              "profilePicture": "https://preview.redd.it/does-anyone-remember-pikmin-4s-second-dog-moss-v0-y23wotyk4shb1.jpg?auto=webp&s=a48bd382f3ddf7d01413cb071ad58e3cff187d8c",
+              "isAdmin": true,
+              "userWorkouts": [
+                  {
+                    "date": {
+                      "year": 2023,
+                      "month": 5,
+                      "day": 26,
+                      "hours": 13,
+                      "minutes": 33,
+                      "seconds": 6
+                    },
+                    "distance": 1.03,
+                    "distanceUnit": "Mile(s)",
+                    "duration": 10,
+                    "durationUnit": "Minute(s)",
+                    "location": "Stony Brook University",
+                    "postId": 1,
+                    "picture": "https://www.stonybrook.edu/commcms/_resources/images/second-level/about/videos/we-go-far-beyond.jpg",
+                    "text": "Biked the class"
+                  }
+                ]
             }
             
         ]
