@@ -14,7 +14,7 @@
 - ~~navbar burger functionality doesn't work~~
 - when you switch the currentUser components that use it don't update until you go to another page and go back
 - current page doesn't refresh on login
-- when you try to go to a page that uses a currentUser variable while you're not logged in the entire thing breaks (not good)
+- ~~when you try to go to a page that uses a currentUser variable while you're not logged in the entire thing breaks (not good)~~
 - the addworkout button requires two clicks to open the modal
 - the isActive variable in MyActivity that gets passed to the AddWorkoutModal component is readonly for some reason, the functionality still works but it's weird that there's an error
 
@@ -41,9 +41,9 @@
 - all the types and names are in different orders
 - most users don't have pfps
 - help
-- i don't think i even finished the workout template
+- ~~i don't think i even finished the workout template~~
 
-## Main Users Array
+## ~~Main Users Array~~
 - will store users objects
 - I think each user should have an array of workout objects
 - should be made with a ts template
@@ -53,7 +53,7 @@
 - Last Name
 - Workouts[]
 
-## Workout Objects Array
+## ~~Workout Objects Array~~
 - should be made with a ts template like how he showed in class
 - Text
 - Location
@@ -66,38 +66,38 @@
 
 ## Highest Priority
 
-### Allow the pages to be accessed even if there's not a current user
-- have a SignIn form component that promps the user to sign in
-- the way im currently doing it has a looooooooot of repeated code, it works but it needs to be optimized
+### ~~Allow the pages to be accessed even if there's not a current user~~
+- ~~have a SignIn form component that promps the user to sign in~~
+- ~~the way im currently doing it has a looooooooot of repeated code, it works but it needs to be optimized~~
 
 ### navbar
 1. ~~Create boilerplate navbar~~
 2. ~~set it up in app.vue~~
 3. ~~remove bulma boiler plate and make your own buttons~~
 4. ~~create views and route through the navbar~~
-5. set up hamburger menu for smaller screens
+5. ~~set up hamburger menu for smaller screens~~
 6. get a logo working 
 7. style it better, have the button with the current page be darker
-8. have the admin button only show up if the active user is an admin
+8. ~~have the admin button only show up if the active user is an admin~~
    
 ### a way to log in
 1. ~~there needs to be a currentUser variable somewhere that changes according to a sign in and log out button~~
 
 ### log in drop down
 1. ~~add js scripts to close and open the dropdown on click~~
-2. add a check to see if there is a loggedInUser, if there is then change the text to "Switch Users"
+2. ~~add a check to see if there is a loggedInUser, if there is then change the text to "Switch Users"~~
 3. ~~create a prop for that~~
 
 ### sign up button
-1. have it not render if there's already a user logged in
+1. ~~have it not render if there's already a user logged in~~
 
 ### render all users
 ~~1. should show their name, pfp, email, username, and admin status~~
 2. render their pfp in the first box (not working)
 3. fix the styling; the stripes just arent working for some reason
    
-### welcome message to show the current user's name
-1. could update it to take it in as a prop to be more reusable but as it is now it works fine
+### ~~welcome message to show the current user's name~~
+1. ~~could update it to take it in as a prop to be more reusable but as it is now it works fine~~
 
 ## Medium Priority 
 - can only be done after figuring out the log in
