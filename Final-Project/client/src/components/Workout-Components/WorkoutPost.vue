@@ -3,7 +3,7 @@
   import { refCurrentUser } from '@/viewModel/currentuser';
   import type { Workout } from '@/model/Workout';
   import type { User } from '@/model/User';
-  import {PropType} from '@vue/composition-api';
+  import type { PropType } from 'vue'
   import WorkoutModal from './WorkoutModal.vue';
 
   // this is needed for the check to see if the edit and delete button should show up
