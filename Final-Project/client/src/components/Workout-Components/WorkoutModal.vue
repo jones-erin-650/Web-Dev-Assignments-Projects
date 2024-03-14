@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { Workout } from '@/model/Workout';
-  import SubmitButton from './SubmitButton.vue';
-  import { addWorkout } from '@/viewModel/currentuser';
+  import BasicButton from '../BasicButton.vue';
+  import { addWorkout, editWorkout } from '@/viewModel/currentuser';
 
   const newWorkout: Workout = {
     date: {
@@ -26,7 +26,8 @@
     isActive: Boolean,
 
     // this gets passed down to the submit button to determine whether you're adding a new workout or editing a preexisting one
-    submitButtonText: String
+    // 'Edit Workout' makes it call editWorkout, and 'Add Workout' makes it call addWorkout
+    submitType: String
   })
 
   // debugging
@@ -116,7 +117,8 @@
       <div class="field is-grouped">
         <!-- passes in the newWorkout to be added or edited, text determines which action it does -->
         <div class="control">
-          <SubmitButton :text="submitButtonText" :newWorkout="newWorkout" @click="addWorkout(newWorkout)"/>
+          <BasicButton v-if="submitType === 'Create Workout'" :text="submitType" :newWorkout="newWorkout" :color="'is-link'" @click="addWorkout(newWorkout)"/>
+          <BasicButton v-else-if="submitType === 'Edit Workout'" :text="submitType" :newWorkout="newWorkout" :color="'is-link'" @on-click="editWorkout(newWorkout)"/>
         </div>
         <div class="control">
           <button class="button is-link is-light" @click="isActive = !isActive">Cancel</button>

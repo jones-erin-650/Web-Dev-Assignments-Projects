@@ -31,7 +31,7 @@
 
     <div>
       <BasicButton text="Add Workout" color="is-dark" @click="isActive = !isActive"/>
-      <WorkoutModal :isActive="isActive" :submitButtonText="'Create Workout'" />
+      <WorkoutModal :isActive="isActive" :submitType="'Create Workout'" />
       <br>
       <br>
       <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"

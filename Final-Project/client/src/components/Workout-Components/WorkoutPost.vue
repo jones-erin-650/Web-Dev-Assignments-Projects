@@ -98,7 +98,7 @@
               <div class="dropdown-content">
                 <a href="#" class="dropdown-item" @click="toggleModal">
                   Edit
-                  <WorkoutModal :isActive="modalIsActive" :submitButtonText="'Edit Workout'"/>
+                  <WorkoutModal :isActive="modalIsActive" :submitType="'Edit Workout'"/>
                 </a>
                 <a class="dropdown-item">
                   Delete
