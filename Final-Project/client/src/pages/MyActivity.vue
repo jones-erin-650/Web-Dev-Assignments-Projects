@@ -26,12 +26,13 @@
   //modal functionality
   let isActive = ref(false);
 
+
 </script>
 
 <template>
 
     <div>
-      <BasicButton text="Add Workout" color="is-dark" @click="toggleModal"/>
+      <BasicButton text="Add Workout" color="is-dark" @click="isActive = !isActive"/>
       <AddWorkoutModal :isActive="isActive" />
       <br>
       <br>

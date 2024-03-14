@@ -117,9 +117,13 @@
 1. another form but this time it edits pre-existing workout objects
 
 ### add workout
-1. basic form that creates a new workout object using the inputs
-2. review v-model stuff for this
-3. will need a function probably in user.ts to append to a user's workout property
+1. ~~basic form that creates a new workout object using the inputs~~
+2. ~~review v-model stuff for this~~
+3. ~~will need a function probably in user.ts to append to a user's workout property~~
+4. restructure it to allow it to be reused for the edit workout component
+
+### delete workout
+
 
 ### a way to delete users in the admin page
 1. needs to edit the users array to remove their entry

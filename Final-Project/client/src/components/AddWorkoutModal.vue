@@ -114,7 +114,7 @@
       
       <div class="field is-grouped">
         <div class="control">
-          <button class="button is-link" @click="addWorkout(newWorkout) isActive = !isActive">Submit</button>
+          <button class="button is-link" @click="addWorkout(newWorkout), isActive = !isActive">Submit</button>
         </div>
         <div class="control">
           <button class="button is-link is-light" @click="isActive = !isActive">Cancel</button>
