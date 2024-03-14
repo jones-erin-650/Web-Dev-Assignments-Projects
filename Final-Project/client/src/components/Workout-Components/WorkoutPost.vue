@@ -1,10 +1,15 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import WorkoutModal from './WorkoutModal.vue';
 
   // dropdown functionality
   let isActive = ref(false);
+  let modalIsActive = ref(false)
   function toggleMenu() {
     isActive.value = !isActive.value;
+  }
+  function toggleModal() {
+    modalIsActive.value = !modalIsActive.value
   }
 
   const props = defineProps({
@@ -85,8 +90,9 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu-post" role="menu"  :class="{ 'is-active': isActive }">
               <div class="dropdown-content">
-                <a href="#" class="dropdown-item">
+                <a href="#" class="dropdown-item" @click="toggleModal">
                   Edit
+                  <WorkoutModal :isActive="modalIsActive" :submitButtonText="'Edit Workout'"/>
                 </a>
                 <a class="dropdown-item">
                   Delete
