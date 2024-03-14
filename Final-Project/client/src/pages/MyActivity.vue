@@ -36,7 +36,7 @@
 
     <div>
       <BasicButton text="Add Workout" color="is-dark" @click="toggleModal"/>
-      <AddWorkoutModal :isActive="!isActive" />
+      <AddWorkoutModal :isActive="isActive" />
       <br>
       <br>
       <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"

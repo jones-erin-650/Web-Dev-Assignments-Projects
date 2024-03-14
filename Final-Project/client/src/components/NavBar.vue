@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import LoginDropdown from './User-Components/LoginDropdown.vue';
+  import { refCurrentUser } from '@/viewModel/currentuser';
 
   let isActive = ref(false);
 
@@ -9,7 +10,8 @@
     isActive.value = !isActive.value;
   }
 
-
+  // import current user to only show the admin section to admins
+  const currentUser = refCurrentUser()
     
 </script>
 
@@ -48,7 +50,7 @@
                   Friend Activity
                 </RouterLink>
 
-                <div class="navbar-item has-dropdown is-hoverable">
+                <div v-if="currentUser.isAdmin" class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
                     Admin
                   </a>
