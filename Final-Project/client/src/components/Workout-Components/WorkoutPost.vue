@@ -1,6 +1,9 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { refCurrentUser } from '@/viewModel/currentuser';
+  import type { Workout } from '@/model/Workout';
+  import type { User } from '@/model/User';
+  import {PropType} from '@vue/composition-api';
   import WorkoutModal from './WorkoutModal.vue';
 
   // this is needed for the check to see if the edit and delete button should show up
@@ -17,27 +20,9 @@
   }
 
   const props = defineProps({
-    // user props
-    firstName: String,
-    lastName: String,
-    userName: String,
-    email: String,
-    profilePicture: String,
-    // workout props
-    location: String,
-    year: Number,
-    month: Number,
-    day: Number,
-    hours: Number,
-    minutes: Number,
-    seconds: Number,
-    distance: Number,
-    distanceUnit: String,
-    duration: Number,
-    durationUnit: String,
-    postId: Number,
-    picture: String,
-    text: String,
+    user: Object as PropType<User>,
+    // pass in the current workout in the for loop
+    workout: Object as PropType<Workout>,
   })
 </script>
 
@@ -51,22 +36,22 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>{{firstName}} {{lastName}}</strong> <small>{{email}}</small> <small>31m</small>
+              <strong>{{currentUser.firstName}} {{currentUser.lastName}}</strong> <small>{{currentUser.email}}</small> <small>31m</small>
               <br>
-              {{text}}
+              {{workout.text}}
             </p>
             <!-- post image -->
             <p class="image is-128x128">
-              <img src="@/assets/images/newpaltz_03.jpg" width="640" height="360">
+              <img :src="workout.picture" width="640" height="360">
             </p>
             <p>
               <span class="icon is-small"><i class="fas fa-location-dot"></i></span>
-              <small>{{location}}</small>
+              <small>{{workout.location}}</small>
             </p>
             <p>
-              {{ duration }} {{ durationUnit }} 
+              {{ workout.duration }} {{ workout.durationUnit }} 
               <span></span>
-              {{ distance }} {{ distanceUnit }}
+              {{ workout.distance }} {{ workout.distanceUnit }}
             </p>
 
           </div>
@@ -86,7 +71,7 @@
         </div>
         <div class="media-right">
           <!-- only appears if the current user posted the workout -->
-          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.userName === userName">
+          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.userName === user.userName">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
                 <span class="icon is-small">

@@ -35,19 +35,8 @@
       <br>
       <br>
       <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
-        :firstName="currentUser.firstName"
-        :lastName="currentUser.lastName"
-        :userName="currentUser.userName"
-        :email="currentUser.email"
-        :profilePicture="currentUser.profilePicture"
-        :location="workout.location"
-        :distance="workout.distance"
-        :distanceUnit="workout.distanceUnit"
-        :duration="workout.duration"
-        :durationUnit="workout.durationUnit"
-        :postId="workout.postId"
-        :picture="workout.picture"
-        :text="workout.text"
+        :user="currentUser"
+        :workout="workout"
       />
     </div>
 

@@ -119,6 +119,7 @@
 3. make it look prettier
 4. get the date and time working on it
 5. fix the image scaling issues
+6. have workouts be sorted according to date
 
 ### way to edit workout components
 1. another form but this time it edits pre-existing workout objects
@@ -128,6 +129,7 @@
 2. ~~review v-model stuff for this~~
 3. ~~will need a function probably in user.ts to append to a user's workout property~~
 4. restructure it to allow it to be reused for the edit workout component
+5. add a way for a unique id to be generated for each post corresponding to the previous post's 
 
 ### delete workout
 
