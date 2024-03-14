@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import type { Workout } from '@/model/Workout';
-  import { PropType } from '@vue/composition-api';
   import SubmitButton from './SubmitButton.vue';
+  import { addWorkout } from '@/viewModel/currentuser';
 
   const newWorkout: Workout = {
     date: {
@@ -28,6 +28,8 @@
     // this gets passed down to the submit button to determine whether you're adding a new workout or editing a preexisting one
     submitButtonText: String
   })
+
+  // debugging
 
 </script>
 
@@ -114,7 +116,7 @@
       <div class="field is-grouped">
         <!-- passes in the newWorkout to be added or edited, text determines which action it does -->
         <div class="control">
-          <SubmitButton :text="submitButtonText" :newWorkout="newWorkout"/>
+          <SubmitButton :text="submitButtonText" :newWorkout="newWorkout" @click="addWorkout(newWorkout)"/>
         </div>
         <div class="control">
           <button class="button is-link is-light" @click="isActive = !isActive">Cancel</button>

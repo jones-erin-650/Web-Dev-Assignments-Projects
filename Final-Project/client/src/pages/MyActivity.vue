@@ -1,9 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { getUsers, getUserWorkouts, type User } from '@/model/User'
-  import { type Workout } from '@/model/Workout';
+  import { getUserWorkouts, type User } from '@/model/User'
   import { refCurrentUser } from '@/viewModel/currentuser';
-  import type { RefSymbol } from '@vue/reactivity';
   
 
   // components
