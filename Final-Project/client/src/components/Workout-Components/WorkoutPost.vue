@@ -1,4 +1,12 @@
 <script setup lang="ts">
+  import { ref } from 'vue';
+
+  // dropdown functionality
+  let isActive = ref(false);
+  function toggleMenu() {
+    isActive.value = !isActive.value;
+  }
+
   const props = defineProps({
     // user props
     firstName: String,
@@ -67,7 +75,25 @@
           </nav>
         </div>
         <div class="media-right">
-          <button class="delete"></button>
+          <div class="dropdown post-options" :class="{ 'is-active': isActive }">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
+                <span class="icon is-small">
+                  <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu-post" role="menu"  :class="{ 'is-active': isActive }">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                  Edit
+                </a>
+                <a class="dropdown-item">
+                  Delete
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 </template>

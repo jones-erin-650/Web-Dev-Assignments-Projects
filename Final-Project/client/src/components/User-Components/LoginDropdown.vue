@@ -23,8 +23,6 @@
 
   // dropdown functionality
   let isActive = ref(false);
-
-  // navbar burger functionality
   function toggleMenu() {
     isActive.value = !isActive.value;
   }
