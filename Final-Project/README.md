@@ -37,8 +37,12 @@
 - will have a function called refCurrentUser which just returns the currentUser variable, allowing other files to import and use it
 - has a function to set its value
 
-## modal activation
-- right now any component that uses the WorkoutModal component needs to have its own isActive prop and pass it prop, this really isn't ideal and it would be best to have them all share a ref variable but getting that working hasn't worked so far
+## new workout
+- this is a group of functions relating to making and editing workouts that is stored in new-workout.ts
+- there's a ref variable called newWorkout that can be set to be empty, then filled with new data
+- adding: the newWorkout is pushed into the user's array
+- editting: the editWorkout function takes in an originalWorkout parameter that has its values replaaced with the newWorkout
+
 
 ## for god's sake fix the dummy data
 - all the types and names are in different orders

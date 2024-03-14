@@ -56,6 +56,11 @@ export const addWorkout = (input: Workout) => {
   export const editWorkout = (originalWorkout: Workout) => {
     // the original Id needs to be preserved 
     const originalID = originalWorkout.postId
+    
+    // has its information replaced
+    originalWorkout = newWorkout.value
 
+    // workout's id is preserved
+    originalWorkout.postId = originalID
   }
   
