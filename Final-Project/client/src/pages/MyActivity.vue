@@ -4,6 +4,7 @@
   import { type Workout } from '@/model/Workout';
   import { refCurrentUser } from '@/viewModel/currentuser';
   import type { RefSymbol } from '@vue/reactivity';
+  
 
   // components
   import WorkoutPost from '@/components/WorkoutPost.vue';
@@ -24,11 +25,6 @@
 
   //modal functionality
   let isActive = ref(false);
-
-  // navbar burger functionality
-  function toggleModal() {
-    isActive.value = !isActive.value;
-  }
 
 </script>
 

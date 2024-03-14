@@ -23,6 +23,6 @@ export const setRefCurrentUser = (input: User) => {
 }
 
 // appends inputted workout to the current user's workout array
-export const addWorkout = (workout: Workout) => {
-  currentUser.value.userWorkouts.push(workout)
+export const addWorkout = (newWorkout: Workout) => {
+  currentUser.value.userWorkouts.push(newWorkout)
 } 
