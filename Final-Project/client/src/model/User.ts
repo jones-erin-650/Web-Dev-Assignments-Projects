@@ -15,9 +15,14 @@ export interface User {
 }
   
 // gets the data out of the user.json file and returns an array of users
-export function getUsers(): User[] {
+export const getUsers(): User[] {
   return data.items;
 }
 
 // input a user and get a return of their workout array
 export const getUserWorkouts = (user: User) => user.userWorkouts
+
+// appends the inputted workout object to the array
+export const addWorkout(workout: Workout) {
+
+}
