@@ -27,18 +27,18 @@
 </script>
 
 <template>
-    <article class="media">
+    <article class="media" v-if="user != undefined && workout != undefined">
         <figure class="media-left">
           <p class="image is-64x64 is-rounded">
-            <img :src="currentUser.profilePicture">
+            <img :src="user.profilePicture">
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>{{currentUser.firstName}} {{currentUser.lastName}}</strong> 
+              <strong>{{user.firstName}} {{user.lastName}}</strong> 
               <span>&nbsp</span>
-              <small>{{currentUser.email}}</small>
+              <small>{{user.email}}</small>
               <span>&nbsp</span>
               <span>&#183;</span> 
               <span>&nbsp</span>
