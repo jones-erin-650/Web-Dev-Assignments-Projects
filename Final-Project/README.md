@@ -10,7 +10,8 @@
 ## ~~Setup proper bulma functionality~~
 
 ## Known problems
-- when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens
+- ~~when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens~~
+1. fixed, this was a problem with a vs code extension called vetur
 - ~~navbar burger functionality doesn't work~~
 - when you switch the currentUser components that use it don't update until you go to another page and go back
 - current page doesn't refresh on login
@@ -38,13 +39,14 @@
 - has a function to set its value
 
 ## new workout
+1. NOTE: these functions have been moved to User.ts to make working with the data in the arrays much easier
 - this is a group of functions relating to making and editing workouts that is stored in new-workout.ts
 - there's a ref variable called newWorkout that can be set to be empty, then filled with new data
 - adding: the newWorkout is pushed into the user's array
 - editting: the editWorkout function takes in an originalWorkout parameter that has its values replaaced with the newWorkout
 
 
-## for god's sake fix the dummy data
+## ~~for god's sake fix the dummy data~~
 - all the types and names are in different orders
 - most users don't have pfps
 - help
@@ -52,22 +54,12 @@
 
 ## ~~Main Users Array~~
 - will store users objects
-- I think each user should have an array of workout objects
+- each user should have an array of workout objects
 - should be made with a ts template
-- User Name/Handle
-- Profile Picture
-- First Name
-- Last Name
-- Workouts[]
+
 
 ## ~~Workout Objects Array~~
-- should be made with a ts template like how he showed in class
-- Text
-- Location
-- Distance
-- Duration
-- Type
-- Picture
+- should be made with a ts template 
 
 # Components
 
@@ -83,7 +75,7 @@
 3. ~~remove bulma boiler plate and make your own buttons~~
 4. ~~create views and route through the navbar~~
 5. ~~set up hamburger menu for smaller screens~~
-6. get a logo working 
+6. ~~get a logo working~~
 7. style it better, have the button with the current page be darker
 8. ~~have the admin button only show up if the active user is an admin~~
    
@@ -100,7 +92,7 @@
 
 ### render all users
 ~~1. should show their name, pfp, email, username, and admin status~~
-2. render their pfp in the first box (not working)
+2. ~~render their pfp in the first box (not working)~~
 3. fix the styling; the stripes just arent working for some reason
    
 ### ~~welcome message to show the current user's name~~
@@ -109,33 +101,33 @@
 ## Medium Priority 
 - can only be done after figuring out the log in
 
-### A way to render all workout components
+### ~~A way to render all workout components~~
 1. Needs to take in data about workouts and cycle through them
 2. means going through all of the users' workout arrays and rendering each object
 
 ### render user workout components
 1. ~~only takes in workout components and renders them if they are made by the user~~
 2. ~~just goes through the currently logged in user and renders their workout array~~
-3. make it look prettier
+3. ~~make it look prettier~~
 4. get the date and time working on it
-5. fix the image scaling issues
+5. ~~fix the image scaling issues~~
 6. have workouts be sorted according to date
 7. i think that the check for the user being the same as the current user is just current user passing and checking itself rn
 
-### way to edit workout components
+### ~~way to edit workout components~~
 1. another form but this time it edits pre-existing workout objects
 
 ### add workout
 1. ~~basic form that creates a new workout object using the inputs~~
 2. ~~review v-model stuff for this~~
 3. ~~will need a function probably in user.ts to append to a user's workout property~~
-4. restructure it to allow it to be reused for the edit workout component
+4. ~~restructure it to allow it to be reused for the edit workout component~~
 5. add a way for a unique id to be generated for each post corresponding to the previous post's 
 
-### delete workout
+### ~~delete workout~~
 
 
-### a way to delete users in the admin page
+### ~~a way to delete users in the admin page~~
 1. needs to edit the users array to remove their entry
 
 ## Lower Priority
