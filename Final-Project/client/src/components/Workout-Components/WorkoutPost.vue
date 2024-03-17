@@ -2,7 +2,7 @@
   import { ref } from 'vue';
   import { getCurrentUserWorkouts, refCurrentUser } from '@/viewModel/currentuser';
   import type { Workout } from '@/model/Workout';
-  import { getUserWorkouts, type User } from '@/model/User';
+  import {type User } from '@/model/User';
   import type { PropType } from 'vue'
   import WorkoutModal from './WorkoutModal.vue';
 
@@ -47,11 +47,11 @@
           <div class="content">
             <p>
               <strong>{{user.firstName}} {{user.lastName}}</strong> 
-              <span>&nbsp</span>
+              <span>&nbsp;</span>
               <small>{{user.email}}</small>
-              <span>&nbsp</span>
+              <span>&nbsp;</span>
               <span>&#183;</span> 
-              <span>&nbsp</span>
+              <span>&nbsp;</span>
               <small>31m</small>
             </p>
             <p>{{workout.text}}</p>

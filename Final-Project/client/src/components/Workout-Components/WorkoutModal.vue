@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import BasicButton from '../BasicButton.vue';
-  import { addWorkout, editWorkout, refNewWorkout, setEmptyWorkout } from '@/viewModel/new-workout';
+  import { addWorkout, editWorkout, refNewWorkout, setEmptyWorkout } from '@/modelUser';
   import type { PropType } from 'vue'
   import type { Workout } from '@/model/Workout';
 
