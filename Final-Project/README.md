@@ -7,9 +7,10 @@
 - when you switch the currentUser components that use it don't update until you go to another page and go back
 - current page doesn't refresh on login
 - ~~when you try to go to a page that uses a currentUser variable while you're not logged in the entire thing breaks (not good)~~
-- the addworkout button requires two clicks to open the modal
-- the isActive variable in MyActivity that gets passed to the AddWorkoutModal component is readonly for some reason, the functionality still works but it's weird that there's an error
-- toggleModal isn't working for the adduser feature, only the edit user feature (no idea how that worked)
+- ~~the addworkout button requires two clicks to open the modal~~
+- ~~the isActive variable in MyActivity that gets passed to the AddWorkoutModal component is readonly for some reason, the functionality still works but it's weird that there's an error~~
+- ~~toggleModal isn't working for the adduser feature, only the edit user feature (no idea how that worked)~~
+1. fixed, there wasn't an event handler in the MyActivity page. but now there is a bit of repeated code
 
 ## Setup framework
 - ~~gut the examples~~
