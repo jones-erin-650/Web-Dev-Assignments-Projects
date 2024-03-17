@@ -1,14 +1,5 @@
 # TO DO
 
-## Setup framework
-- ~~gut the examples~~
-- ~~import bulma for basic styling~~
-
-## Setup template for each view
-- doesn't need to have any functionality yet, just a layout
-
-## ~~Setup proper bulma functionality~~
-
 ## Known problems
 - ~~when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens~~
 1. fixed, this was a problem with a vs code extension called vetur
@@ -18,6 +9,18 @@
 - ~~when you try to go to a page that uses a currentUser variable while you're not logged in the entire thing breaks (not good)~~
 - the addworkout button requires two clicks to open the modal
 - the isActive variable in MyActivity that gets passed to the AddWorkoutModal component is readonly for some reason, the functionality still works but it's weird that there's an error
+- toggleModal isn't working for the adduser feature, only the edit user feature (no idea how that worked)
+
+## Setup framework
+- ~~gut the examples~~
+- ~~import bulma for basic styling~~
+
+## Setup template for each view
+- doesn't need to have any functionality yet, just a layout
+
+## ~~Setup proper bulma functionality~~
+
+
 
 ## ~~Create Routing~~
 - Main Page w/statistics
@@ -115,7 +118,7 @@
 7. i think that the check for the user being the same as the current user is just current user passing and checking itself rn
 
 ### ~~way to edit workout components~~
-1. another form but this time it edits pre-existing workout objects
+1. ~~another form but this time it edits pre-existing workout objects~~
 
 ### add workout
 1. ~~basic form that creates a new workout object using the inputs~~
