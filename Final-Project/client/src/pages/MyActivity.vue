@@ -24,6 +24,10 @@
   //modal functionality
   let isActive = ref(false);
 
+  function toggleModal() {
+    isActive.value = !isActive.value
+  }
+
 
 </script>
 
@@ -31,13 +35,19 @@
 
     <div>
       <BasicButton text="Add Workout" color="is-dark" @click="isActive = !isActive"/>
-      <WorkoutModal :isActive="isActive" :submitType="'Create Workout'" />
+      <WorkoutModal 
+        :isActive="isActive" 
+        :submitType="'Create Workout'" 
+        @modalToggled="toggleModal()"
+        
+        />
       <br>
       <br>
       <WorkoutPost v-for="(workout, index) in userWorkouts" :key="workout.workoutID"
         :user="currentUser"
         :workout="workout"
         :userWorkouts="userWorkouts"
+
       />
     </div>
 
