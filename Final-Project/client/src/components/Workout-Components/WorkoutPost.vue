@@ -45,7 +45,7 @@
             <p>
               <strong>{{user.firstName}} {{user.lastName}}</strong> 
               <span>&nbsp;</span>
-              <small>{{user.email}}</small>
+              <small>{{user.userName}}</small>
               <span>&nbsp;</span>
               <span>&#183;</span> 
               <span>&nbsp;</span>
