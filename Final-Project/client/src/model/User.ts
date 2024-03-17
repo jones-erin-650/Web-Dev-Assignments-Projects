@@ -80,16 +80,22 @@ export const addWorkout = (input: Workout) => {
   
   // replaces the data of a specific workout
   // should take the newWorkout in and replace every orgiinalWorkout value spot with it, everything except the date and id
-  export const editWorkout = (originalWorkout: Workout, newWorkout: Workout) => {
+  export const editWorkout = (user: User, originalWorkout: Workout, newWorkout: Workout) => {
     // the original Id needs to be preserved 
     const originalID = originalWorkout.workoutID
     
-    // has its information replaced
-    originalWorkout = newWorkout
-    console.log("Original Workout: " + originalWorkout)
+    // first finds the index of the user in the original data.items array
+    const index = data.items.findIndex(u => u.id === user?.id);
 
-    // workout's id is preserved
-    originalWorkout.workoutID = originalID
+    // then finds the index of the original workout in that user's workoutArray
+    const workoutIndex = data.items[index].userWorkouts.findIndex(a => a.workoutID === originalWorkout.workoutID)
+
+    // replaces the value at that index with the new workout
+    data.items[index].userWorkouts[workoutIndex] = newWorkout
+
+    // preserve the original id
+    data.items[index].userWorkouts[workoutIndex].workoutID = originalID
+    
   }
 
   export function deleteWorkout(user : User | null, workout : Workout) {

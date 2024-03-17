@@ -116,10 +116,10 @@
             :color="'is-link'" 
             @click="addWorkout(newWorkout), $emit('modalToggled')"/>
           <BasicButton 
-            v-else-if="submitType === 'Edit Workout' && originalWorkout!=undefined" 
+            v-else-if="submitType === 'Edit Workout' && originalWorkout!=undefined && user!=undefined" 
             :text="submitType" 
             :color="'is-link'" 
-            @click="editWorkout(originalWorkout, newWorkout), $emit('modalToggled')"/>
+            @click="editWorkout(user, originalWorkout, newWorkout), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 
