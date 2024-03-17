@@ -60,7 +60,7 @@ export const setEmptyWorkout = () => {
     duration: 0,
     durationUnit: '',
     location: '',
-    postId: 0,
+    workoutID: 0,
     picture: '',
     text: '',
   }
@@ -82,14 +82,14 @@ export const addWorkout = (input: Workout) => {
   // should take the newWorkout in and replace every orgiinalWorkout value spot with it, everything except the date and id
   export const editWorkout = (originalWorkout: Workout, newWorkout: Workout) => {
     // the original Id needs to be preserved 
-    const originalID = originalWorkout.postId
+    const originalID = originalWorkout.workoutID
     
     // has its information replaced
     originalWorkout = newWorkout
     console.log("Original Workout: " + originalWorkout)
 
     // workout's id is preserved
-    originalWorkout.postId = originalID
+    originalWorkout.workoutID = originalID
   }
 
   export function deleteActivity(user : User | null, workout : Workout) {
@@ -105,7 +105,7 @@ export const addWorkout = (input: Workout) => {
       }
     
       const userActivities = data[index].activities;
-      const activityIndex = userActivities.findIndex(a => a.workoutID === workout.postId);
+      const activityIndex = userActivities.findIndex(a => a.workoutID === workout.workoutID);
     
       if (activityIndex === -1) {
         console.error("Activity not found");

@@ -5,9 +5,6 @@
 
 <template>
   <div>
-
-    <h3>Users</h3>
-    
     <UserTable />
   </div>
 

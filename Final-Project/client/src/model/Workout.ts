@@ -12,7 +12,7 @@ export interface Workout {
     duration: number,
     durationUnit: string,
     location: string,
-    postId: number,
+    workoutID: number,
     picture: string,
     text: string,
 }

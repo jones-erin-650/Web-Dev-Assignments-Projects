@@ -16,7 +16,7 @@
   <div>
     
     <div v-for="user in users" :key="user.id">
-      <WorkoutPost v-for="workout in user.userWorkouts" :key="workout.postId"
+      <WorkoutPost v-for="workout in user.userWorkouts" :key="workout.workoutID"
         :user="user"
         :workout="workout"
       />
