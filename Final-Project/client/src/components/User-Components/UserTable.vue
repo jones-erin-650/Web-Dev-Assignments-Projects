@@ -31,7 +31,10 @@
         <!-- each user in the array should make a new table row  -->
         <tr v-for="(user, index) in users" :key="user.id">
           <!-- pfp testing -->
-          <th> {{ user.profilePicture }} </th>
+          <th
+            class="image" width="100" height="100">
+              <img :src="user.profilePicture">
+          </th>
           <th>{{user.firstName}}</th>
           <th>{{user.lastName}}</th>
           <th>{{user.email}}</th>
