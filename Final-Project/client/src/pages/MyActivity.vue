@@ -34,9 +34,11 @@
       <WorkoutModal :isActive="isActive" :submitType="'Create Workout'" />
       <br>
       <br>
-      <WorkoutPost v-for="workout in userWorkouts" :key="workout.postId"
+      <WorkoutPost v-for="(workout, index) in userWorkouts" :key="workout.postId"
         :user="currentUser"
         :workout="workout"
+        :userWorkouts="userWorkouts"
+        :index="index"
       />
     </div>
 

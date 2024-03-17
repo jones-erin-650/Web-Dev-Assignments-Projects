@@ -1,13 +1,17 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { getCurrentUserWorkouts, refCurrentUser } from '@/viewModel/currentuser';
   import type { Workout } from '@/model/Workout';
-  import type { User } from '@/model/User';
+  import { getUserWorkouts, type User } from '@/model/User';
   import type { PropType } from 'vue'
   import WorkoutModal from './WorkoutModal.vue';
 
   // this is needed for the check to see if the edit and delete button should show up
   const currentUser = refCurrentUser()
+
+  // get the currentUser's workouts to be able to delete them
+  const currentUserWorkouts = getCurrentUserWorkouts()
+
 
   // dropdown functionality
   let isActive = ref(false);
@@ -19,10 +23,16 @@
     modalIsActive.value = !modalIsActive.value
   }
 
+  function deleteWorkout(index: number) {
+    currentUserWorkouts.value.splice(index, 1);
+  }
+
   const props = defineProps({
     user: Object as PropType<User>,
     // pass in the current workout in the for loop
     workout: Object as PropType<Workout>,
+    index: Number,
+    userWorkouts: Object as PropType<Workout[]>
   })
 </script>
 
@@ -89,9 +99,9 @@
               <div class="dropdown-content">
                 <a href="#" class="dropdown-item" @click="toggleModal">
                   Edit
-                  <WorkoutModal :isActive="modalIsActive" :submitType="'Edit Workout'"/>
                 </a>
-                <a class="dropdown-item">
+                <WorkoutModal :isActive="modalIsActive" :submitType="'Edit Workout'"/>
+                <a class="dropdown-item" v-if="index !=undefined" @click="deleteWorkout(index)">
                   Delete
                 </a>
               </div>

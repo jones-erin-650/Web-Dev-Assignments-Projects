@@ -25,3 +25,4 @@ export const setRefCurrentUser = (input: User) => {
 export const logOut = () => {
     currentUser.value = undefined
 }
+export const getCurrentUserWorkouts = () => currentUser.value.userWorkouts
