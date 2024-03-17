@@ -13,6 +13,7 @@
   const currentUserWorkouts = getCurrentUserWorkouts()
 
 
+
   // dropdown functionality
   let isActive = ref(false);
   let modalIsActive = ref(false)
@@ -97,10 +98,17 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu-post" role="menu"  :class="{ 'is-active': isActive }">
               <div class="dropdown-content">
-                <a href="#" class="dropdown-item" @click="toggleModal">
+                <a href="#" class="dropdown-item" @click="toggleModal()">
                   Edit
                 </a>
-                <WorkoutModal :isActive="modalIsActive" :originalWorkout="workout" :submitType="'Edit Workout'"/>
+                <!-- listens for the modalToggled event and calls the function when it hears it -->
+                <WorkoutModal 
+                  :isActive="modalIsActive" :originalWorkout="workout" 
+                  :user="user"
+                  :submitType="'Edit Workout'"
+                  @modalToggled="toggleModal()"
+                  />
+                  
                 <a class="dropdown-item" v-if="index !=undefined" @click="deleteWorkout(index)">
                   Delete
                 </a>

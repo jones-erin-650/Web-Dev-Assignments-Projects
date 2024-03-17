@@ -1,13 +1,18 @@
 <script setup lang="ts">
   import BasicButton from '../BasicButton.vue';
-  import { addWorkout, editWorkout, refNewWorkout, setEmptyWorkout } from '@/modelUser';
+  import { addWorkout, editWorkout, refNewWorkout, setEmptyWorkout } from '@/model/User';
   import type { PropType } from 'vue'
   import type { Workout } from '@/model/Workout';
+  import type { User } from '@/model/User';
 
 
   // clears out the newWorkout object in new-workout.ts to be filled with new values, then imports it by using refNewWorkout
   setEmptyWorkout()
   const newWorkout = refNewWorkout()
+
+  // tells the parent component when the modal is toggled so it can activate and deactivate it
+  defineEmits(['modalToggled'])
+
 
   const props = defineProps({
     isActive: Boolean,
@@ -15,7 +20,7 @@
     // this gets passed down to the submit button to determine whether you're adding a new workout or editing a preexisting one
     // 'Edit Workout' makes it call editWorkout, and 'Add Workout' makes it call addWorkout
     submitType: String,
-
+    user: Object as PropType<User>,
     originalWorkout: Object as PropType<Workout>,
   })
 
@@ -105,11 +110,22 @@
       <div class="field is-grouped">
         <!-- passes in the newWorkout to be added or edited, text determines which action it does -->
         <div class="control">
-          <BasicButton v-if="submitType === 'Create Workout'" :text="submitType" :color="'is-link'" @click="addWorkout(newWorkout), isActive=!isActive"/>
-          <BasicButton v-else-if="submitType === 'Edit Workout' && originalWorkout!=undefined" :text="submitType" :color="'is-link'" @click="editWorkout(originalWorkout, newWorkout), isActive=!isActive"/>
+          <BasicButton 
+            v-if="submitType === 'Create Workout'"   :text="submitType" 
+            :color="'is-link'" 
+            @click="addWorkout(newWorkout), $emit('modalToggled')"/>
+          <BasicButton 
+            v-else-if="submitType === 'Edit Workout' && originalWorkout!=undefined" 
+            :text="submitType" 
+            :color="'is-link'" 
+            @click="editWorkout(originalWorkout, newWorkout), $emit('modalToggled')"/>
         </div>
         <div class="control">
-          <button class="button is-link is-light" @click="isActive = !isActive">Cancel</button>
+          <button 
+            class="button is-link is-light" 
+            @click="$emit('modalToggled')">
+            Cancel
+          </button>
         </div>
       </div>
     </div>
