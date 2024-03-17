@@ -1,7 +1,10 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { getUserWorkouts, type User, getUsers } from '@/model/User'
+  import { type User, getUsers } from '@/model/User'
+  import { refCurrentUser } from '@/viewModel/currentuser';
   
+  // used to make sure that the current user's workouts aren't being shown with the friends' workouts
+  const currentUser = refCurrentUser()
 
   //imports user array
   const users = ref([] as User[]) 
@@ -16,7 +19,7 @@
   <div>
     
     <div v-for="user in users" :key="user.id">
-      <WorkoutPost v-for="workout in user.userWorkouts" :key="workout.workoutID"
+      <WorkoutPost v-if="user!=currentUser" v-for="workout in user.userWorkouts" :key="workout.workoutID"
         :user="user"
         :workout="workout"
       />
