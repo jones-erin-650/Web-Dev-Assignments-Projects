@@ -2,7 +2,7 @@
   import { ref } from 'vue';
   import { getCurrentUserWorkouts, refCurrentUser } from '@/viewModel/currentuser';
   import type { Workout } from '@/model/Workout';
-  import {type User } from '@/model/User';
+  import {type User, deleteWorkout } from '@/model/User';
   import type { PropType } from 'vue'
   import WorkoutModal from './WorkoutModal.vue';
 
@@ -24,15 +24,11 @@
     modalIsActive.value = !modalIsActive.value
   }
 
-  function deleteWorkout(index: number) {
-    currentUserWorkouts.value.splice(index, 1);
-  }
 
   const props = defineProps({
     user: Object as PropType<User>,
     // pass in the current workout in the for loop
     workout: Object as PropType<Workout>,
-    index: Number,
     userWorkouts: Object as PropType<Workout[]>
   })
 </script>
@@ -103,13 +99,14 @@
                 </a>
                 <!-- listens for the modalToggled event and calls the function when it hears it -->
                 <WorkoutModal 
-                  :isActive="modalIsActive" :originalWorkout="workout" 
+                  :isActive="modalIsActive" :originalWorkout="workout"
+                  :originalWorkoutID="workout.workoutID" 
                   :user="user"
                   :submitType="'Edit Workout'"
                   @modalToggled="toggleModal()"
                   />
                   
-                <a class="dropdown-item" v-if="index !=undefined" @click="deleteWorkout(index)">
+                <a class="dropdown-item" @click="deleteWorkout(user, workout)">
                   Delete
                 </a>
               </div>

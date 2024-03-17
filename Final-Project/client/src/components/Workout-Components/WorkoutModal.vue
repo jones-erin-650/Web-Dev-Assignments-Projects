@@ -22,6 +22,7 @@
     submitType: String,
     user: Object as PropType<User>,
     originalWorkout: Object as PropType<Workout>,
+    originalWorkoutID: Number
   })
 
   // debugging
@@ -123,7 +124,7 @@
         <div class="control">
           <button 
             class="button is-link is-light" 
-            @click="$emit('modalToggled')">
+            @click=" $emit('modalToggled')">
             Cancel
           </button>
         </div>

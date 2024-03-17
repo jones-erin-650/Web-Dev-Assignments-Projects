@@ -38,7 +38,6 @@
         :user="currentUser"
         :workout="workout"
         :userWorkouts="userWorkouts"
-        :index="index"
       />
     </div>
 

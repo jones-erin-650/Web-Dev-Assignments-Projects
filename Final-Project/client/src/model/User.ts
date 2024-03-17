@@ -92,26 +92,9 @@ export const addWorkout = (input: Workout) => {
     originalWorkout.workoutID = originalID
   }
 
-  export function deleteActivity(user : User | null, workout : Workout) {
-    if (!user) {
-        console.error("User is null");
-        return;
-      }
-    
-      const index = data.findIndex(u => u.id === user.id);
-      if (index === -1) {
-        console.error("User not found");
-        return;
-      }
-    
-      const userActivities = data[index].activities;
-      const activityIndex = userActivities.findIndex(a => a.workoutID === workout.workoutID);
-    
-      if (activityIndex === -1) {
-        console.error("Activity not found");
-        return;
-      }
-    
-      // Delete the activity from the user's activities array
-      userActivities.splice(activityIndex, 1);
+  export function deleteWorkout(user : User | null, workout : Workout) {
+    // finds the index of the index of the original workout according to the user id, then splices it
+    const index = data.items.findIndex(u => u.id === user?.id);
+    const workoutIndex = data.items[index].userWorkouts.findIndex(a => a.workoutID === workout.workoutID);
+    data.items[index].userWorkouts.splice(workoutIndex, 1);
 }
