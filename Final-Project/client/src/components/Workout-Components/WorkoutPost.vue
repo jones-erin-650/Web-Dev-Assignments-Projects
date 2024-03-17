@@ -100,7 +100,7 @@
                 <a href="#" class="dropdown-item" @click="toggleModal">
                   Edit
                 </a>
-                <WorkoutModal :isActive="modalIsActive" :submitType="'Edit Workout'"/>
+                <WorkoutModal :isActive="modalIsActive" :originalWorkout="workout" :submitType="'Edit Workout'"/>
                 <a class="dropdown-item" v-if="index !=undefined" @click="deleteWorkout(index)">
                   Delete
                 </a>

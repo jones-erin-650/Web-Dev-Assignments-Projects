@@ -53,12 +53,13 @@ export const addWorkout = (input: Workout) => {
   
   // replaces the data of a specific workout
   // should take the newWorkout in and replace every orgiinalWorkout value spot with it, everything except the date and id
-  export const editWorkout = (originalWorkout: Workout) => {
+  export const editWorkout = (originalWorkout: Workout, newWorkout: Workout) => {
     // the original Id needs to be preserved 
     const originalID = originalWorkout.postId
     
     // has its information replaced
-    originalWorkout = newWorkout.value
+    originalWorkout = newWorkout
+    console.log("Original Workout: " + originalWorkout)
 
     // workout's id is preserved
     originalWorkout.postId = originalID
