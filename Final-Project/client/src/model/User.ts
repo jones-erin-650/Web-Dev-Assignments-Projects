@@ -70,13 +70,16 @@ export const setEmptyWorkout = () => {
 
 // appends inputted workout to the current user's workout array
 export const addWorkout = (input: Workout) => {
-    // need to make a way to make a new id that's the last index's one +1
+  // first need to get the last element of the array to take that workoutID and make a new ID from it
+  const last = currentUser.value.userWorkouts[currentUser.value.userWorkouts.length - 1];
+  input.workoutID = last.workoutID+1
 
-    currentUser.value.userWorkouts.push(input)
+  // adds new workout to array
+  currentUser.value.userWorkouts.push(input)
 
-    // after the workout is added the newWorkout object should be cleared out for the next workout to be added
-    setEmptyWorkout()
-  } 
+  // after the workout is added the newWorkout object should be cleared out for the next workout to be added
+  setEmptyWorkout()
+} 
   
   // replaces the data of a specific workout
   // should take the newWorkout in and replace every orgiinalWorkout value spot with it, everything except the date and id
