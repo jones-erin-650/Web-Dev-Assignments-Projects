@@ -11,6 +11,8 @@
 - ~~the isActive variable in MyActivity that gets passed to the AddWorkoutModal component is readonly for some reason, the functionality still works but it's weird that there's an error~~
 - ~~toggleModal isn't working for the adduser feature, only the edit user feature (no idea how that worked)~~
 1. fixed, there wasn't an event handler in the MyActivity page. but now there is a bit of repeated code
+- the statistics for the current week don't work, something is wrong with the filter in the function (I will probably just use a seperate library for this)
+- there's no system for tracking calories right now
 
 ## Setup framework
 - ~~gut the examples~~
@@ -140,17 +142,17 @@
 - each will be its own component
 - first thing you do should convert feet to miles and minutes to hours to keep it consistent
 
-1. render today's statistics
+1. ~~render today's statistics~~
 - probably checks if the date variable is the same and renders it if it does
 - probably needs to be passed in the user's workout information
 2. render this week's statistics
 - probably checks if the date variable is less than 7 days before and renders it if it does
 - probably needs to be passed in the user's workout information
-3. render all time's statistics  
+3. ~~render all time's statistics~~  
 
 ### statistics calculations
 - each will probably be its own component
-1. calculate distance
-2. calculate duraction
-3. calculate avg pace
+1. ~~calculate distance~~
+2. ~~calculate duraction~~
+3. ~~calculate avg pace~~
 4. calculate calories
