@@ -11,14 +11,7 @@
             "isAdmin": true,
             "userWorkouts": [
               {
-                "date": {
-                  "year": 2023,
-                  "month": 3,
-                  "day": 13,
-                  "hours": 15,
-                  "minutes": 53,
-                  "seconds": 34
-                },
+                "date": "2024-02-20T00:40:10.159Z",
                 "distance": 2,
                 "distanceUnit": "Feet",
                 "duration": 1.02,
@@ -30,14 +23,7 @@
 
               },
               {
-                "date": {
-                  "year": 2023,
-                  "month": 2,
-                  "day": 15,
-                  "hours": 17,
-                  "minutes": 45,
-                  "seconds": 12
-                },
+                "date": "2024-03-18T00:20:46.159Z",
                 "distance": 6,
                 "distanceUnit": "Mile(s)",
                 "duration": 34,
@@ -61,14 +47,7 @@
               "isAdmin": false,
               "userWorkouts": [
                 {
-                  "date": {
-                    "year": 2023,
-                    "month": 1,
-                    "day": 11,
-                    "hours": 12,
-                    "minutes": 23,
-                    "seconds": 22
-                  },
+                  "date": "2024-01-12T00:45:46.159Z",
                   "distance": 2,
                   "distanceUnit": "Mile(s)",
                   "duration": 32,
@@ -90,14 +69,7 @@
               "isAdmin": true,
               "userWorkouts": [
                   {
-                    "date": {
-                      "year": 2023,
-                      "month": 5,
-                      "day": 26,
-                      "hours": 13,
-                      "minutes": 33,
-                      "seconds": 6
-                    },
+                    "date": "2024-03-18T00:20:46.159Z",
                     "distance": 1.03,
                     "distanceUnit": "Mile(s)",
                     "duration": 10,
