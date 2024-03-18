@@ -41,14 +41,13 @@
         @modalToggled="toggleModal()"
         
         />
-      <br>
-      <br>
+      <hr>
       <WorkoutPost v-for="(workout, index) in userWorkouts" :key="workout.workoutID"
         :user="currentUser"
         :workout="workout"
         :userWorkouts="userWorkouts"
-
       />
+      <hr>
     </div>
 
 </template>

@@ -54,8 +54,9 @@
                 <small>Time</small>
               </div>
               <div class="column">
-                <h3>{{ workout.distanceMiles }} Mi {{ workout.distanceFeet }} Feet</h3>
-                <small>Distance</small>
+                <h3>&#183;
+                  {{ workout.distanceMiles }}:{{ workout.distanceFeet }} Mi</h3>
+                <small>&#183; Distance</small>
               </div>
               <div class="column is-auto"></div>
               
@@ -72,19 +73,7 @@
             
 
           </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-reply"></i></span>
-              </a>
-              <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-              </a>
-              <a class="level-item">
-                <span class="icon is-small"><i class="fas fa-heart"></i></span>
-              </a>
-            </div>
-          </nav>
+          
         </div>
         <div class="media-right">
           <!-- only appears if the current user posted the workout -->

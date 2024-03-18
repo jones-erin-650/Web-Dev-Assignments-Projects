@@ -23,6 +23,7 @@
         :user="user"
         :workout="workout"
       />
+      <hr>
     </div>
   </div>
 
