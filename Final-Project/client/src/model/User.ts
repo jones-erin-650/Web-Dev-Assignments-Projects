@@ -67,6 +67,10 @@ export const addWorkout = (input: Workout) => {
   const last = currentUser.value.userWorkouts[currentUser.value.userWorkouts.length - 1];
   input.workoutID = last.workoutID+1
 
+  // need to create a new date for the workout
+  const d = new Date();
+  input.date = d.toISOString();
+
   // adds new workout to array
   currentUser.value.userWorkouts.push(input)
 
