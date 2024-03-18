@@ -47,7 +47,7 @@ export const setRefNewWorkout = (input: Workout) => {
 // this is used to make a new workout that has empty values for all its fields; made so that the files that import the newWorkout object don't have to make an empty workout themselves
 export const setEmptyWorkout = () => {
   const workoutToSetNewWorkout: Workout = {
-    date: '0000-00-00:00:00.00.000',
+    date: '0000-00-00:00:00',
     distance: 0,
     distanceUnit: '',
     duration: 0,
