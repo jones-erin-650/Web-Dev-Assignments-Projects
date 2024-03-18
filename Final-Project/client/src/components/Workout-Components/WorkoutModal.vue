@@ -51,14 +51,10 @@
           <div class="column is-one-fifth">
             <label class="label">Distance</label>
             <div class="control">
-              <input class="input" placeholder="Distance" v-model="newWorkout.distance" >
+              <input class="input" placeholder="Miles" v-model="newWorkout.distanceMiles" >
+              <input class="input" placeholder="Feet" v-model="newWorkout.distanceFeet" >
           </div>
-            <div class="select">
-              <select v-model="newWorkout.distanceUnit">
-                <option>Mile(s)</option>
-                <option>Feet</option>
-              </select>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -67,14 +63,10 @@
         <div class="column is-one-fifth">
           <label class="label">Duration</label>
           <div class="control">
-            <input class="input" placeholder="Duration" v-model="newWorkout.duration">
+            <input class="input" placeholder="Hours" v-model="newWorkout.durationHours">
+            <input class="input" placeholder="Minutes" v-model="newWorkout.durationMinutes">
         </div>
-          <div class="select">
-            <select v-model="newWorkout.distanceUnit">
-              <option>Minute(s)</option>
-              <option>Hour(s)</option>
-            </select>
-          </div>
+          
         </div>
       </div>
 

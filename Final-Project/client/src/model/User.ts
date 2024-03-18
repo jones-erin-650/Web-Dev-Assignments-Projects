@@ -48,10 +48,10 @@ export const setRefNewWorkout = (input: Workout) => {
 export const setEmptyWorkout = () => {
   const workoutToSetNewWorkout: Workout = {
     date: '0000-00-00:00:00',
-    distance: 0,
-    distanceUnit: '',
-    duration: 0,
-    durationUnit: '',
+    distanceFeet: 0,
+    distanceMiles: 0,
+    durationHours: 0,
+    durationMinutes: 0,
     location: '',
     workoutID: 0,
     picture: '',

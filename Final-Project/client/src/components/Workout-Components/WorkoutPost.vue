@@ -9,11 +9,6 @@
   // this is needed for the check to see if the edit and delete button should show up
   const currentUser = refCurrentUser()
 
-  // get the currentUser's workouts to be able to delete them
-  const currentUserWorkouts = getCurrentUserWorkouts()
-
-
-
   // dropdown functionality
   let isActive = ref(false);
   let modalIsActive = ref(false)
@@ -49,14 +44,23 @@
               <span>&nbsp;</span>
               <span>&#183;</span> 
               <span>&nbsp;</span>
-              <small>31m</small>
+              <small>{{workout.date.slice(0, 10)}}</small>
             </p>
             <p>{{workout.text}}</p>
-            <h3>
-              {{ workout.duration }} {{ workout.durationUnit }} 
-              <span>&#183;</span>
-              {{ workout.distance }} {{ workout.distanceUnit }}
-            </h3>
+            <div class="columns">
+              
+              <div class="column is-1">
+                <h3>{{ workout.durationHours }}:{{ workout.durationMinutes }}</h3>
+                <small>Time</small>
+              </div>
+              <div class="column">
+                <h3>{{ workout.distanceMiles }} Mi {{ workout.distanceFeet }} Feet</h3>
+                <small>Distance</small>
+              </div>
+              <div class="column is-auto"></div>
+              
+            </div>
+            
             <!-- post image -->
             <p class="image" width="200" height="200">
               <img :src="workout.picture">
