@@ -19,24 +19,23 @@ export function getTodaysWorkouts(user: User) {
 export function getWeeksWorkouts(user: User) {
   // THIS IS MOST LIKELY TEMPORARY; it would be much better to use a preexisting library for this
 
-  // get the current day (0-7)
-  const currentDate = new Date()
-  const currentDay = currentDate.getDay()
+// get the current day of the week 0-7
+  const currentDate = new Date();
+  const currentDay = currentDate.getDay(); 
 
-  // Calculate the start date of the week (Sunday)
-    const startDate = new Date(currentDate);
-    startDate.setDate(startDate.getDate() - currentDay);
+  // calculate start and end of week
+  const startDate = new Date(currentDate);
+  startDate.setDate(startDate.getDate() - currentDay);
 
-  // Calculate the end date of the week (Saturday)
-    const endDate = new Date(startDate);
-    endDate.setDate(endDate.getDate() + 6);
+  const endDate = new Date(startDate);
+  endDate.setDate(endDate.getDate() + 6);
 
-  // filter the current week out of the workout array
-  // Filter activities for the current week
+
+  // Filter workouts between start and end date
   return user.userWorkouts.filter(workout => {
-    const workoutDate = new Date(workout.date);
-    return workoutDate >= startDate && workoutDate <= endDate;
-});
+      const workoutDate = new Date(workout.date);
+      return workoutDate >= startDate && workoutDate <= endDate;
+  });
 }
 
 export function getTotalDistance(workouts: Workout[]) {

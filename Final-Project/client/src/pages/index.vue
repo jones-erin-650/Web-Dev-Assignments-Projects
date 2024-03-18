@@ -6,9 +6,8 @@
   const currentUser = refCurrentUser()
 
   const todaysWorkouts = getTodaysWorkouts(currentUser.value)
-  console.log("todaysWorkouts: " + todaysWorkouts)
   const thisWeeksWorkouts = getWeeksWorkouts(currentUser.value)
-
+  console.log("This weeks workouts: " + thisWeeksWorkouts)
 
 
 
