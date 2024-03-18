@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { getCurrentUserWorkouts, refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser } from '@/viewModel/currentuser';
   import type { Workout } from '@/model/Workout';
   import {type User, deleteWorkout } from '@/model/User';
   import type { PropType } from 'vue'

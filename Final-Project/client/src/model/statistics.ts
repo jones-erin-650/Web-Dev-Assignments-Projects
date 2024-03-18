@@ -5,8 +5,6 @@ import type { Workout } from "./Workout";
 
 // functions to get activities within a certain time period
 export function getTodaysWorkouts(user: User) {
-  const userWorkouts = user.userWorkouts
-
   //   for this we only care about the year, month and day, so we splice the rest, cut everything after the day
   //   format: YYYY-MM-DDTZH:MM.SS.SSS
   const d = new Date();
@@ -14,7 +12,8 @@ export function getTodaysWorkouts(user: User) {
 
   //   filter out the userWorkouts and only return the ones with today's date
   // Filter activities for the current day
-  return user.userWorkouts.filter(workout => workout.date === currentDate)
+  const filteredWorkouts =  user.userWorkouts.filter(workout => workout.date.slice(0, 10) === currentDate)
+  return filteredWorkouts
 }
 
 export function getWeeksWorkouts(user: User) {
@@ -59,6 +58,11 @@ export function getTotalDistance(workouts: Workout[]) {
 
 export function getAveragePace(distance: number, time: number) {
   // speed = distance/time (yes i had to look this up I AM TIRED)
+
+  // just to avoid divide by 0 errors
+  if(time === 0) {
+    return 0
+  }
 
   return distance / time
 }
