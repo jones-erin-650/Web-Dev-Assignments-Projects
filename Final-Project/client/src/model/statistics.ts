@@ -41,11 +41,26 @@ export function getWeeksWorkouts(user: User) {
 }
 
 export function getTotalDistance(workouts: Workout[]) {
+  let totalMiles = 0
+  let totalFeet = 0
 
+  for (let i = 0; i < workouts.length; i++) {
+    totalMiles += workouts[i].distanceMiles
+    totalFeet += workouts[i].distanceFeet
+  }
+
+  // convert feet to miles
+  totalFeet /= 5280
+
+  totalMiles += totalFeet
+
+  return totalMiles
 }
 
-export function getAveragePace(workouts: Workout[]) {
+export function getAveragePace(distance: number, time: number) {
+  // speed = distance/time (yes i had to look this up I AM TIRED)
 
+  return distance / time
 }
 
 export function getTotalDuration(workouts: Workout[]) {
