@@ -21,8 +21,6 @@
 
 ## ~~Setup proper bulma functionality~~
 
-
-
 ## ~~Create Routing~~
 - Main Page w/statistics
 - My Activity
@@ -48,7 +46,6 @@
 - there's a ref variable called newWorkout that can be set to be empty, then filled with new data
 - adding: the newWorkout is pushed into the user's array
 - editting: the editWorkout function takes in an originalWorkout parameter that has its values replaaced with the newWorkout
-
 
 ## ~~for god's sake fix the dummy data~~
 - all the types and names are in different orders
@@ -126,7 +123,7 @@
 2. ~~review v-model stuff for this~~
 3. ~~will need a function probably in user.ts to append to a user's workout property~~
 4. ~~restructure it to allow it to be reused for the edit workout component~~
-5. add a way for a unique id to be generated for each post corresponding to the previous post's 
+5. ~~add a way for a unique id to be generated for each post corresponding to the previous post's~~
 
 ### ~~delete workout~~
 
