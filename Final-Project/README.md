@@ -16,7 +16,9 @@
 - ~~gut the examples~~
 - ~~import bulma for basic styling~~
 
-## Setup template for each view
+## add a date function library to make the statistics easier to use
+
+## ~~Setup template for each view~~
 - doesn't need to have any functionality yet, just a layout
 
 ## ~~Setup proper bulma functionality~~
