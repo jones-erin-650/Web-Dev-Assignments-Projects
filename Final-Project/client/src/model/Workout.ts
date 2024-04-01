@@ -1,14 +1,11 @@
 export interface Workout {
-    coordinates: {
-        lat: number,
-        lng: number
-    }
-    distance: number,
-    distanceUnit: string,
-    duration: number,
-    durationUnit: string,
-    postId: number,
+    date: string,
+    distanceFeet: number,
+    distanceMiles: number,
+    durationHours: number,
+    durationMinutes: number,
+    location: string,
+    workoutID: number,
     picture: string,
     text: string,
-    user: string,
 }

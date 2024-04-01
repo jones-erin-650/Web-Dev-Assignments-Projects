@@ -1,10 +1,21 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import currentUser from "@/App.vue"
+  import { refCurrentUser, setRefCurrentUser, logOut } from '@/viewModel/currentuser';
 
+  // this needs to be imported in order to refresh the page when there's a new login
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
+
+
+  // bringing in the user array
   const users = ref([] as User[]) 
   users.value = getUsers()
+
+  // bringing in the current user variable
+  const currentUser = ref()
+  currentUser.value = refCurrentUser()
 
   const props = defineProps({
     text: String,
@@ -12,20 +23,9 @@
 
   // dropdown functionality
   let isActive = ref(false);
-
-  // navbar burger functionality
   function toggleMenu() {
     isActive.value = !isActive.value;
   }
-
-  // sets the current user when you click their name
-  // takes in a user as a parameter, the current user in the v-loop is passed
-  function setCurrentUser(user: User ) {
-    currentUser.value = user
-    console.log(currentUser.value)
-  }
-
-
 
 </script>
 
@@ -34,7 +34,7 @@
   <div class="dropdown" @click="toggleMenu" :class="{ 'is-active': isActive }">
     <div class="dropdown-trigger">
       <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-        <span>Log In</span>
+        <span>{{text}}</span>
         <span class="icon is-small">
           <i class="fas fa-angle-down" aria-hidden="true"></i>
         </span>
@@ -42,12 +42,12 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="setCurrentUser( user )">
+        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="setRefCurrentUser( user )">
           {{user.firstName}} {{ user.lastName }}
         </a>
         <hr class="dropdown-divider">
-        <a href="#" class="dropdown-item">
-          {{ text }}
+        <a href="#" class="dropdown-item" @click="logOut()">
+          Log Out
         </a>
       </div>
     </div>

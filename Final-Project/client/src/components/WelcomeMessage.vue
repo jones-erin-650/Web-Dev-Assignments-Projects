@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import currentUser from '@/App.vue'
-
 
 </script>
 
@@ -9,10 +6,10 @@ import currentUser from '@/App.vue'
     <section class="hero is-info">
         <div class="hero-body">
           <p class="title">
-            Welcome Back {{ currentUser.value.firstName}}!
+            Welcome!
           </p>
           <p class="subtitle">
-            Do any workouts today?
+            Log in to view and add workouts!
           </p>
         </div>
       </section>

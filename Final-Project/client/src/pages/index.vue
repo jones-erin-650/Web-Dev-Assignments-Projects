@@ -1,37 +1,28 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+  import StatisticsBlock from '@/components/Workout-Components/StatisticsBlock.vue';
+  import { getTodaysWorkouts, getWeeksWorkouts } from '@/model/statistics';
+  import { refCurrentUser } from '@/viewModel/currentuser';
 
-// components
-import WorkoutPost from '../components/WorkoutPost.vue'
-import WelcomeMessage from '../components/WelcomeMessage.vue'
+  const currentUser = refCurrentUser()
+
+  const todaysWorkouts = getTodaysWorkouts(currentUser.value)
+  const thisWeeksWorkouts = getWeeksWorkouts(currentUser.value)
+  console.log("This weeks workouts: " + thisWeeksWorkouts)
+
 
 
 </script>
 
 <template>
-  <!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title></title>
-  </head>
-<body>
-    <div class="columns ">
-    <!-- broken down into three horizontal columns, middle one being half the screen -->
-    <!-- welcome back message -->
-      <div class="column">
-          <WelcomeMessage />
-      </div>
-      <!-- [part with the posts] -->
-      <div class="column is-half ">
-        <WorkoutPost />
-      </div>
 
-      <div class="column">
-          third
-      </div>
-    </div>  
+<body>
+  <div>
+    <StatisticsBlock :text="'Today'" :workouts="todaysWorkouts"/>
+    <hr>
+    <StatisticsBlock :text="'This Week'" :workouts="thisWeeksWorkouts"/>
+    <hr>
+    <StatisticsBlock :text="'All Time'" :workouts="currentUser.userWorkouts"/>
+  </div>
 </body>
-</html>
-</template>
+
+</template>../components/Workout-Components/WorkoutPost.vue
