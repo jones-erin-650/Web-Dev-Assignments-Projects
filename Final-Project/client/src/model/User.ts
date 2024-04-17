@@ -1,4 +1,4 @@
-import data from "../data/users.json";
+import data from "Final-Project/server/";
 import type { Workout } from "./Workout";
 import { refCurrentUser } from "@/viewModel/currentuser";
 import { ref } from "vue";
