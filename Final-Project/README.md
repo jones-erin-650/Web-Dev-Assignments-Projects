@@ -1,4 +1,44 @@
-# TO DO
+# TO DO - Final
+
+## highest priority
+
+### move the json data to the server
+- need to update aaaaall the times it's called on the client to make sure it still works in the new location
+
+### user model
+- this is where the database is accessed
+- add, update, remove functions go here
+- takes the updated stuff and adds them to the users json file to store it
+
+### users controller
+- calls the model
+- handles get, post, patch, delete, etc requests from the client
+
+## medium priority
+- can only do this after I finish the higher priority stuff
+
+### connect the server to the client
+- make it all the functions in the client send rest requests to the server
+
+## lower priority - client side stragglers
+- things I didn't do for the midterm that I probably should have
+
+### Refactor the how activities are stored
+- rename workouts to activities everywhere
+- remove the activities from the users.json and put them in their own seperate json file
+- have a new variable for the user that posted the activity instead of having the user just have their own array
+
+### create a way to add and edit users
+- should be simple, basically just copy how it's done for activities
+
+### implement a library for working with dates in javascript
+- sort activities that way instead of with ids
+
+### get the calories working
+
+
+
+# TO DO - Midterm
 
 ## Known problems
 - ~~when you import a component using the vue setup syntax it gives an error saying 'Could not find a declaration file for module'. this doesn't affect anything right now, but I'm weary of it and it's weird that it happens~~
