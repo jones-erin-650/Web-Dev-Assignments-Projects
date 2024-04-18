@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
   import { RouterView } from 'vue-router'
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser } from '@/viewModel/session
 
   // components
   import NavBar from './components/NavBar.vue'

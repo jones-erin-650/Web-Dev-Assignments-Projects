@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import LoginDropdown from './User-Components/LoginDropdown.vue';
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser } from '@/viewModel/session'
 
   let isActive = ref(false);
 

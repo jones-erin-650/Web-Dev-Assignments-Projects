@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import BasicButton from '../BasicButton.vue';
-  import { addActivity, editActivity, refNewActivity, setEmptyActivity } from '@/model/User';
+  import { addActivity, editActivity, refNewActivity, setEmptyActivity } from '@/model/Activity';
   import type { PropType } from 'vue'
   import type { Activity } from '@/model/Activity'
   import type { User } from '@/model/User'

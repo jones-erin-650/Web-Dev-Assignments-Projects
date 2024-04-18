@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { getUserActivities, type User } from '@/model/User'
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser } from '@/viewModel/session'
   
 
   // components

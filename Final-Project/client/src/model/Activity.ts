@@ -1,5 +1,5 @@
 import type { User } from "./User";
-import { refCurrentUser } from "@/viewModel/currentuser";
+import { refCurrentUser } from "@/viewModel/session";
 import { ref } from "vue"
 import data from "../../../server/data/users.json";
 

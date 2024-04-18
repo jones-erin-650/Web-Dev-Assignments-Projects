@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { type User, getUsers } from '@/model/User'
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser } from '@/viewModel/session'
   
   // used to make sure that the current user's activities aren't being shown with the friends' activities
   const currentUser = refCurrentUser()

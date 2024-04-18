@@ -1,8 +1,9 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser } from '@/viewModel/session'
   import type { Activity } from '@/model/Activity';
-  import {type User, deleteActivity } from '@/model/User';
+  import { deleteActivity } from '@/model/Activity';
+  import {type User } from '@/model/User';
   import type { PropType } from 'vue'
   import ActivityModal from './ActivityModal.vue';
 

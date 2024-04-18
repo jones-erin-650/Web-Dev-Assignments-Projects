@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import StatisticsBlock from '@/components/Activity-Components/StatisticsBlock.vue';
   import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import { refCurrentUser } from '@/viewModel/session'
 
   const currentUser = refCurrentUser()
 
