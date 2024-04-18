@@ -2,8 +2,8 @@
   import BasicButton from '../BasicButton.vue';
   import { addActivity, editActivity, refNewActivity, setEmptyActivity } from '@/model/User';
   import type { PropType } from 'vue'
-  import type { Activity } from @/model/Activityty';
-  import type { User } from '@/model/User';
+  import type { Activity } from '@/model/Activity'
+  import type { User } from '@/model/User'
 
 
   // clears out the newActivity object in new-Activity.ts to be filled with new values, then imports it by using refNewActivity
@@ -111,7 +111,7 @@
             v-else-if="submitType === 'Edit Activity' && originalActivity!=undefined && user!=undefined" 
             :text="submitType" 
             :color="'is-link'" 
-            @click="editActivity(user, originalActivity, newActivity), $emit('modalToggled')"/>
+            @click="editActivity(user!, originalActivity!, newActivity), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 

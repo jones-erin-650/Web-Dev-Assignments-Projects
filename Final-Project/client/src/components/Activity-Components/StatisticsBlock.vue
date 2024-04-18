@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Activity } from @/model/Activityty';
+import type { Activity } from '@/model/Activity'
 import type { PropType } from 'vue'
 import { getTotalDistance, getAveragePace, getTotalDuration, getTotalCalories,  } from '@/model/statistics';
 

@@ -29,7 +29,7 @@
 </script>
 
 <template>
-    <article class="media" v-if="user != undefined && Activity != undefined">
+    <article class="media" v-if="user != undefined && activity != undefined">
         <figure class="media-left">
           <p class="image is-64x64 is-rounded">
             <img :src="user.profilePicture">
@@ -93,13 +93,13 @@
                 <!-- listens for the modalToggled event and calls the function when it hears it -->
                 <ActivityModal 
                   :isActive="modalIsActive" :originalActivity="activity"
-                  :originalActivityID="activity.ActivityID" 
+                  :originalActivityID="activity.activityID" 
                   :user="user"
                   :submitType="'Edit Activity'"
                   @modalToggled="toggleModal()"
                   />
                   
-                <a class="dropdown-item" @click="deleteActivity(user, activity)">
+                <a class="dropdown-item" @click="deleteActivity(user!, activity!)">
                   Delete
                 </a>
               </div>
