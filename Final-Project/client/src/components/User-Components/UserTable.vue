@@ -38,7 +38,7 @@
           <th>{{user.firstName}}</th>
           <th>{{user.lastName}}</th>
           <th>{{user.email}}</th>
-          <th>{{user.userName}}</th>
+          <th>{{user.handle}}</th>
           <th>{{user.id}}</th>
           <th>{{user.isAdmin}}</th>
           <th> 

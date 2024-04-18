@@ -5,7 +5,7 @@ export interface User {
   id: number,
   firstName: string,
   lastName: string,
-  userName: string,
+  handle: string,
   email: string,
   profilePicture: string,
   isAdmin: boolean,
@@ -39,7 +39,7 @@ export function getTodaysActivities(user: User) {
 
 export function getUserFromHandle(handle: String) {
   const usersArray = getUsers()
-  const filteredUsers = data.items.find(item => item.userName === handle);
+  const filteredUsers = data.items.find(item => item.handle === handle);
   return filteredUsers
 }
 

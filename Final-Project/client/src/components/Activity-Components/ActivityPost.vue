@@ -41,7 +41,7 @@
             <p>
               <strong>{{user.firstName}} {{user.lastName}}</strong> 
               <span>&nbsp;</span>
-              <small>{{user.userName}}</small>
+              <small>{{user.handle}}</small>
               <span>&nbsp;</span>
               <span>&#183;</span> 
               <span>&nbsp;</span>
@@ -78,7 +78,7 @@
         </div>
         <div class="media-right">
           <!-- only appears if the current user posted the Activity -->
-          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.userName === user.userName">
+          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.handle === user.handle">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
                 <span class="icon is-small">
