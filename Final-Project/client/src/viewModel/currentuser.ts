@@ -1,7 +1,7 @@
 // this will be imported to get the current user
 import { ref } from "vue";
 import type { User } from "@/model/User";
-import type { Workout } from "@/model/Workout";
+import type { Activity } from "@/model/Activity";
 
 // currentUser is declared here
 
@@ -25,4 +25,4 @@ export const setRefCurrentUser = (input: User) => {
 export const logOut = () => {
     currentUser.value = undefined
 }
-export const getCurrentUserWorkouts = () => currentUser.value.userWorkouts
+export const getCurrentUserActivities = () => currentUser.value.userActivities

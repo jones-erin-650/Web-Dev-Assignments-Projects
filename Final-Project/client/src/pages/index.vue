@@ -1,13 +1,13 @@
 <script setup lang="ts">
-  import StatisticsBlock from '@/components/Workout-Components/StatisticsBlock.vue';
-  import { getTodaysWorkouts, getWeeksWorkouts } from '@/model/statistics';
+  import StatisticsBlock from '@/components/Activity-Components/StatisticsBlock.vue';
+  import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
   import { refCurrentUser } from '@/viewModel/currentuser';
 
   const currentUser = refCurrentUser()
 
-  const todaysWorkouts = getTodaysWorkouts(currentUser.value)
-  const thisWeeksWorkouts = getWeeksWorkouts(currentUser.value)
-  console.log("This weeks workouts: " + thisWeeksWorkouts)
+  const todaysActivities = getTodaysActivities(currentUser.value)
+  const thisWeeksActivities = getWeeksActivities(currentUser.value)
+  console.log("This weeks activities: " + thisWeeksActivities)
 
 
 
@@ -17,12 +17,12 @@
 
 <body>
   <div>
-    <StatisticsBlock :text="'Today'" :workouts="todaysWorkouts"/>
+    <StatisticsBlock :text="'Today'" :activities="todaysActivities"/>
     <hr>
-    <StatisticsBlock :text="'This Week'" :workouts="thisWeeksWorkouts"/>
+    <StatisticsBlock :text="'This Week'" :activities="thisWeeksActivities"/>
     <hr>
-    <StatisticsBlock :text="'All Time'" :workouts="currentUser.userWorkouts"/>
+    <StatisticsBlock :text="'All Time'" :activities="currentUser.userActivities"/>
   </div>
 </body>
 
-</template>../components/Workout-Components/WorkoutPost.vue
+</template>../components/Activity-Components/ActivityPost.vue

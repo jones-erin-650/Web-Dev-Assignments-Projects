@@ -1,10 +1,10 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { refCurrentUser } from '@/viewModel/currentuser';
-  import type { Workout } from '@/model/Workout';
-  import {type User, deleteWorkout } from '@/model/User';
+  import type { Activity } from '@/model/Activity';
+  import {type User, deleteActivity } from '@/model/User';
   import type { PropType } from 'vue'
-  import WorkoutModal from './WorkoutModal.vue';
+  import ActivityModal from './ActivityModal.vue';
 
   // this is needed for the check to see if the edit and delete button should show up
   const currentUser = refCurrentUser()
@@ -22,14 +22,14 @@
 
   const props = defineProps({
     user: Object as PropType<User>,
-    // pass in the current workout in the for loop
-    workout: Object as PropType<Workout>,
-    userWorkouts: Object as PropType<Workout[]>
+    // pass in the current Activity in the for loop
+    activity: Object as PropType<Activity>,
+    userActivities: Object as PropType<Activity[]>
   })
 </script>
 
 <template>
-    <article class="media" v-if="user != undefined && workout != undefined">
+    <article class="media" v-if="user != undefined && Activity != undefined">
         <figure class="media-left">
           <p class="image is-64x64 is-rounded">
             <img :src="user.profilePicture">
@@ -44,18 +44,18 @@
               <span>&nbsp;</span>
               <span>&#183;</span> 
               <span>&nbsp;</span>
-              <small>{{workout.date.slice(0, 10)}}</small>
+              <small>{{activity.date.slice(0, 10)}}</small>
             </p>
-            <p>{{workout.text}}</p>
+            <p>{{activity.text}}</p>
             <div class="columns">
               
               <div class="column is-1">
-                <h3>{{ workout.durationHours }}:{{ workout.durationMinutes }}</h3>
+                <h3>{{ activity.durationHours }}:{{ activity.durationMinutes }}</h3>
                 <small>Time</small>
               </div>
               <div class="column">
                 <h3>&#183;
-                  {{ workout.distanceMiles }}:{{ workout.distanceFeet }} Mi</h3>
+                  {{ activity.distanceMiles }}:{{ activity.distanceFeet }} Mi</h3>
                 <small>&#183; Distance</small>
               </div>
               <div class="column is-auto"></div>
@@ -64,11 +64,11 @@
             
             <!-- post image -->
             <p class="image" width="200" height="200">
-              <img :src="workout.picture">
+              <img :src="activity.picture">
             </p>
             <p>
               <span class="icon is-small"><i class="fas fa-location-dot"></i></span>
-              <small>{{workout.location}}</small>
+              <small>{{activity.location}}</small>
             </p>
             
 
@@ -76,7 +76,7 @@
           
         </div>
         <div class="media-right">
-          <!-- only appears if the current user posted the workout -->
+          <!-- only appears if the current user posted the Activity -->
           <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.userName === user.userName">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
@@ -91,15 +91,15 @@
                   Edit
                 </a>
                 <!-- listens for the modalToggled event and calls the function when it hears it -->
-                <WorkoutModal 
-                  :isActive="modalIsActive" :originalWorkout="workout"
-                  :originalWorkoutID="workout.workoutID" 
+                <ActivityModal 
+                  :isActive="modalIsActive" :originalActivity="activity"
+                  :originalActivityID="activity.ActivityID" 
                   :user="user"
-                  :submitType="'Edit Workout'"
+                  :submitType="'Edit Activity'"
                   @modalToggled="toggleModal()"
                   />
                   
-                <a class="dropdown-item" @click="deleteWorkout(user, workout)">
+                <a class="dropdown-item" @click="deleteActivity(user, activity)">
                   Delete
                 </a>
               </div>

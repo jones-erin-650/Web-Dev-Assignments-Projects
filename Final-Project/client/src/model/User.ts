@@ -1,5 +1,5 @@
 import data from "../../../server/data/users.json";
-import type { Workout } from "./Workout";
+import type { Activity } from "./Activity";
 import { refCurrentUser } from "@/viewModel/currentuser";
 import { ref } from "vue";
 
@@ -12,7 +12,7 @@ export interface User {
   email: string,
   profilePicture: string,
   isAdmin: boolean,
-  userWorkouts: Workout[]
+  userActivities: Activity[]
   
 }
   
@@ -24,83 +24,83 @@ export function getUsers(): User[] {
 
 // this code should probably be moved to a folder in viewmodel
 
-// input a user and get a return of their workout array
-export const getUserWorkouts = (user: User) => user.userWorkouts
+// input a user and get a return of their activity array
+export const getUserActivities = (user: User) => user.userActivities
 
 
-// this is a workout object that can be called and edited when a new workout is being made
+// this is a activity object that can be called and edited when a new activity is being made
 
-// necessary to add to the current user's workout array
+// necessary to add to the current user's activity array
 const currentUser = refCurrentUser()
 
-// export const refNewWorkout
-export const newWorkout = ref()
+// export const refNewActivity
+export const newActivity = ref()
 
 // to import to other files
-export const refNewWorkout = () => newWorkout
+export const refNewActivity = () => newActivity
 
 // 
-export const setRefNewWorkout = (input: Workout) => {
-  newWorkout.value = input
+export const setRefNewActivity = (input: Activity) => {
+  newActivity.value = input
 }
 
-// this is used to make a new workout that has empty values for all its fields; made so that the files that import the newWorkout object don't have to make an empty workout themselves
-export const setEmptyWorkout = () => {
-  const workoutToSetNewWorkout: Workout = {
+// this is used to make a new activity that has empty values for all its fields; made so that the files that import the newActivity object don't have to make an empty activity themselves
+export const setEmptyActivity = () => {
+  const activityToSetNewActivity: Activity = {
     date: '0000-00-00:00:00',
     distanceFeet: 0,
     distanceMiles: 0,
     durationHours: 0,
     durationMinutes: 0,
     location: '',
-    workoutID: 0,
+    activityID: 0,
     picture: '',
     text: '',
   }
-  // replaces the current newWorkout value with the empty one
-  setRefNewWorkout(workoutToSetNewWorkout)
+  // replaces the current newActivity value with the empty one
+  setRefNewActivity(activityToSetNewActivity)
 }
 
-// appends inputted workout to the current user's workout array
-export const addWorkout = (input: Workout) => {
-  // first need to get the last element of the array to take that workoutID and make a new ID from it
-  const last = currentUser.value.userWorkouts[currentUser.value.userWorkouts.length - 1];
-  input.workoutID = last.workoutID+1
+// appends inputted activity to the current user's activity array
+export const addActivity = (input: Activity) => {
+  // first need to get the last element of the array to take that activityID and make a new ID from it
+  const last = currentUser.value.userActivities[currentUser.value.userActivities.length - 1];
+  input.activityID = last.activityID+1
 
-  // need to create a new date for the workout
+  // need to create a new date for the activity
   const d = new Date();
   input.date = d.toISOString();
 
-  // adds new workout to array
-  currentUser.value.userWorkouts.push(input)
+  // adds new activity to array
+  currentUser.value.userActivities.push(input)
 
-  // after the workout is added the newWorkout object should be cleared out for the next workout to be added
-  setEmptyWorkout()
+  // after the activity is added the newActivity object should be cleared out for the next activity to be added
+  setEmptyActivity()
 } 
   
-  // replaces the data of a specific workout
-  // should take the newWorkout in and replace every orgiinalWorkout value spot with it, everything except the date and id
-  export const editWorkout = (user: User, originalWorkout: Workout, newWorkout: Workout) => {
+  // replaces the data of a specific activity
+  // should take the newActivity in and replace every orgiinalActivity value spot with it, everything except the date and id
+  export const editActivity = (user: User, originalActivity: Activity, newActivity: Activity) => {
     // the original Id needs to be preserved 
-    const originalID = originalWorkout.workoutID
+    const originalID = originalActivity.activityID
     
     // first finds the index of the user in the original data.items array
     const index = data.items.findIndex(u => u.id === user?.id);
 
-    // then finds the index of the original workout in that user's workoutArray
-    const workoutIndex = data.items[index].userWorkouts.findIndex(a => a.workoutID === originalWorkout.workoutID)
+    // then finds the index of the original activity in that user's activityArray
+    const activityIndex = data.items[index].userActivities.findIndex(a => a.activityID === originalActivity.activityID)
 
-    // replaces the value at that index with the new workout
-    data.items[index].userWorkouts[workoutIndex] = newWorkout
+    // replaces the value at that index with the new activity
+    data.items[index].userActivities[activityIndex] = newActivity
 
     // preserve the original id
-    data.items[index].userWorkouts[workoutIndex].workoutID = originalID
+    data.items[index].userActivities[activityIndex].activityID = originalID
     
   }
 
-  export function deleteWorkout(user : User | null, workout : Workout) {
-    // finds the index of the index of the original workout according to the user id, then splices it
+  export function deleteActivity(user : User | null, activity : Activity) {
+    // finds the index of the index of the original activity according to the user id, then splices it
     const index = data.items.findIndex(u => u.id === user?.id);
-    const workoutIndex = data.items[index].userWorkouts.findIndex(a => a.workoutID === workout.workoutID);
-    data.items[index].userWorkouts.splice(workoutIndex, 1);
+    const activityIndex = data.items[index].userActivities.findIndex(a => a.activityID === activity.activityID);
+    data.items[index].userActivities.splice(activityIndex, 1);
 }

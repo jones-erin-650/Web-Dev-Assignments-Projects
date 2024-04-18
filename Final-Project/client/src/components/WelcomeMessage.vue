@@ -9,7 +9,7 @@
             Welcome!
           </p>
           <p class="subtitle">
-            Log in to view and add workouts!
+            Log in to view and add activities!
           </p>
         </div>
       </section>
