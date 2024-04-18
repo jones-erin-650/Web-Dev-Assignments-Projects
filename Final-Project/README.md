@@ -8,7 +8,7 @@
 ### Refactor the how activities are stored
 - ~~rename workouts to activities everywhere~~
 - remove the activities from the users.json and put them in their own seperate json file
-- have a new variable for the user that posted the activity instead of having the user just have their own array
+- ~~have a new variable for the user that posted the activity instead of having the user just have their own array~~
 - ~~have a function that gets the user from the originalPoster's handle, that way we can get all the information about the user that posted an activity from the activity itself~~
 
 ### ~~user model~~
