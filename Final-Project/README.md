@@ -10,7 +10,7 @@
 - remove the activities from the users.json and put them in their own seperate json file
 - have a new variable for the user that posted the activity instead of having the user just have their own array
 
-### user model
+### ~~user model~~
 - this is where the database is accessed
 - add, update, remove functions go here
 - takes the updated stuff and adds them to the users json file to store it
@@ -20,7 +20,7 @@
 ### activities model
 - needs to do everything the user model is doing
  
-### users controller
+### ~~users controller~~
 - calls the model
 - handles get, post, patch, delete, etc requests from the client
 
