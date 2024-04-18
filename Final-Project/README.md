@@ -2,17 +2,29 @@
 
 ## highest priority
 
-### move the json data to the server
+### ~~move the json data to the server~~
 - need to update aaaaall the times it's called on the client to make sure it still works in the new location
+
+### Refactor the how activities are stored
+- rename workouts to activities everywhere
+- remove the activities from the users.json and put them in their own seperate json file
+- have a new variable for the user that posted the activity instead of having the user just have their own array
 
 ### user model
 - this is where the database is accessed
 - add, update, remove functions go here
 - takes the updated stuff and adds them to the users json file to store it
+- should edit the getAll function to hide the user ID and admin status, but I'm not quite sure how to implement it without breaking some things right now (this is the .map(x=> (...x, password: undefined))) function he showed in class
+- the add function has a feature that handles new users' ids, i already have something like this in the add user funciton in the client so i need to remove that part from the client to avoid id issues
 
+### activities model
+- needs to do everything the user model is doing
+ 
 ### users controller
 - calls the model
 - handles get, post, patch, delete, etc requests from the client
+
+### activities model
 
 ## medium priority
 - can only do this after I finish the higher priority stuff
@@ -22,11 +34,6 @@
 
 ## lower priority - client side stragglers
 - things I didn't do for the midterm that I probably should have
-
-### Refactor the how activities are stored
-- rename workouts to activities everywhere
-- remove the activities from the users.json and put them in their own seperate json file
-- have a new variable for the user that posted the activity instead of having the user just have their own array
 
 ### create a way to add and edit users
 - should be simple, basically just copy how it's done for activities
