@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
   import { RouterView } from 'vue-router'
-  import { refCurrentUser } from '@/viewModel/session
+  import { refCurrentUser } from '@/viewModel/session'
 
   // components
   import NavBar from './components/NavBar.vue'
   import SignInForm from './components/User-Components/SignInForm.vue';
   import WelcomeMessage from './components/WelcomeMessage.vue';
+import { getUserFromHandle } from './model/User';
   // want to first import the current user using refCurrentUser to check if it's undefined
   const currentUser = refCurrentUser()
 </script>
