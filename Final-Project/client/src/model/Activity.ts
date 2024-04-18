@@ -31,6 +31,9 @@ export const setRefNewActivity = (input: Activity) => {
   newActivity.value = input
 }
 
+
+// this is a activity object that can be called and edited when a new activity is being made
+
 // this is used to make a new activity that has empty values for all its fields; made so that the files that import the newActivity object don't have to make an empty activity themselves
 export const setEmptyActivity = () => {
   const activityToSetNewActivity: Activity = {
@@ -92,3 +95,4 @@ export const addActivity = (input: Activity) => {
     const activityIndex = data.items[index].userActivities.findIndex(a => a.activityID === activity.activityID);
     data.items[index].userActivities.splice(activityIndex, 1);
 }
+
