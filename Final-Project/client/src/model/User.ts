@@ -56,6 +56,7 @@ export const setEmptyActivity = () => {
     activityID: 0,
     picture: '',
     text: '',
+    originalPoster: ''
   }
   // replaces the current newActivity value with the empty one
   setRefNewActivity(activityToSetNewActivity)

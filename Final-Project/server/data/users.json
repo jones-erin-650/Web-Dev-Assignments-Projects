@@ -19,7 +19,8 @@
                 "location": "NP Campus",
                 "activityID": 1,
                 "picture": "https://sites.newpaltz.edu/news/wp-content/uploads/sites/24/2022/12/atrium-22-drone-at-night.jpg",
-                "text": "Walked through campus"
+                "text": "Walked through campus",
+                "originalPoster": "@eribrin"
 
               },
               {
@@ -31,7 +32,8 @@
                 "location": "Poughkeepsie",
                 "activityID": 2,
                 "picture": "https://media2.chronogram.com/chronogram/imager/u/original/9898642/03_pok_main-st_as_011620_001.jpg",
-                "text": "Biked through town"
+                "text": "Biked through town",
+                "originalPoster": "@eribrin"
 
               }
             ]
@@ -55,7 +57,8 @@
                   "location": "Islip",
                   "activityID": 1,
                   "picture": "https://lh3.googleusercontent.com/p/AF1QipP6duzjkL09FTrxEdH-1Zgmo3h1LGK15c596gsN=s1360-w1360-h1020",
-                  "text": "Ran to the beach"
+                  "text": "Ran to the beach",
+                  "originalPoster": "@isthecakesayaka"
                 }
               ]
             },
@@ -77,7 +80,8 @@
                     "location": "Stony Brook University",
                     "activityID": 1,
                     "picture": "https://www.stonybrook.edu/commcms/_resources/images/second-level/about/videos/we-go-far-beyond.jpg",
-                    "text": "Biked the class"
+                    "text": "Biked the class",
+                    "originalPoster": "@enderburgery"
                   }
                 ]
             }

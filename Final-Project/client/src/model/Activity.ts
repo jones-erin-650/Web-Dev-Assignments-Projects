@@ -1,3 +1,5 @@
+import type { User } from "./User";
+
 export interface Activity {
     date: string,
     distanceFeet: number,
@@ -8,4 +10,5 @@ export interface Activity {
     activityID: number,
     picture: string,
     text: string,
+    originalPoster: string
 }
