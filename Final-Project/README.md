@@ -6,7 +6,7 @@
 - need to update aaaaall the times it's called on the client to make sure it still works in the new location
 
 ### Refactor the how activities are stored
-- rename workouts to activities everywhere
+- ~~rename workouts to activities everywhere~~
 - remove the activities from the users.json and put them in their own seperate json file
 - have a new variable for the user that posted the activity instead of having the user just have their own array
 
