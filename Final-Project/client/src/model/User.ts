@@ -9,7 +9,6 @@ export interface User {
   email: string,
   profilePicture: string,
   isAdmin: boolean,
-  userActivities: Activity[]
   
 }
   
