@@ -55,10 +55,11 @@ export const setEmptyActivity = () => {
   setRefNewActivity(activityToSetNewActivity)
 }
 
+
 // appends inputted activity to the current user's activity array
 export const addActivity = (input: Activity) => {
   // first need to get the last element of the array to take that activityID and make a new ID from it
-  const last = currentUser.value.userActivities[currentUser.value.userActivities.length - 1];
+  const last = activityData.items[activityData.items.length - 1];
   input.activityID = last.activityID+1
 
   // need to create a new date for the activity
