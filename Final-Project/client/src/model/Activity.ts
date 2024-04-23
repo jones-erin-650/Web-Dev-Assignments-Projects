@@ -2,7 +2,7 @@ import type { User } from "./User";
 import { refCurrentUser } from "@/viewModel/session";
 import { ref } from "vue"
 import userData from "../../../server/data/users.json";
-import activityData from "../../../server/data/users.json";
+import activityData from "../../../server/data/activities.json";
 
 
 
@@ -64,12 +64,13 @@ export const addActivity = (input: Activity) => {
   // need to create a new date for the activity
   const d = new Date();
   input.date = d.toISOString();
-
-  // adds new activity to array
-  currentUser.value.userActivities.push(input)
-
+  
   // set the originalPoster to the currentUser
   input.originalPoster = currentUser.value.handle
+
+  // adds new activity to array of activities
+  activityData.items.push(input)
+
 
   // after the activity is added the newActivity object should be cleared out for the next activity to be added
   setEmptyActivity()
