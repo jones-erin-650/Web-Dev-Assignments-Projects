@@ -1,7 +1,9 @@
 import type { User } from "./User";
 import { refCurrentUser } from "@/viewModel/session";
 import { ref } from "vue"
-import data from "../../../server/data/users.json";
+import userData from "../../../server/data/users.json";
+import activityData from "../../../server/data/users.json";
+
 
 
 export interface Activity {
@@ -30,6 +32,7 @@ export const refNewActivity = () => newActivity
 export const setRefNewActivity = (input: Activity) => {
   newActivity.value = input
 }
+
 
 
 // this is a activity object that can be called and edited when a new activity is being made
@@ -69,30 +72,30 @@ export const addActivity = (input: Activity) => {
   setEmptyActivity()
 } 
   
-  // replaces the data of a specific activity
+  // replaces the userData of a specific activity
   // should take the newActivity in and replace every orgiinalActivity value spot with it, everything except the date and id
   export const editActivity = (user: User, originalActivity: Activity, newActivity: Activity) => {
     // the original Id needs to be preserved 
     const originalID = originalActivity.activityID
     
-    // first finds the index of the user in the original data.items array
-    const index = data.items.findIndex(u => u.id === user?.id);
+    // first finds the index of the user in the original userData.items array
+    const index = userData.items.findIndex(u => u.id === user?.id);
 
     // then finds the index of the original activity in that user's activityArray
-    const activityIndex = data.items[index].userActivities.findIndex(a => a.activityID === originalActivity.activityID)
+    const activityIndex = userData.items[index].userActivities.findIndex(a => a.activityID === originalActivity.activityID)
 
     // replaces the value at that index with the new activity
-    data.items[index].userActivities[activityIndex] = newActivity
+    userData.items[index].userActivities[activityIndex] = newActivity
 
     // preserve the original id
-    data.items[index].userActivities[activityIndex].activityID = originalID
+    userData.items[index].userActivities[activityIndex].activityID = originalID
     
   }
 
   export function deleteActivity(user : User | null, activity : Activity) {
     // finds the index of the index of the original activity according to the user id, then splices it
-    const index = data.items.findIndex(u => u.id === user?.id);
-    const activityIndex = data.items[index].userActivities.findIndex(a => a.activityID === activity.activityID);
-    data.items[index].userActivities.splice(activityIndex, 1);
+    const index = userData.items.findIndex(u => u.id === user?.id);
+    const activityIndex = userData.items[index].userActivities.findIndex(a => a.activityID === activity.activityID);
+    userData.items[index].userActivities.splice(activityIndex, 1);
 }
 

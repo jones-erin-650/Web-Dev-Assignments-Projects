@@ -1,4 +1,5 @@
-import data from "../../../server/data/users.json";
+import userData from "../../../server/data/users.json";
+import activityData from "../../../server/data/activities.json";
 import type { Activity } from "./Activity";
 
 export interface User {
@@ -12,16 +13,19 @@ export interface User {
   
 }
   
-// gets the data out of the user.json file and returns an array of users
+// gets the userData out of the user.json file and returns an array of users
 export function getUsers(): User[] {
-  return data.items;
+  return userData.items;
 }
 
+// input a user and get a return of their activity array
+export function getUserActivities = (user: User) {
+  return activityData.items.filter( (item) =>  item.originalPoster === user.handle)
+}
 
 // this code should probably be moved to a folder in viewmodel
 
-// input a user and get a return of their activity array
-export const getUserActivities = (user: User) => user.userActivities
+
 
 
 export function getTodaysActivities(user: User) {
@@ -38,7 +42,7 @@ export function getTodaysActivities(user: User) {
 
 export function getUserFromHandle(handle: String) {
   const usersArray = getUsers()
-  const filteredUsers = data.items.find(item => item.handle === handle);
+  const filteredUsers = userData.items.find(item => item.handle === handle);
   return filteredUsers
 }
 
