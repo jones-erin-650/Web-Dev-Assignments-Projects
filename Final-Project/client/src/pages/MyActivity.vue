@@ -42,7 +42,7 @@
         
         />
       <hr>
-      <ActivityPost v-for="(activity, index) in userActivities" :key="activity.activityID"
+      <ActivityPost v-for="(activity, index) in userActivities" :key="activity.id"
         :user="currentUser"
         :activity="activity"
         :userActivities="userActivities"

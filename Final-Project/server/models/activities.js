@@ -37,7 +37,7 @@ async function getAll() {
  * */
 async function get(id) {
     const data = await dataPromises;
-    return data.items.find(item => item.activityId == id);
+    return data.items.find(item => item.id == id);
 }
 
 /**
@@ -76,7 +76,7 @@ async function add(activity) {
  * */
 async function update(activity) {
     const data = await dataPromises;
-    const index = data.items.findIndex(item => item.activityId == activity.activityId);
+    const index = data.items.findIndex(item => item.id == activity.id);
     if (index >= 0) {
         data.items[index] = {
             ...data.items[index],
@@ -94,7 +94,7 @@ async function update(activity) {
  * */
 async function remove(id) {
     const data = await dataPromises;
-    const index = data.items.findIndex(item => item.activityId == id);
+    const index = data.items.findIndex(item => item.id == id);
     if (index >= 0) {
         const deleted = data.items.splice(index, 1);
         await save()

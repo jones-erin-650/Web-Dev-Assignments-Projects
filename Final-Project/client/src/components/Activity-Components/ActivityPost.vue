@@ -94,7 +94,7 @@
                 <!-- listens for the modalToggled event and calls the function when it hears it -->
                 <ActivityModal 
                   :isActive="modalIsActive" :originalActivity="activity"
-                  :originalActivityID="activity.activityID" 
+                  :originalActivityID="activity.id" 
                   :user="user"
                   :submitType="'Edit Activity'"
                   @modalToggled="toggleModal()"

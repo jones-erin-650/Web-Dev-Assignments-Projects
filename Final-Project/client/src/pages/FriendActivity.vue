@@ -19,7 +19,7 @@
   <div>
     
     <div v-for="user in users" :key="user.id">
-      <ActivityPost v-if="user!=currentUser" v-for="activity in user.userActivities" :key="activity.activityID"
+      <ActivityPost v-if="user!=currentUser" v-for="activity in user.userActivities" :key="activity.id"
         :user="user"
         :activity="activity"
       />
