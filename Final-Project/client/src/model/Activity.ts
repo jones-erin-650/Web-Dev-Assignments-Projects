@@ -68,6 +68,9 @@ export const addActivity = (input: Activity) => {
   // adds new activity to array
   currentUser.value.userActivities.push(input)
 
+  // set the originalPoster to the currentUser
+  input.originalPoster = currentUser.value.handle
+
   // after the activity is added the newActivity object should be cleared out for the next activity to be added
   setEmptyActivity()
 } 

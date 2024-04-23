@@ -19,7 +19,7 @@ export function getUsers(): User[] {
 }
 
 // input a user and get a return of their activity array
-export function getUserActivities = (user: User) {
+export function getUserActivities(user: User) {
   return activityData.items.filter( (item) =>  item.originalPoster === user.handle)
 }
 
