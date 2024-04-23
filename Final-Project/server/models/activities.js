@@ -16,6 +16,7 @@ async function save() {
     return fs.writeFile(fileName, JSON.stringify(data, null, 2));
 }
 
+
 /**
  * @typedef {import('../../client/src/model/activities').Product} Product
  * */
