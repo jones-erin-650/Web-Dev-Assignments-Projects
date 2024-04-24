@@ -1,7 +1,6 @@
-import type { User } from "./User";
+import { getUserActivities, type User } from "./User";
 import { refCurrentUser } from "@/viewModel/session";
 import { ref } from "vue"
-import userData from "../../../server/data/users.json";
 import activityData from "../../../server/data/activities.json";
 
 
@@ -83,24 +82,28 @@ export const addActivity = (input: Activity) => {
     // the original Id needs to be preserved 
     const originalID = originalActivity.id
     
-    // first finds the index of the user in the original userData.items array
-    const index = userData.items.findIndex(u => u.id === user?.id);
+
+
+    // gets that user's activities
+    const userActivities = getUserActivities(user)
 
     // then finds the index of the original activity in that user's activityArray
-    const activityIndex = userData.items[index].userActivities.findIndex(a => a.id === originalActivity.id)
+    const activityIndex = userActivities.findIndex(a => a.id === originalActivity.id)
 
     // replaces the value at that index with the new activity
-    userData.items[index].userActivities[activityIndex] = newActivity
+    userActivities[activityIndex] = newActivity
 
     // preserve the original id
-    userData.items[index].userActivities[activityIndex].id = originalID
+    userActivities[activityIndex].id = originalID
     
   }
 
-  export function deleteActivity(user : User | null, activity : Activity) {
+  export function deleteActivity(user : User, activity : Activity) {
+    // gets that user's activities
+    const userActivities = getUserActivities(user)
+
     // finds the index of the index of the original activity according to the user id, then splices it
-    const index = userData.items.findIndex(u => u.id === user?.id);
-    const activityIndex = userData.items[index].userActivities.findIndex(a => a.id === activity.id);
-    userData.items[index].userActivities.splice(activityIndex, 1);
+    const activityIndex = userActivities.findIndex(a => a.id === activity.id);
+    userActivities.splice(activityIndex, 1);
 }
 
