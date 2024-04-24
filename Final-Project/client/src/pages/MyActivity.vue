@@ -15,13 +15,15 @@
   console.log("current user activities: " + getUserActivities(currentUser.value))
   console.log("current user name: " + currentUser.value.firstName)
 
-  // get the current user's activity array using getUserActivities
-  const userActivities = getUserActivities(currentUser.value)
+  
 
   // this is needed to prevent the bug where changing the current user changes what handle is displayed on the curent user's posts; it basically dereferences the ref variable
   // now when you change the currentuser variable it won't immediately switcht the handles on this page
 
   const user = getUserFromHandle(currentUser.value.handle)
+
+  // get the current user's activity array using getUserActivities; the reason it's done like this is for the same reason as the user, 
+  const userActivities = getUserActivities(user!)
 
   console.log(userActivities)
   

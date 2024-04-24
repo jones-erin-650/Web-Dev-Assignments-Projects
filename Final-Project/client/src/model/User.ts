@@ -1,6 +1,5 @@
 import userData from "../../../server/data/users.json";
 import activityData from "../../../server/data/activities.json";
-import type { Activity } from "./Activity";
 
 export interface User {
   id: number,
