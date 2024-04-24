@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { getUserActivities, type User } from '@/model/User'
+  import { getUserActivities, getUserFromHandle, type User } from '@/model/User'
   import { refCurrentUser } from '@/viewModel/session'
   
 
@@ -17,6 +17,12 @@
 
   // get the current user's activity array using getUserActivities
   const userActivities = getUserActivities(currentUser.value)
+
+  // this is needed to prevent the bug where changing the current user changes what handle is displayed on the curent user's posts; it basically dereferences the ref variable
+  // now when you change the currentuser variable it won't immediately switcht the handles on this page
+
+  const user = getUserFromHandle(currentUser.value.handle)
+
   console.log(userActivities)
   
   // pass that in as props for the activity post
@@ -43,7 +49,7 @@
         />
       <hr>
       <ActivityPost v-for="(activity, index) in userActivities" :key="activity.id"
-        :user="currentUser"
+        :user="user"
         :activity="activity"
         :userActivities="userActivities"
       />
