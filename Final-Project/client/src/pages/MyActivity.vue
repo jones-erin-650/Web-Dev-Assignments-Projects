@@ -12,7 +12,7 @@
   // want to first import the current user using refCurrentUser
   const currentUser = refCurrentUser()
 
-  console.log("current user activities: " + currentUser.value.userActivities.value)
+  console.log("current user activities: " + getUserActivities(currentUser.value))
   console.log("current user name: " + currentUser.value.firstName)
 
   // get the current user's activity array using getUserActivities

@@ -48,11 +48,11 @@ export function getWeeksActivities(user: User) {
 export function getTotalDistance(activities: Activity[]) {
   let totalMiles = 0
   let totalFeet = 0
-
   for (let i = 0; i < activities.length; i++) {
     totalMiles += activities[i].distanceMiles
     totalFeet += activities[i].distanceFeet
-  }
+  } 
+  
 
   // convert feet to miles
   totalFeet /= 5280
@@ -77,11 +77,12 @@ export function getTotalDuration(activities: Activity[]) {
   // adds all the hours together, then add all the minutes together and convert them to hours
   let totalHours = 0
   let totalMinutes = 0
-
   for (let i = 0; i < activities.length; i++) {
     totalHours += activities[i].durationHours
     totalMinutes += activities[i].durationMinutes
+
   }
+  
   
   // convert minutes to hours
   totalMinutes /= 60

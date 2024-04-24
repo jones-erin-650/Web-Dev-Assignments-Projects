@@ -1,9 +1,11 @@
 <script setup lang="ts">
   import StatisticsBlock from '@/components/Activity-Components/StatisticsBlock.vue';
+import { getUserActivities } from '@/model/User';
   import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
   import { refCurrentUser } from '@/viewModel/session'
 
   const currentUser = refCurrentUser()
+  const userActivities = getUserActivities(currentUser.value)
 
   const todaysActivities = getTodaysActivities(currentUser.value)
   const thisWeeksActivities = getWeeksActivities(currentUser.value)
@@ -21,7 +23,7 @@
     <hr>
     <StatisticsBlock :text="'This Week'" :activities="thisWeeksActivities"/>
     <hr>
-    <StatisticsBlock :text="'All Time'" :activities="currentUser.userActivities"/>
+    <StatisticsBlock :text="'All Time'" :activities="userActivities"/>
   </div>
 </body>
 
