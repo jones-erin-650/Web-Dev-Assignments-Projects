@@ -1,10 +1,14 @@
 // a collection of functions related to calculating statistics about the current user's recent activities
 import type { User } from "./User";
 import type { Activity } from "./Activity";
+import { getUserActivities } from "./User";
 
 
 // functions to get activities within a certain time period
 export function getTodaysActivities(user: User) {
+  // gets that user's activities
+  const userActivities = getUserActivities(user)
+
   //   for this we only care about the year, month and day, so we splice the rest, cut everything after the day
   //   format: YYYY-MM-DDTZH:MM.SS.SSS
   const d = new Date();
@@ -12,12 +16,15 @@ export function getTodaysActivities(user: User) {
 
   //   filter out the userActivities and only return the ones with today's date
   // Filter activities for the current day
-  const filteredActivities =  user.userActivities.filter(activity => activity.date.slice(0, 10) === currentDate)
+  const filteredActivities =  userActivities.filter(activity => activity.date.slice(0, 10) === currentDate)
   return filteredActivities
 }
 
 export function getWeeksActivities(user: User) {
   // THIS IS MOST LIKELY TEMPORARY; it would be much better to use a preexisting library for this
+
+  // gets that user's activities
+  const userActivities = getUserActivities(user)
 
 // get the current day of the week 0-7
   const currentDate = new Date();
@@ -32,7 +39,7 @@ export function getWeeksActivities(user: User) {
 
 
   // Filter Activities between start and end date
-  return user.userActivities.filter(activity => {
+  return userActivities.filter(activity => {
       const activityDate = new Date(activity.date);
       return activityDate >= startDate && activityDate <= endDate;
   });

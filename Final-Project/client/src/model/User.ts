@@ -25,21 +25,6 @@ export function getUserActivities(user: User) {
 
 // this code should probably be moved to a folder in viewmodel
 
-
-
-
-export function getTodaysActivities(user: User) {
-  //   for this we only care about the year, month and day, so we splice the rest, cut everything after the day
-  //   format: YYYY-MM-DDTZH:MM.SS.SSS
-  const d = new Date();
-  const currentDate = d.toISOString().slice(0, 10);
-
-  //   filter out the userActivities and only return the ones with today's date
-  // Filter activities for the current day
-  const filteredActivities =  user.userActivities.filter(activity => activity.date.slice(0, 10) === currentDate)
-  return filteredActivities
-}
-
 export function getUserFromHandle(handle: String) {
   const usersArray = getUsers()
   const filteredUsers = userData.items.find(item => item.handle === handle);

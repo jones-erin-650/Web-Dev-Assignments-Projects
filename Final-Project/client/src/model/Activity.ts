@@ -82,8 +82,6 @@ export const addActivity = (input: Activity) => {
     // the original Id needs to be preserved 
     const originalID = originalActivity.id
     
-
-
     // gets that user's activities
     const userActivities = getUserActivities(user)
 
