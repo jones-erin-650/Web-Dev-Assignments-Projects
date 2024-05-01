@@ -14,7 +14,7 @@
 <template>
   <div>
     <!-- if there's no current user logged in then it should show a sign in field -->
-    <div v-if="session.user === undefined">
+    <div v-if="session.user === null">
       <WelcomeMessage />
       <br>
       <SignInForm />
