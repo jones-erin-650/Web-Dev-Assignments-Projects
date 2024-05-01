@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import LoginDropdown from './User-Components/LoginDropdown.vue';
-  import { refCurrentUser } from '@/viewModel/session'
+  import { refSession } from '@/viewModel/session'
 
   let isActive = ref(false);
 
@@ -11,7 +11,7 @@
   }
 
   // import current user to only show the admin section to admins
-  const currentUser = refCurrentUser()
+  const session = refSession()
     
 </script>
 
@@ -50,7 +50,7 @@
                   Friend Activity
                 </RouterLink>
 
-                <div v-if="currentUser.isAdmin" class="navbar-item has-dropdown is-hoverable">
+                <div v-if="session.user!.isAdmin" class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
                     Admin
                   </a>

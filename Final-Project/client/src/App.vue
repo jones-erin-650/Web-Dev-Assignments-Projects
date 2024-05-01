@@ -1,21 +1,20 @@
 <script setup lang="ts">
 
   import { RouterView } from 'vue-router'
-  import { refCurrentUser } from '@/viewModel/session'
+  import { refSession } from '@/viewModel/session'
 
   // components
   import NavBar from './components/NavBar.vue'
   import SignInForm from './components/User-Components/SignInForm.vue';
   import WelcomeMessage from './components/WelcomeMessage.vue';
-import { getUserFromHandle } from './model/User';
   // want to first import the current user using refCurrentUser to check if it's undefined
-  const currentUser = refCurrentUser()
+  const session = refSession()
 </script>
 
 <template>
   <div>
     <!-- if there's no current user logged in then it should show a sign in field -->
-    <div v-if="currentUser === undefined">
+    <div v-if="session.user === undefined">
       <WelcomeMessage />
       <br>
       <SignInForm />

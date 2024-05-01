@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import {  } from '@/viewModel/session'
+  import { refSession, useLogin } from '@/viewModel/session'
 
   // this needs to be imported in order to refresh the page when there's a new login
   import { useRouter } from 'vue-router';
@@ -14,8 +14,18 @@
   users.value = getUsers()
 
   // bringing in the current user variable
-  const currentUser = ref()
-  currentUser.value = refCurrentUser()
+  const session = refSession()
+  const {login, logout} = useLogin()
+
+  // to handle logins
+  function doLogin(user: User) {
+        login(user);
+    }
+
+    function doLogout() {
+        logout();
+    }
+
 
   const props = defineProps({
     text: String,
@@ -42,11 +52,11 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="setRefCurrentUser( user )">
+        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="doLogin( user )">
           {{user.firstName}} {{ user.lastName }}
         </a>
         <hr class="dropdown-divider">
-        <a href="#" class="dropdown-item" @click="logOut()">
+        <a href="#" class="dropdown-item" @click="doLogout()">
           Log Out
         </a>
       </div>
