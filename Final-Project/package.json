@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "scripts": {
+    "build": "npm i --production && cd client && npm i && npm run build",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js --watch server/"
   }
 }
