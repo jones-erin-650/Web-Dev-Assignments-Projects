@@ -2,7 +2,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const users = require('./controllers/users');
-const products = require('./controllers/products');
+const activities = require('./controllers/activities');
 
 /**  
  * @typedef {import('../client/src/model/transportTypes').DataEnvelope<null> } ErrorDataEnvelope
@@ -11,8 +11,6 @@ const products = require('./controllers/products');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
-
-console.log('The best class at New Paltz is:', process.env.BEST_CLASS);
 
 app
 // Static files
@@ -35,7 +33,7 @@ app
     res.send('Hello New Paltz!')
   })
   .use('/api/v1/users', users)
-  .use('/api/v1/products', products)
+  .use('/api/v1/activities', activities)
 
 // 404
 app.use((req, res) => {
