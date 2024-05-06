@@ -6,6 +6,7 @@
 
   // bringing in the user array
   const users = ref([] as User[]) 
+  users.value = getUsers()
 
   // bringing in the current user variable
   const {login, logout} = useLogin()
