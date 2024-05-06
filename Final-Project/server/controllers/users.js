@@ -86,6 +86,20 @@ app
             res.send(response);
         }).catch(next);
     })
+    .post('/login', (req, res, next) => {
+        const { handle } = req.body;
+
+        users.login(handle)
+        .then(result => {
+            /** @type { UserDataEnvelope } */
+            const response = {
+                data: result,
+                isSuccess: true,
+            }
+
+            res.send(response);
+        }).catch(next);
+    })
 
 
 

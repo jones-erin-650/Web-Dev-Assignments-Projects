@@ -17,6 +17,9 @@ const session  = reactive({
 
 export const refSession = () =>  session
 
+export function getSession(){
+    return session;
+}
 
 export function useLogin() {
     const router = useRouter();
@@ -25,14 +28,17 @@ export function useLogin() {
             const x = await api<User>("users/login", user);
             if(x){
                 session.user = x.data;
+                console.log("Session user: " + session.user);
                 router.push("/");
             }
         },
         logout() {
             session.user = null;
-            router.push("/login");
+            console.log("Session user: " + session.user);
+            router.push("/");
         }
     };
+    
 }
 
 export function api<T>(action: string, data?: unknown, method?: string){
@@ -46,6 +52,12 @@ export function api<T>(action: string, data?: unknown, method?: string){
         return x;
     })
     // should show an error on the catch
-    .catch()
+    // .catch(showError("Error in session"))
+    .catch(showError)
     .finally(() => session.isLoading--);
+}
+
+
+export function showError(error: any) {
+    return console.error(error);
 }

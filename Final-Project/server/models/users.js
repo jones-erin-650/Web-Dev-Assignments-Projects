@@ -79,6 +79,17 @@ async function remove(id) {
     return null;
 }
 
+async function login(handle) {
+    const data = await dataP;
+    const user = data.find(item => item.handle === handle);
+
+    if (!user) {
+        throw new Error("Invalid user handle");
+    }
+
+    return user;
+}
+
 module.exports = {
     getAll, get, search, add, update, remove
 }

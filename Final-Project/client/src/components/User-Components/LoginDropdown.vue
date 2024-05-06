@@ -1,20 +1,13 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import { refSession, useLogin } from '@/viewModel/session'
-
-  // this needs to be imported in order to refresh the page when there's a new login
-  import { useRouter } from 'vue-router';
-
-  const router = useRouter();
+  import { useLogin } from '@/viewModel/session'
 
 
   // bringing in the user array
   const users = ref([] as User[]) 
-  users.value = getUsers()
 
   // bringing in the current user variable
-  const session = refSession()
   const {login, logout} = useLogin()
 
   // to handle logins
