@@ -41,6 +41,8 @@ export function useLogin() {
     
 }
 
+
+// all the requests go through here
 export function api<T>(action: string, data?: unknown, method?: string){
     session.isLoading++;
     return myFetch.api<T>(action, data, method)

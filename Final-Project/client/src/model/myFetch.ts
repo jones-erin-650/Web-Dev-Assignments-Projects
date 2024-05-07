@@ -2,7 +2,9 @@
 
 import type { DataEnvelope } from "./transportTypes";
 
-export const API_ROOT = import.meta.env.VITE_API_ROOT;
+// export const API_ROOT = import.meta.env.VITE_API_ROOT;
+export const API_ROOT = 'https://localhost:3000'
+// hardcoded for now till i figure out the environment variables
 
 
 export function rest(url: string, data?: unknown, method?: string){
