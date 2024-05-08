@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import { useLogin } from '@/viewModel/session'
+  import {  } from '@/viewModel/session'
 
 
   // bringing in the user array
@@ -9,16 +9,17 @@
   users.value = getUsers()
 
   // bringing in the current user variable
-  const {login, logout} = useLogin()
+  const currentUser = ref()
+  currentUser.value = refCurrentUser()
 
   // to handle logins
-  function doLogin(user: User) {
-        login(user);
-    }
+  // function doLogin(user: User) {
+  //       login(user);
+  //   }
 
-    function doLogout() {
-        logout();
-    }
+  //   function doLogout() {
+  //       logout();
+  //   }
 
 
   const props = defineProps({
@@ -46,11 +47,11 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="doLogin( user )">
+        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="setRefCurrentUser( user )">
           {{user.firstName}} {{ user.lastName }}
         </a>
         <hr class="dropdown-divider">
-        <a href="#" class="dropdown-item" @click="doLogout()">
+        <a href="#" class="dropdown-item" @click="logOut()">
           Log Out
         </a>
       </div>

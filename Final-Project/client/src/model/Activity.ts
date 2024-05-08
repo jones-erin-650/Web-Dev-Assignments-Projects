@@ -1,9 +1,7 @@
 import { getUserActivities, type User } from "./User";
-import { refSession } from "@/viewModel/session";
+import { refCurrentUser } from "@/viewModel/session";
 import { ref } from "vue"
 import activityData from "../../../server/data/activities.json";
-
-
 
 export interface Activity {
     date: string,
@@ -19,23 +17,17 @@ export interface Activity {
 }
 
 // necessary to add to the current user's activity array
-const session = refSession()
+const currentUser = refCurrentUser()
 
 // export const refNewActivity
 export const newActivity = ref()
-
 // to import to other files
 export const refNewActivity = () => newActivity
-
 // 
 export const setRefNewActivity = (input: Activity) => {
   newActivity.value = input
 }
-
-
-
 // this is a activity object that can be called and edited when a new activity is being made
-
 // this is used to make a new activity that has empty values for all its fields; made so that the files that import the newActivity object don't have to make an empty activity themselves
 export const setEmptyActivity = () => {
   const activityToSetNewActivity: Activity = {
@@ -53,25 +45,20 @@ export const setEmptyActivity = () => {
   // replaces the current newActivity value with the empty one
   setRefNewActivity(activityToSetNewActivity)
 }
-
-
 // appends inputted activity to the current user's activity array
 export const addActivity = (input: Activity) => {
   // first need to get the last element of the array to take that id and make a new ID from it
   const last = activityData.items[activityData.items.length - 1];
   input.id = last.id+1
-
   // need to create a new date for the activity
   const d = new Date();
   input.date = d.toISOString();
-  
+
   // set the originalPoster to the currentUser
-  input.originalPoster = session.user!.handle
+  input.originalPoster = currentUser.value.handle
 
   // adds new activity to array of activities
   activityData.items.push(input)
-
-
   // after the activity is added the newActivity object should be cleared out for the next activity to be added
   setEmptyActivity()
 } 
@@ -84,24 +71,18 @@ export const addActivity = (input: Activity) => {
     
     // gets that user's activities
     const userActivities = getUserActivities(user)
-
     // then finds the index of the original activity in that user's activityArray
     const activityIndex = userActivities.findIndex(a => a.id === originalActivity.id)
-
     // replaces the value at that index with the new activity
     userActivities[activityIndex] = newActivity
-
     // preserve the original id
     userActivities[activityIndex].id = originalID
     
   }
-
   export function deleteActivity(user : User, activity : Activity) {
     // gets that user's activities
     const userActivities = getUserActivities(user)
-
     // finds the index of the index of the original activity according to the user id, then splices it
     const activityIndex = userActivities.findIndex(a => a.id === activity.id);
     userActivities.splice(activityIndex, 1);
 }
-
