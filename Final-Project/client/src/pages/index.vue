@@ -3,8 +3,10 @@
   import { getUserActivities } from '@/model/User';
   import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
   import { refCurrentUser } from '@/viewModel/session'
+
   const currentUser = refCurrentUser()
   const userActivities = getUserActivities(currentUser.value)
+
   const todaysActivities = getTodaysActivities(currentUser.value)
   const thisWeeksActivities = getWeeksActivities(currentUser.value)
   console.log("This weeks activities: " + thisWeeksActivities)

@@ -1,7 +1,12 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
-  import {  } from '@/viewModel/session'
+  import { refCurrentUser, setRefCurrentUser, logOut } from '@/viewModel/session'
+
+  // this needs to be imported in order to refresh the page when there's a new login
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
 
 
   // bringing in the user array
@@ -11,16 +16,6 @@
   // bringing in the current user variable
   const currentUser = ref()
   currentUser.value = refCurrentUser()
-
-  // to handle logins
-  // function doLogin(user: User) {
-  //       login(user);
-  //   }
-
-  //   function doLogout() {
-  //       logout();
-  //   }
-
 
   const props = defineProps({
     text: String,

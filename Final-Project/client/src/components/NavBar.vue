@@ -51,7 +51,7 @@
                   Friend Activity
                 </RouterLink>
 
-                <div v-if="currentUser.value.isAdmin" class="navbar-item has-dropdown is-hoverable">
+                <div v-if="currentUser.isAdmin" class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
                     Admin
                   </a>
