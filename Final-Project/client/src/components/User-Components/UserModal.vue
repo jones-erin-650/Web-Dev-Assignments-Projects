@@ -2,6 +2,7 @@
  
   import type { PropType } from 'vue'
   import { refNewUser, setEmptyUser, type User, addUser, editUser } from '@/model/User'
+  import BasicButton from '../BasicButton.vue';
 
 
   // clears out the newActivity object in new-Activity.ts to be filled with new values, then imports it by using refNewActivity
