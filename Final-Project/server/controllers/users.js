@@ -6,10 +6,24 @@ const express = require('express');
 const app = express.Router();
 
 app
-    .get('/', (req, res, next) => {
+    // getting all users
+    .get('/users', (req, res, next) => {
         users.getAll()
         .then(all => {
-            /** @type { UserDataListEnvelope } */
+            const response = {
+                data: all,
+                totalCount: all.length,
+                isSuccess: true,
+            }
+            res.send(response);
+        }).catch(next);
+        
+    })
+
+    // getting a user from a specific id
+    .get('/users/:userId', (req, res, next) => {
+        users.get(req.params.userId)
+        .then(all => {
             const response = {
                 data: all,
                 totalCount: all.length,
@@ -25,7 +39,6 @@ app
         if(typeof search !== 'string' ) throw new Error('search is required');
         users.search(search)
         .then(result => {
-            /** @type { UserDataListEnvelope } */
             const response = {
                 data: result,
                 totalCount: result.length,
@@ -38,7 +51,6 @@ app
         const id = req.params.id;
         users.get(+id)
         .then(result => {
-            /** @type { UserDataEnvelope } */
             const response = {
                 data: result,
                 isSuccess: true,
@@ -46,13 +58,13 @@ app
             res.send(response);
         }).catch(next);
     })
-    .post('/', (req, res, next) => {
+    // adding to users
+    .post('/users', (req, res, next) => {
         const user = req.body;
         console.log("1: About to add user");
         users.add(user)
         .then(result => {
             console.log("5: Returned from add user");
-            /** @type { UserDataEnvelope } */
             const response = {
                 data: result,
                 isSuccess: true,
@@ -60,12 +72,12 @@ app
             res.send(response);
         }).catch(next);
     })
-    .patch('/:id', (req, res, next) => {
+    // editting a user
+    .patch('users/:id', (req, res, next) => {
         const user = req.body;
         user.id = req.params.id;
         users.update(user)
         .then(result => {
-            /** @type { UserDataEnvelope } */
             const response = {
                 data: result,
                 isSuccess: true,
@@ -74,11 +86,11 @@ app
             res.send(response);
         }).catch(next);
     })
-    .delete('/:id', (req, res, next) => {
+    // deleting a user
+    .delete('users/:id', (req, res, next) => {
         const id = req.params.id;
         users.remove(+id)
         .then(result => {
-            /** @type { UserDataEnvelope } */
             const response = {
                 data: result,
                 isSuccess: true,
@@ -91,7 +103,6 @@ app
 
         users.login(handle)
         .then(result => {
-            /** @type { UserDataEnvelope } */
             const response = {
                 data: result,
                 isSuccess: true,

@@ -43,6 +43,7 @@ async function search(q) {
 // adds a user to the json file
 async function add(user) {
     const data = await dataPromise
+    // make sure they have a unique id
     user.id = data.items.length + 1;
     data.items.push(user);
     console.log("2: About to save");
@@ -91,5 +92,5 @@ async function login(handle) {
 }
 
 module.exports = {
-    getAll, get, search, add, update, remove
+    getAll, get, search, add, update, remove, login
 }
