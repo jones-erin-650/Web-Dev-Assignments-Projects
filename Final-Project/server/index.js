@@ -4,9 +4,7 @@ const express = require('express');
 const users = require('./controllers/users');
 const activities = require('./controllers/activities');
 
-/**  
- * @typedef {import('../client/src/model/transportTypes').DataEnvelope<null> } ErrorDataEnvelope
- * */
+
 
 
 const app = express();

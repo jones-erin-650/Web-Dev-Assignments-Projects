@@ -34,10 +34,10 @@
           <th>isAdmin</th>
           <th>
             <div>
-              <BasicButton text="Add User" color="is-dark" @click="isActive = !isActive"/>
+              <BasicButton text="Add User" color="is-dark" @click="toggleModal"/>
               <UserModal 
                 :isActive="isActive" 
-                :submitType="'Create User'" 
+                :submitType="'Create'" 
                 @modalToggled="toggleModal()"
           
               />
@@ -59,12 +59,12 @@
           <th>{{user.id}}</th>
           <th>{{user.isAdmin}}</th>
           <th>
-            <BasicButton text="Edit User" color="is-dark" @click="isActive = !isActive"/>
+            <!-- <BasicButton text="Edit User" color="is-dark" @click="isActive = !isActive"/>
               <UserModal 
                 :isActive="isActive" 
-                :submitType="'Edit User'" 
+                :submitType="'Edit'" 
                 @modalToggled="toggleModal()"
-              />
+              /> -->
 
               <BasicButton text="Delete User" color="is-dark" @click="deleteUser"/>
           </th>

@@ -82,11 +82,11 @@
         <!-- passes in the newActivity to be added or edited, text determines which action it does -->
         <div class="control">
           <BasicButton 
-            v-if="submitType === 'Create User'"   :text="submitType" 
+            
             :color="'is-link'" 
             @click="addUser(newUser), $emit('modalToggled')"/>
           <BasicButton 
-            v-else-if="submitType === 'Edit User' && originalUser!=undefined" 
+             
             :text="submitType" 
             :color="'is-link'" 
             @click="editUser(originalUser!, newUser), $emit('modalToggled')"/>

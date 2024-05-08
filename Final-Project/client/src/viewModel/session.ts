@@ -1,7 +1,13 @@
 // this will be imported to get the current user
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 import type { User } from "@/model/User";
+import * as myFetch from "@/model/myFetch";
 
+
+const session  = reactive({
+    user: null as User | null,
+    isLoading: 0,
+});
 
 
 // currentUser is declared here
@@ -28,4 +34,19 @@ export const setRefCurrentUser = (input: User) => {
 
 export function logOut() {
     currentUser.value = undefined
+}
+
+export function api<T>(action: string, data?: unknown, method?: string){
+    session.isLoading++;
+    return myFetch.api<T>(action, data, method)
+    .then(x=>{
+        if(!x.isSuccess){
+            console.error("api function failed");
+        }
+        return x;
+    })
+    // .catch( showError = () => {
+    //     console.error("api function failed")
+    // } )
+    .finally(() => session.isLoading--);
 }

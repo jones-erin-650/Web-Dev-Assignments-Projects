@@ -2,6 +2,9 @@ import userData from "../../../server/data/users.json";
 import activityData from "../../../server/data/activities.json";
 import { ref } from "vue";
 
+// importing user data from the server
+
+
 export interface User {
   id: number,
   firstName: string,
