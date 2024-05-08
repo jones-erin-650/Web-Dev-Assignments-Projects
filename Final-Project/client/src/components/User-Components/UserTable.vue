@@ -2,13 +2,20 @@
   import { getUsers, type User } from '@/model/User'
   import { ref } from 'vue';
   import BasicButton from '../BasicButton.vue';
+  import { deleteUser, addUser, editUser } from '@/model/User';
+import UserModal from './UserModal.vue';
 
   const users = ref([] as User[]) 
   users.value = getUsers()
 
-  function deleteUser(index: number) {
-    users.value.splice(index, 1);
-}
+  // dropdown functionality
+  let isActive = ref(false);
+  let modalIsActive = ref(false)
+  function toggleModal() {
+    modalIsActive.value = !modalIsActive.value
+  }
+
+
 
 </script>
 
@@ -27,6 +34,7 @@
           <th>ID</th>
           <th>isAdmin</th>
           <th></th>
+          <th></th>
         </tr>
         <!-- each user in the array should make a new table row  -->
         <tr v-for="(user, index) in users" :key="user.id">
@@ -41,8 +49,34 @@
           <th>{{user.handle}}</th>
           <th>{{user.id}}</th>
           <th>{{user.isAdmin}}</th>
-          <th> 
-            <BasicButton :color="'is-Alert'" :text="'Delete User'" @click="deleteUser(index)"/>
+          <th class="dropdown-menu" id="dropdown-menu-post" role="menu"  :class="{ 'is-active': isActive }">
+            <div class="dropdown-content">
+              <a href="#" class="dropdown-item" @click="toggleModal()">
+                Edit
+              </a>
+              <!-- listens for the modalToggled event and calls the function when it hears it -->
+              <UserModal
+                :isActive="modalIsActive" 
+                :originalUser="user"
+                :originalUserId="user.id" 
+
+                :submitType="'Edit User'"
+                @modalToggled="toggleModal()"
+                />
+                
+              <a class="dropdown-item" @click="deleteUser(user.id)">
+                Delete
+              </a>
+            </div>
+          </th>
+          <th>
+            <BasicButton text="Add Activity" color="is-dark" @click="isActive = !isActive"/>
+            <UserModal 
+              :isActive="isActive" 
+              :submitType="'Create User'" 
+              @modalToggled="toggleModal()"
+        
+            />
           </th>
         </tr>
       </thead>

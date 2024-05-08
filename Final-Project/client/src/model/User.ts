@@ -75,3 +75,7 @@ export const editUser = (originalUser: User, newUser: User) => {
     userData.items[originalID-1].id = originalID
     
   }
+
+export function deleteUser(index: number) {
+    userData.items.splice(index, 1);
+}
