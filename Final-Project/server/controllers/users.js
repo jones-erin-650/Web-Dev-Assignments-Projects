@@ -7,7 +7,7 @@ const app = express.Router();
 
 app
     // getting all users
-    .get('/users', (req, res, next) => {
+    .get('/', (req, res, next) => {
         users.getAll()
         .then(all => {
             const response = {
@@ -21,7 +21,7 @@ app
     })
 
     // getting a user from a specific id
-    .get('/users/:userId', (req, res, next) => {
+    .get('/:userId', (req, res, next) => {
         users.get(req.params.userId)
         .then(all => {
             const response = {

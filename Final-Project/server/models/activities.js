@@ -4,7 +4,7 @@ const fs = require('fs/promises');
 
 const fileName = __dirname + '/../data/activities.json';
 
-/** @type { Promise< { items: Product[] } > } */
+
 const dataPromises = fs
         .access(fileName, fs.constants.F_OK)
         .then(() => fs.readFile(fileName, 'utf8'))
@@ -16,14 +16,6 @@ async function save() {
     return fs.writeFile(fileName, JSON.stringify(data, null, 2));
 }
 
-
-/**
- * @typedef {import('../../client/src/model/activities').Product} Product
- * */
-
-/**
- * @returns {Promise<Activity[]>}
- * */
 async function getAll() {
     const data = await dataPromises;
     return data.items.map(x=> ({
@@ -31,19 +23,10 @@ async function getAll() {
     }))
 }
 
-/**
- * @param {number} id
- * @returns {Promise<Activity>}
- * */
 async function get(id) {
     const data = await dataPromises;
     return data.items.find(item => item.id == id);
 }
-
-/**
- * @param {string} q
- * @returns {Promise<Activity[]>}
- * */
 
 // not sure what this is doing or if it's doing it right
 async function search(q) {
@@ -53,10 +36,6 @@ async function search(q) {
         new RegExp(q, 'i').test(item.location) );
 }
 
-/**
- * @param {Activity} activity
- * @returns {Promise<Activity>}
- * */
 async function add(activity) {
     const data = await dataPromises;
     activity.id = data.items.length + 1;
@@ -70,10 +49,6 @@ async function add(activity) {
     return activity;
 }
 
-/**
- * @param {Product} product
- * @returns {Promise<Product>}
- * */
 async function update(activity) {
     const data = await dataPromises;
     const index = data.items.findIndex(item => item.id == activity.id);
@@ -88,10 +63,6 @@ async function update(activity) {
     return null;
 }
 
-/**
- * @param {number} id
- * @returns {Promise<Activity | null>}
- * */
 async function remove(id) {
     const data = await dataPromises;
     const index = data.items.findIndex(item => item.id == id);
