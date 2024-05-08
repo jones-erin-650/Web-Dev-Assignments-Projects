@@ -23,11 +23,9 @@ export const setRefCurrentUser = (input: User) => {
     console.log("currentUser in currentuser.ts " + currentUser)
     console.log("value: " + currentUser.value)
     console.log("name: " + currentUser.value.firstName)
-
-
-export const logOut = () => {
-    currentUser.value = undefined
 }
 
 
-
+export function logOut() {
+    currentUser.value = undefined
+}
