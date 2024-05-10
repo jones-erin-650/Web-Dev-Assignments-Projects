@@ -1,5 +1,5 @@
 import { getUserActivities, type User } from "./User";
-import { api, refCurrentUser } from "@/viewModel/session";
+import { api, refSession } from "@/viewModel/session";
 import { ref } from "vue"
 import activityData from "../../../server/data/activities.json";
 // import { DataEnvelope } from "./transportTypes";
@@ -18,7 +18,8 @@ export interface Activity {
 }
 
 // necessary to add to the current user's activity array
-const currentUser = refCurrentUser()
+const session = refSession()
+const currentUser = session.user
 
 // export const refNewActivity
 export const newActivity = ref()
@@ -60,7 +61,7 @@ export const addActivity = (input: Activity) => {
   input.date = d.toISOString();
 
   // set the originalPoster to the currentUser
-  input.originalPoster = currentUser.value.handle
+  input.originalPoster = currentUser!.handle
 
   // adds new activity to array of activities
   activityData.items.push(input)

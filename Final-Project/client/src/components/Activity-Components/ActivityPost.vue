@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { refCurrentUser } from '@/viewModel/session'
+  import { refSession } from '@/viewModel/session'
   import type { Activity } from '@/model/Activity';
   import { deleteActivity } from '@/model/Activity';
   import {type User } from '@/model/User';
@@ -8,7 +8,7 @@
   import ActivityModal from './ActivityModal.vue';
 
   // this is needed for the check to see if the edit and delete button should show up
-  const currentUser = refCurrentUser()
+  const session = refSession()
 
   // dropdown functionality
   let isActive = ref(false);
@@ -78,7 +78,7 @@
         </div>
         <div class="media-right">
           <!-- only appears if the current user posted the Activity -->
-          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.handle === user.handle">
+          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="session.user!.handle === user.handle">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
                 <span class="icon is-small">

@@ -2,13 +2,13 @@
   import StatisticsBlock from '@/components/Activity-Components/StatisticsBlock.vue';
   import { getUserActivities } from '@/model/User';
   import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
-  import { refCurrentUser } from '@/viewModel/session'
+  import { refSession } from '@/viewModel/session'
 
-  const currentUser = refCurrentUser()
-  const userActivities = getUserActivities(currentUser.value)
+  const session = refSession()
+  const userActivities = getUserActivities(session.user!)
 
-  const todaysActivities = getTodaysActivities(currentUser.value)
-  const thisWeeksActivities = getWeeksActivities(currentUser.value)
+  const todaysActivities = getTodaysActivities(session.user!)
+  const thisWeeksActivities = getWeeksActivities(session.user!)
   console.log("This weeks activities: " + thisWeeksActivities)
 </script>
 <template>

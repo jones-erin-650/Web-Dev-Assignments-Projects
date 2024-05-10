@@ -1,23 +1,24 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import { getUserActivities, getUserFromHandle, type User } from '@/model/User'
-  import { refCurrentUser } from '@/viewModel/session'
+  import { refSession } from '@/viewModel/session'
   
   // components
   import ActivityPost from '@/components/Activity-Components/ActivityPost.vue';
   import ActivityModal from '@/components/Activity-Components/ActivityModal.vue';
   import BasicButton from '@/components/BasicButton.vue';
-  // want to first import the current user using refCurrentUser
-  const currentUser = refCurrentUser()
 
-  console.log("current user activities: " + getUserActivities(currentUser.value))
-  console.log("current user name: " + currentUser.value.firstName)
+  // want to first import the current user using refSession
+  const session = refSession()
+
+  console.log("current user activities: " + getUserActivities(session.user!))
+  console.log("current user name: " + session.user!.firstName)
 
   
   // this is needed to prevent the bug where changing the current user changes what handle is displayed on the curent user's posts; it basically dereferences the ref variable
   // now when you change the currentuser variable it won't immediately switcht the handles on this page
 
-  const user = getUserFromHandle(currentUser.value.handle)
+  const user = getUserFromHandle(session.user!.handle)
 
   // get the current user's activity array using getUserActivities; the reason it's done like this is for the same reason as the user, 
   const userActivities = getUserActivities(user!)

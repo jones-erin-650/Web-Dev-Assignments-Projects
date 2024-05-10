@@ -1,8 +1,11 @@
 // this will be imported to get the current user
-import { reactive, ref } from "vue";
 import type { User } from "@/model/User";
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
 import * as myFetch from "@/model/myFetch";
 
+
+// currentUser is declared here
 
 const session  = reactive({
     user: null as User | null,
@@ -10,43 +13,53 @@ const session  = reactive({
 });
 
 
-// currentUser is declared here
-
-const currentUser = ref()
-
 // in oder to use curretUser in other files you need to import this function that returns the variable
 
-// undefined by default
-console.log("If there's no user logged in this is undefined: " + currentUser.value)
+export const refSession = () =>  session
 
-// in oder to use curretUser in other files you need to import this function that returns the variable
+export function getSession(){
+    return session;
+}
 
-export const refCurrentUser = () =>  currentUser
-
-
-export const setRefCurrentUser = (input: User) => {
-    currentUser.value = input
-    console.log("currentUser in currentuser.ts " + currentUser)
-    console.log("value: " + currentUser.value)
-    console.log("name: " + currentUser.value.firstName)
+export function useLogin() {
+    const router = useRouter();
+    return {
+        async login(user: User) {
+            const x = await api<User>("users/login", user);
+            if(x){
+                session.user = x.data;
+                console.log("Session user: " + session.user);
+                router.push("/");
+            }
+        },
+        logout() {
+            session.user = null;
+            console.log("Session user: " + session.user);
+            router.push("/");
+        }
+    };
+    
 }
 
 
-export function logOut() {
-    currentUser.value = undefined
-}
-
-export const refSession = () => session;
-
+// all the requests go through here
 export function api<T>(action: string, data?: unknown, method?: string){
     session.isLoading++;
     return myFetch.api<T>(action, data, method)
     .then(x=>{
         if(!x.isSuccess){
             // showError(x);
+            console.log("error: " + x);
         }
         return x;
     })
-    // .catch(showError)
+    // should show an error on the catch
+    // .catch(showError("Error in session"))
+    .catch(showError)
     .finally(() => session.isLoading--);
+}
+
+
+export function showError(error: any) {
+    return console.error(error);
 }

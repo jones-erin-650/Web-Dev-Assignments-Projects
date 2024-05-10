@@ -53,8 +53,8 @@ export function getUserActivities(user: User) {
   const activities = ref([] as Activity[]);
   onMounted(async () => {
   try {
-    const activitiyResponse = await getActivities();
-    activities.value = activitiyResponse.data;
+    const activityResponse = await getActivities();
+    activities.value = activityResponse!.data;
   } catch (error: any) {
     console.error('Error loading activities:', error.message);
   }
