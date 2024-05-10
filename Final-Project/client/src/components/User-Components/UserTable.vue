@@ -1,12 +1,19 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
   import BasicButton from '../BasicButton.vue';
   import { deleteUser, addUser, editUser } from '@/model/User';
   import UserModal from './UserModal.vue';
 
-  const users = ref([] as User[]) 
-  users.value = getUsers()
+  const users = ref([] as User[]);
+  onMounted(async () => {
+  try {
+    const usersResponse = await getUsers();
+    users.value = usersResponse.data;
+  } catch (error: any) {
+    console.error('Error loading users:', error.message);
+  }
+})
 
    // pass that in as props for the activity post
   //modal functionality

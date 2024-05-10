@@ -18,7 +18,7 @@
   } catch (error: any) {
     console.error('Error loading users:', error.message);
   }
-});
+})
 
   // bringing in the current user variable
   const currentUser = ref()

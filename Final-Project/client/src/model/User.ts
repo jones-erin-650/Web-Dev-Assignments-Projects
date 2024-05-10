@@ -54,7 +54,6 @@ export function getUserActivities(user: User) {
 // this code should probably be moved to a folder in viewmodel
 
 export function getUserFromHandle(handle: String) {
-  const usersArray = getUsers()
   const filteredUsers = userData.items.find(item => item.handle === handle);
   return filteredUsers
 }
