@@ -30,10 +30,6 @@ app
   .use('/api/v1/users', users)
   .use('/api/v1/activities', activities)
 
-// 404
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname,  '../client/index.html'));
-})
 
 // Error handling
 app.use((err, req, res, next) => {
@@ -52,3 +48,7 @@ app.listen(PORT, () => {
 });
 
 
+// 404
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname,  '../client/dist/index.html'));
+})

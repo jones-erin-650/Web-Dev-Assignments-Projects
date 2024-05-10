@@ -48,17 +48,6 @@ app
             res.send(response);
         }).catch(next);
     })
-    .get('/:id', (req, res, next) => {
-        const id = req.params.id;
-        users.get(+id)
-        .then(result => {
-            const response = {
-                data: result,
-                isSuccess: true,
-            }
-            res.send(response);
-        }).catch(next);
-    })
     // adding to users
     .post('/', (req, res, next) => {
         const user = req.body;
