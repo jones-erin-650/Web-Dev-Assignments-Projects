@@ -2,6 +2,7 @@ import { getUserActivities, type User } from "./User";
 import { refCurrentUser } from "@/viewModel/session";
 import { ref } from "vue"
 import activityData from "../../../server/data/activities.json";
+// import { DataEnvelope } from "./transportTypes";
 
 export interface Activity {
     date: string,

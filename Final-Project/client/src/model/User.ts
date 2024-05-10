@@ -1,6 +1,7 @@
 import userData from "../../../server/data/users.json";
 import activityData from "../../../server/data/activities.json";
 import { ref } from "vue";
+import { api } from "./myFetch";
 
 // importing user data from the server
 
@@ -39,9 +40,10 @@ export const setEmptyUser = () => {
   setRefNewUser(activityToSetNewUser)
 }
   
-// gets the userData out of the user.json file and returns an array of users
-export function getUsers(): User[] {
-  return userData.items;
+//sends a request to the server to return the users from the json files
+export function getUsers() {
+  console.log('get users test: ' + api<User[]>('users'));
+  return api<User[]>('users');
 }
 
 // input a user and get a return of their activity array

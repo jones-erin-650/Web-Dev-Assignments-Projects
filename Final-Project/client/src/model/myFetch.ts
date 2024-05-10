@@ -1,14 +1,10 @@
-// communicates with the server
-
 import type { DataEnvelope } from "./transportTypes";
 
 
-// export const API_ROOT = import.meta.env.VITE_API_ROOT;
-export const API_ROOT = 'https://localhost:3000'
-// hardcoded for now till i figure out the environment variables
+export const API_ROOT = import.meta.env.VITE_API_ROOT;
 
 
-export function rest(url: string, data?: unknown, method?: string){
+export function rest(url: string, data?: unknown, method?: string) {
     return fetch(url, {
         method: method ?? (data ? "POST" : "GET"),
         headers: {
@@ -19,7 +15,6 @@ export function rest(url: string, data?: unknown, method?: string){
     .then(x => x.json())
 }
 
-// goes to the address defined by api_root
-export function api<T>(action: string, data?: unknown, method?: string): Promise<DataEnvelope<T>>{
+export function api<T>(action: string, data?: unknown, method?: string): Promise<DataEnvelope<T>> {
     return rest(`${API_ROOT}/${action}`, data, method);
 }

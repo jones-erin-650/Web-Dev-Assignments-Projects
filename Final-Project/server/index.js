@@ -31,14 +31,13 @@ app
   .use('/api/v1/activities', activities)
 
 // 404
-// app.use((req, res) => {
-//   res.sendFile(path.join(__dirname,  '../client/dist/index.html'));
-// })
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname,  '../client/index.html'));
+})
 
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err);
-  /** @type {ErrorDataEnvelope } */
   const results = { 
     isSuccess: false,
     message: err.message || 'Internal Server Error',

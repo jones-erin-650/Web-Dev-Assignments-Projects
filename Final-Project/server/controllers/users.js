@@ -8,6 +8,7 @@ const app = express.Router();
 app
     // getting all users
     .get('/', (req, res, next) => {
+        console.log('user/ called');
         users.getAll()
         .then(all => {
             const response = {
@@ -59,7 +60,7 @@ app
         }).catch(next);
     })
     // adding to users
-    .post('/users', (req, res, next) => {
+    .post('/', (req, res, next) => {
         const user = req.body;
         console.log("1: About to add user");
         users.add(user)
@@ -73,7 +74,7 @@ app
         }).catch(next);
     })
     // editting a user
-    .patch('users/:id', (req, res, next) => {
+    .patch('/:id', (req, res, next) => {
         const user = req.body;
         user.id = req.params.id;
         users.update(user)
@@ -87,7 +88,7 @@ app
         }).catch(next);
     })
     // deleting a user
-    .delete('users/:id', (req, res, next) => {
+    .delete('/:id', (req, res, next) => {
         const id = req.params.id;
         users.remove(+id)
         .then(result => {
