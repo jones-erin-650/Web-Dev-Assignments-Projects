@@ -36,17 +36,17 @@ export function logOut() {
     currentUser.value = undefined
 }
 
+export const refSession = () => session;
+
 export function api<T>(action: string, data?: unknown, method?: string){
     session.isLoading++;
     return myFetch.api<T>(action, data, method)
     .then(x=>{
         if(!x.isSuccess){
-            console.error("api function failed");
+            // showError(x);
         }
         return x;
     })
-    // .catch( showError = () => {
-    //     console.error("api function failed")
-    // } )
+    // .catch(showError)
     .finally(() => session.isLoading--);
 }
