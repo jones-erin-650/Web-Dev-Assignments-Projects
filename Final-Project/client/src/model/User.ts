@@ -1,7 +1,8 @@
 import userData from "../../../server/data/users.json";
 import activityData from "../../../server/data/activities.json";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { api } from "../viewModel/session";
+import { getActivities, type Activity } from "./Activity";
 
 // importing user data from the server
 
@@ -48,7 +49,19 @@ export function getUsers() {
 
 // input a user and get a return of their activity array
 export function getUserActivities(user: User) {
-  return activityData.items.filter( (item) =>  item.originalPoster === user.handle)
+  // first get all the activities
+  const activities = ref([] as Activity[]);
+  onMounted(async () => {
+  try {
+    const activitiyResponse = await getActivities();
+    activities.value = activitiyResponse.data;
+  } catch (error: any) {
+    console.error('Error loading activities:', error.message);
+  }
+})
+
+  // then filter them according to the user handle
+  return activities.value.filter( (item) =>  item.originalPoster === user.handle)
 }
 
 // this code should probably be moved to a folder in viewmodel

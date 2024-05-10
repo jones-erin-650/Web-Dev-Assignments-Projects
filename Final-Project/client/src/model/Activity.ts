@@ -1,5 +1,5 @@
 import { getUserActivities, type User } from "./User";
-import { refCurrentUser } from "@/viewModel/session";
+import { api, refCurrentUser } from "@/viewModel/session";
 import { ref } from "vue"
 import activityData from "../../../server/data/activities.json";
 // import { DataEnvelope } from "./transportTypes";
@@ -45,6 +45,10 @@ export const setEmptyActivity = () => {
   }
   // replaces the current newActivity value with the empty one
   setRefNewActivity(activityToSetNewActivity)
+}
+//sends a request to the server to return the users from the json files
+export function getActivities() {
+  return api<Activity[]>('activities/');
 }
 // appends inputted activity to the current user's activity array
 export const addActivity = (input: Activity) => {
