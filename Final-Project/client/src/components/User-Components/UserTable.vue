@@ -67,14 +67,7 @@
           <th>{{user.id}}</th>
           <th>{{user.isAdmin}}</th>
           <th>
-            <!-- <BasicButton text="Edit User" color="is-dark" @click="isActive = !isActive"/>
-              <UserModal 
-                :isActive="isActive" 
-                :submitType="'Edit'" 
-                @modalToggled="toggleModal()"
-              /> -->
-
-              <BasicButton text="Delete User" color="is-dark" @click="deleteUser"/>
+            <BasicButton text="Delete User" color="is-dark" @click="deleteUser(user.id)"/>
           </th>
           
         </tr>

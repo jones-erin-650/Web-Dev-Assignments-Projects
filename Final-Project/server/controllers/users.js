@@ -77,7 +77,9 @@ app
     })
     // deleting a user
     .delete('/:id', (req, res, next) => {
+        
         const id = req.params.id;
+        console.log('.delete user in server called. id: ' + id);
         users.remove(+id)
         .then(result => {
             const response = {
