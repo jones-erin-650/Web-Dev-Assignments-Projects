@@ -1,5 +1,4 @@
 import userData from "../../../server/data/users.json";
-import activityData from "../../../server/data/activities.json";
 import { onMounted, ref } from "vue";
 import { api } from "../viewModel/session";
 import { getActivities, type Activity } from "./Activity";
@@ -66,14 +65,17 @@ export function getUserActivities(user: User) {
 
 // this code should probably be moved to a folder in viewmodel
 
-export function getUserFromHandle(handle: String) {
-  const filteredUsers = userData.items.find(item => item.handle === handle);
-  return filteredUsers
+export async function getUserFromHandle(handle: String) {
+  try {
+    const response = await api(`users/${handle}`, null, "GET");
+
+    return response;
+  } catch (error) {
+      throw new Error('Failed to fetch user by handle');
+  }
 }
 
-const handleTest = getUserFromHandle("@eribrin")
-
-console.log("getUserFromHandle test: " + handleTest?.firstName);
+console.log('getUserFromHandle test: ' + getUserFromHandle('@eribrin'));
 
 export function addUser(input: User){
   const last = userData.items[userData.items.length - 1];

@@ -22,12 +22,11 @@ app
     })
 
     // getting a user from a specific id
-    .get('/:userId', (req, res, next) => {
-        users.get(req.params.userId)
+    .get('/:userHandle', (req, res, next) => {
+        users.get(req.params.userHandle)
         .then(all => {
             const response = {
                 data: all,
-                totalCount: all.length,
                 isSuccess: true,
             }
             res.send(response);
