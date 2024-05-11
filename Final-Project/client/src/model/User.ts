@@ -69,13 +69,15 @@ export async function getUserFromHandle(handle: String) {
   try {
     const response = await api(`users/${handle}`, null, "GET");
 
+    console.log('getUserFromHandle response: ' + JSON.stringify(response));
+
     return response;
   } catch (error) {
       throw new Error('Failed to fetch user by handle');
   }
 }
 
-console.log('getUserFromHandle test: ' + getUserFromHandle('@eribrin'));
+
 
 export function addUser(input: User){
   const last = userData.items[userData.items.length - 1];
@@ -95,6 +97,6 @@ export const editUser = (originalUser: User, newUser: User) => {
     
   }
 
-export function deleteUser(index: number) {
-    userData.items.splice(index, 1);
+export async function deleteUser(userId: number) {
+  await api(`users/${userId}`, null, "GET");
 }

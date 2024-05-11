@@ -2,14 +2,15 @@
   import { getUsers, type User } from '@/model/User'
   import { onMounted, ref } from 'vue';
   import BasicButton from '../BasicButton.vue';
-  import { deleteUser, addUser, editUser } from '@/model/User';
+  import { deleteUser } from '@/model/User';
   import UserModal from './UserModal.vue';
 
+  // importing the users
   const users = ref([] as User[]);
   onMounted(async () => {
   try {
     const usersResponse = await getUsers();
-    users.value = usersResponse.data;
+    users.value = usersResponse!.data;
   } catch (error: any) {
     console.error('Error loading users:', error.message);
   }

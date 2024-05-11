@@ -21,7 +21,7 @@ app
         
     })
 
-    // getting a user from a specific id
+    // getting a user from a specific handle
     .get('/:userHandle', (req, res, next) => {
         users.get(req.params.userHandle)
         .then(all => {

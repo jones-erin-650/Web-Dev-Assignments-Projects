@@ -6,9 +6,9 @@ const fileName = __dirname + '/../data/activities.json';
 
 
 const dataPromises = fs
-        .access(fileName, fs.constants.F_OK)
-        .then(() => fs.readFile(fileName, 'utf8'))
-        .then(content => JSON.parse(content))
+    .access(fileName, fs.constants.F_OK)
+    .then(() => fs.readFile(fileName, 'utf8'))
+    .then(content => JSON.parse(content))
 
 
 async function save() {
@@ -73,6 +73,7 @@ async function remove(id) {
     }
     return null;
 }
+
 
 module.exports = {
     getAll, get, search, add, update, remove

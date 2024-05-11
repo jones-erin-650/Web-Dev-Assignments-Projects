@@ -26,9 +26,9 @@ async function getAll() {
     // this should have something that maps undefined onto variables of the data we want to hide from users, but I'm not quite sure how that implementation will be done with other parts of the project
 }
 
-async function get(id) {
+async function get(handle) {
     const data = await dataPromise;
-    return data.items.find(item => item.id == id);
+    return data.items.find(item => item.handle == handle);
 }
 
 // filters the users and returns only those that match the inputted parameter
