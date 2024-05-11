@@ -12,17 +12,6 @@
 
   // want to first import the current user using refSession
   const session = refSession()
-  
-  // this is needed to prevent the bug where changing the current user changes what handle is displayed on the curent user's posts; it basically dereferences the ref variable
-  // now when you change the currentuser variable it won't immediately switcht the handles on this page
-
-  const userDataResponse = await getUserFromHandle(session.user!.handle)
-  const userDataEnvelope = await userDataResponse
-  const currentUser = userDataEnvelope!.data as User
-
-  console.log('current user in MyActivity: ' + JSON.stringify(currentUser));
-
-
 
   // import activities array
   const activities = ref([] as Activity[])

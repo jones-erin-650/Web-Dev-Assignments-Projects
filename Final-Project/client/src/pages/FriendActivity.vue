@@ -9,15 +9,6 @@
   const session = refSession()
 
   // import current user for the filter logic
-  // i don't think we need to dereference the session like this as the logic is different from MyActivity, but might as well just keep it cause we know it works
-
-  const userDataResponse = await getUserFromHandle(session.user!.handle)
-  const userDataEnvelope = await userDataResponse
-  const currentUser = userDataEnvelope!.data as User
-
-  console.log('current user in MyActivity: ' + JSON.stringify(currentUser));
-
-  
 
 
   // import activities array
@@ -29,7 +20,7 @@
   console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 
   // should definitely be a function but unfortunately im lazy right now
-  const filteredActivities = filterFriendActivities(currentUser, activities.value)
+  const filteredActivities = filterFriendActivities(session.user!, activities.value)
 
 
   
