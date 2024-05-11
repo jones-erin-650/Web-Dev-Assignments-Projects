@@ -7,7 +7,6 @@
   import NavBar from './components/NavBar.vue'
   import SignInForm from './components/User-Components/SignInForm.vue';
   import WelcomeMessage from './components/WelcomeMessage.vue';
-import { getUserFromHandle } from './model/User';
   // want to first import the current user using session to check if it's undefined
   const session = refSession()
 </script>
