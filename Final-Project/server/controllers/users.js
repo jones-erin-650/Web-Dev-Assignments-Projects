@@ -89,10 +89,11 @@ app
         }).catch(next);
     })
     .post('/login', (req, res, next) => {
-        const { email, password } = req.body;
-        users.login(email, password)
+        console.log('/login called');
+        const { email } = req.body;
+        console.log('email: ' + email);
+        users.login(email)
         .then(result => {
-            /** @type { UserDataEnvelope } */
             const response = {
                 data: result,
                 isSuccess: true,

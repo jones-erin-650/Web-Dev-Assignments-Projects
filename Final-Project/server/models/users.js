@@ -80,9 +80,13 @@ async function remove(id) {
     return null;
 }
 
-async function login(email, password) {
-    const data = await dataP;
+async function login(email) {
+    const data = await dataPromise;
+    console.log('data.items: ' + data.items);
+    
+        
     const user = data.items.find(item => item.email === email);
+
     if(!user) throw new Error("Invalid email");
     //if(user.password !== password) throw new Error("Invalid password");
 
@@ -90,5 +94,5 @@ async function login(email, password) {
 }
 
 module.exports = {
-    getAll, get, search, add, update, remove
+    getAll, get, search, add, update, remove, login
 }
