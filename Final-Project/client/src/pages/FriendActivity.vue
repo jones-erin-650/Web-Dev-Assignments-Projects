@@ -39,7 +39,6 @@
     <div>
 
       <ActivityPost v-for="activity in filteredActivities" :key="activity.id"
-        :user="session.user!"
         :activity="activity"
       />
       <hr>

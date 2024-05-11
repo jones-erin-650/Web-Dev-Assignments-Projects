@@ -3,12 +3,15 @@
   import { refSession } from '@/viewModel/session'
   import type { Activity } from '@/model/Activity';
   import { deleteActivity } from '@/model/Activity';
-  import {type User } from '@/model/User';
+  import {getUserFromHandle, type User } from '@/model/User';
   import type { PropType } from 'vue'
   import ActivityModal from './ActivityModal.vue';
 
   // this is needed for the check to see if the edit and delete button should show up
   const session = refSession()
+
+  
+
 
   // dropdown functionality
   let isActive = ref(false);
@@ -22,26 +25,28 @@
 
 
   const props = defineProps({
-    user: Object as PropType<User>,
     // pass in the current Activity in the for loop
     activity: Object as PropType<Activity>,
-    userActivities: Object as PropType<Activity[]>
   })
+  // need to get the user information from the handle of the original poster that way we dont need a prop passing in the User
+  const userDataResponse = await getUserFromHandle(props.activity!.originalPoster)
+  const userDataEnvelope = await userDataResponse
+  const activityPoster = userDataEnvelope!.data as User
 </script>
 
 <template>
-    <article class="media" v-if="user != undefined && activity != undefined">
+    <article class="media" v-if="activityPoster != undefined && activity != undefined">
         <figure class="media-left">
           <p class="image is-64x64 is-rounded">
-            <img :src="user.profilePicture">
+            <img :src="activityPoster.profilePicture">
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>{{user.firstName}} {{user.lastName}}</strong> 
+              <strong>{{activityPoster.firstName}} {{activityPoster.lastName}}</strong> 
               <span>&nbsp;</span>
-              <small>{{user.handle}}</small>
+              <small>{{activityPoster.handle}}</small>
               <span>&nbsp;</span>
               <span>&#183;</span> 
               <span>&nbsp;</span>
@@ -78,7 +83,7 @@
         </div>
         <div class="media-right">
           <!-- only appears if the current user posted the Activity -->
-          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="session.user!.handle === user.handle">
+          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="session.user!.handle === activityPoster.handle">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
                 <span class="icon is-small">
@@ -96,7 +101,7 @@
                   :isActive="modalIsActive" 
                   :originalActivity="activity"
                   :originalActivityID="activity.id" 
-                  :user="user"
+                  :user="activityPoster"
                   :submitType="'Edit Activity'"
                   @modalToggled="toggleModal()"
                   />

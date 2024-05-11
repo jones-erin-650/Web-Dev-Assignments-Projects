@@ -64,9 +64,7 @@
       <!-- this is needed when using promises -->
      
       <ActivityPost v-for="(activity) in filteredActivities" :key="activity.id"
-        :user="currentUser"
         :activity="activity"
-        :userActivities="filteredActivities"
       />
 
       <hr>
