@@ -3,8 +3,11 @@ import { onMounted, ref } from "vue";
 import { api } from "../viewModel/session";
 import { getActivities, type Activity } from "./Activity";
 
-// importing user data from the server
-
+// importing activities data from the server
+const activitiesData = ref([] as Activity[])
+const activityDataResponse = await getActivities()
+const activityDataEnvelope = await activityDataResponse
+activitiesData.value = activityDataEnvelope!.data as Activity[]
 
 export interface User {
   id: number,
@@ -59,12 +62,7 @@ export function filterFriendActivities(user: User, activities: Activity[]) {
 
 export async function getUserActivities(user: User) {
   // this should import the activities for whatever calls it to make there be less repeated code
-  const activities = ref([] as Activity[])
-  const activityDataResponse = await getActivities()
-  const activityDataEnvelope = await activityDataResponse
-  activities.value = activityDataEnvelope!.data as Activity[]
-
-  const filteredActivities = filterUserActivities(user, activities.value)
+  const filteredActivities = filterUserActivities(user, activitiesData.value)
 
   return filteredActivities
 }
