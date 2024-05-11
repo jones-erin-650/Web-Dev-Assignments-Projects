@@ -80,24 +80,30 @@ export async function getUserFromHandle(handle: String) {
 }
 
 
+// this works as both add and edit user, this simplifies handling the functions for the modals
+export async function addUser(user: User){
+  // check if the user already exist, if it does then the input is patched in to edit the server data
+  const existingUserResponse = await api<User>(`users/${user.handle}`);
+  const existingUserEnvelope = await existingUserResponse;
 
-export function addUser(input: User){
-  const last = userData.items[userData.items.length - 1];
-  input.id = last.id+1
-  userData.items.push(input)
-  setEmptyUser()
-}
+  // edit the user if it already exists
+  if (existingUserEnvelope!.isSuccess) {
+    const updateUserResponse = await api<User>(`users/${user.id}`, user, "PATCH");
 
-export const editUser = (originalUser: User, newUser: User) => {
-    // the original Id needs to be preserved 
-    const originalID = originalUser.id
+    // Check if the update was successful
+    if (!updateUserResponse!.isSuccess) {
+        throw new Error(updateUserResponse!.message || 'Failed to update user data');
+    }
+  } else {
+      // If the user doesn't exist, add it
+      const addUserResponse = await api<User>("users", user, "POST");
 
-    // replaces the value at that index with the new activity
-    userData.items[originalID-1] = newUser
-    // preserve the original id
-    userData.items[originalID-1].id = originalID
-    
+    // Check if the addition was successful
+    if (!addUserResponse!.isSuccess) {
+        throw new Error(addUserResponse!.message || 'Failed to add user');
+    }
   }
+}
 
 export async function deleteUser(userId: number) {
   await api(`users/${userId}`, null, "GET");

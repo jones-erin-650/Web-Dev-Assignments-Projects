@@ -1,7 +1,7 @@
 <script setup lang="ts">
  
   import type { PropType } from 'vue'
-  import { refNewUser, setEmptyUser, type User, addUser, editUser } from '@/model/User'
+  import { refNewUser, setEmptyUser, type User, addUser } from '@/model/User'
   import BasicButton from '../BasicButton.vue';
 
 
@@ -17,7 +17,7 @@
     isActive: Boolean,
 
     // this gets passed down to the submit button to determine whether you're adding a new User or editing a preexisting one
-    // 'Edit User' makes it call editUser, and 'Add Activity' makes it call addUser
+    //submit type doesnt need to be here anymore because the addUser function handles both adding and editing
     submitType: String,
     originalUser: Object as PropType<User>,
     originalUserId: Number
@@ -82,14 +82,9 @@
         <!-- passes in the newActivity to be added or edited, text determines which action it does -->
         <div class="control">
           <BasicButton 
-            
+            :text="submitType"
             :color="'is-link'" 
             @click="addUser(newUser), $emit('modalToggled')"/>
-          <BasicButton 
-             
-            :text="submitType" 
-            :color="'is-link'" 
-            @click="editUser(originalUser!, newUser), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 
