@@ -57,6 +57,18 @@ export function filterFriendActivities(user: User, activities: Activity[]) {
   return activities.filter( (item) =>  item.originalPoster != user.handle)
 }
 
+export async function getUserActivities(user: User) {
+  // this should import the activities for whatever calls it to make there be less repeated code
+  const activities = ref([] as Activity[])
+  const activityDataResponse = await getActivities()
+  const activityDataEnvelope = await activityDataResponse
+  activities.value = activityDataEnvelope!.data as Activity[]
+
+  const filteredActivities = filterUserActivities(user, activities.value)
+
+  return filteredActivities
+}
+
 // this code should probably be moved to a folder in viewmodel
 
 export async function getUserFromHandle(handle: String) {
