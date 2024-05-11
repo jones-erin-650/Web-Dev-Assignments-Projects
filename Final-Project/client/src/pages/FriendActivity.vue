@@ -8,26 +8,22 @@ import { getActivities, type Activity } from '@/model/Activity';
   // used to make sure that the current user's activities aren't being shown with the friends' activities
   const session = refSession()
   //imports user array
-  const users = ref([] as User[]);
-  onMounted(async () => {
-    try {
-      const usersResponse = await getUsers();
-      users.value = usersResponse!.data;
-    } catch (error: any) {
-      console.error('Error loading users:', error.message);
-    }
-  })
+  const users = ref([] as User[])
+    getUsers()
+    .then((data) => {
+        if(data){
+            users.value = data.data
+        }
+    })
 
   // import activities array
-  const activities = ref([] as Activity[]);
-  onMounted(async () => {
-    try {
-      const activitiesResponse = await getActivities();
-      activities.value = activitiesResponse!.data;
-    } catch (error: any) {
-      console.error('Error loading activities:', error.message);
-    }
-  })
+  const activities = ref([] as Activity[])
+    getActivities()
+    .then((data) => {
+        if(data){
+            activities.value = data.data
+        }
+    })
 
   const userActivitiesTest = getUserActivities(session.user!)
 
@@ -36,14 +32,16 @@ import { getActivities, type Activity } from '@/model/Activity';
   
 </script>
 <template>
-  <div>
+  <Suspense>
+    <div>
 
-    <div v-for="user in users" :key="user.id" >
-      <ActivityPost v-if="user!=session.user" v-for="activity in getUserActivities(user)" :key="activity.id"
-        :user="user"
-        :activity="activity"
-      />
-      <hr>
+      <div v-for="user in users" :key="user.id" >
+        <ActivityPost v-if="user!=session.user" v-for="activity in getUserActivities(user)" :key="activity.id"
+          :user="user"
+          :activity="activity"
+        />
+        <hr>
+      </div>
     </div>
-  </div>
+  </Suspense>
 </template>

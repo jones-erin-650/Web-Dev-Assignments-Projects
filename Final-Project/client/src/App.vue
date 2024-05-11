@@ -13,6 +13,7 @@ import { getUserFromHandle } from './model/User';
 </script>
 
 <template>
+  <Suspense>
   <div>
     <!-- if there's no current user logged in then it should show a sign in field -->
     <div v-if="session.user === undefined || session.user === null">
@@ -22,6 +23,7 @@ import { getUserFromHandle } from './model/User';
     </div>
     
     <div v-else class="else-conditional">
+
       <NavBar />
       <!-- this column is just here to add some space between the navbar and page view, not a good solution but it is a solution -->
       <div class="column"></div>
@@ -38,6 +40,7 @@ import { getUserFromHandle } from './model/User';
     </div>
 
   </div>
+</Suspense>
   
 </template>
 

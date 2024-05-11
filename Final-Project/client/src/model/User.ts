@@ -60,7 +60,9 @@ export function getUserActivities(user: User) {
 })
 
   // then filter them according to the user handle
-  return activities.value.filter( (item) =>  item.originalPoster === user.handle)
+  const filteredActivities = activities.value.filter( (item) =>  item.originalPoster === user.handle)
+  console.log('filtered activities: ' + JSON.stringify(filteredActivities));
+  return filteredActivities
 }
 
 // this code should probably be moved to a folder in viewmodel
