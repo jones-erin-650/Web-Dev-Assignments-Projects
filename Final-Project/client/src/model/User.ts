@@ -106,5 +106,5 @@ export async function addUser(user: User){
 }
 
 export async function deleteUser(userId: number) {
-  await api(`users/${userId}`, null, "GET");
+  await api(`users/${userId}`, null, "DELETE");
 }

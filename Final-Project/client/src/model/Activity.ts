@@ -52,43 +52,31 @@ export function getActivities() {
   return api<Activity[]>('activities/');
 }
 // appends inputted activity to the current user's activity array
-export const addActivity = (input: Activity) => {
-  // first need to get the last element of the array to take that id and make a new ID from it
-  const last = activityData.items[activityData.items.length - 1];
-  input.id = last.id+1
-  // need to create a new date for the activity
-  const d = new Date();
-  input.date = d.toISOString();
+export async function addActivity(activity: Activity) {
+  // check if the user already exist, if it does then the input is patched in to edit the server data
+  const existingActivityResponse = await api<Activity>(`activities/${activity.id}`);
+  const existingActivityEnvelope = await existingActivityResponse;
 
-  // set the originalPoster to the currentUser
-  input.originalPoster = currentUser!.handle
+  // edit the user if it already exists
+  if (existingActivityEnvelope!.isSuccess) {
+    const updateActivityResponse = await api<Activity>(`activities/${activity.id}`, activity, "PATCH");
 
-  // adds new activity to array of activities
-  activityData.items.push(input)
-  // after the activity is added the newActivity object should be cleared out for the next activity to be added
-  setEmptyActivity()
+    // Check if the update was successful
+    if (!updateActivityResponse!.isSuccess) {
+        throw new Error(updateActivityResponse!.message || 'Failed to update activity data');
+    }
+  } else {
+      // If the user doesn't exist, add it
+      const addActivityResponse = await api<User>("activities", activity, "POST");
+
+    // Check if the addition was successful
+    if (!addActivityResponse!.isSuccess) {
+        throw new Error(addActivityResponse!.message || 'Failed to add activity');
+    }
+  }
 } 
   
-  // replaces the userData of a specific activity
-  // should take the newActivity in and replace every orgiinalActivity value spot with it, everything except the date and id
-  export const editActivity = (user: User, originalActivity: Activity, newActivity: Activity) => {
-    // the original Id needs to be preserved 
-    const originalID = originalActivity.id
-    
-    // gets that user's activities
-    const userActivities = getUserActivities(user)
-    // then finds the index of the original activity in that user's activityArray
-    const activityIndex = userActivities.findIndex(a => a.id === originalActivity.id)
-    // replaces the value at that index with the new activity
-    userActivities[activityIndex] = newActivity
-    // preserve the original id
-    userActivities[activityIndex].id = originalID
-    
-  }
-  export function deleteActivity(user : User, activity : Activity) {
-    // gets that user's activities
-    const userActivities = getUserActivities(user)
-    // finds the index of the index of the original activity according to the user id, then splices it
-    const activityIndex = userActivities.findIndex(a => a.id === activity.id);
-    userActivities.splice(activityIndex, 1);
+  
+  export async function deleteActivity(activity : Activity) {
+    await api(`activity/${activity.id}`, null, "DELETE");
 }
