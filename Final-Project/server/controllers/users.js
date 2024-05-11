@@ -49,6 +49,7 @@ app
     })
     // adding to users
     .post('/', (req, res, next) => {
+        console.log('post / in user called. req.body: ' + req.body);
         const user = req.body;
         console.log("1: About to add user");
         users.add(user)
