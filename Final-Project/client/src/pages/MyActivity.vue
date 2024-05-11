@@ -27,22 +27,12 @@
   console.log('current user in MyActivity: ' + JSON.stringify(currentUser));
 
 
-  // get the current user's activity array using getUserActivities; the reason it's done like this is for the same reason as the user, 
 
   // import activities array
   const activities = ref([] as Activity[])
   const activityDataResponse = await getActivities()
   const activityDataEnvelope = await activityDataResponse
   activities.value = activityDataEnvelope!.data as Activity[]
-  // getActivities()
-  // .then((data) => {
-  //     if(data){
-  //         activities.value = data.data
-  //     }
-  //     else if(data === undefined || data === null){
-  //       console.log('activities is empty and i am crying');
-  //     }
-  // })
 
   console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 

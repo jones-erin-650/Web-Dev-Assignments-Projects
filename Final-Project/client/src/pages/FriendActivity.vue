@@ -1,33 +1,36 @@
 <script setup lang="ts">
   import { onMounted, ref } from 'vue';
-  import { type User, getUsers, getUserActivities } from '@/model/User'
+  import { type User, getUsers, getUserActivities, getUserFromHandle } from '@/model/User'
   import { refSession } from '@/viewModel/session'
   import ActivityPost from '@/components/Activity-Components/ActivityPost.vue';
-import { getActivities, type Activity } from '@/model/Activity';
-  
-  // used to make sure that the current user's activities aren't being shown with the friends' activities
+  import { getActivities, type Activity } from '@/model/Activity';
+    
+  // want to first import the current user using refSession
   const session = refSession()
-  //imports user array
-  const users = ref([] as User[])
-    getUsers()
-    .then((data) => {
-        if(data){
-            users.value = data.data
-        }
-    })
+
+  // import current user for the filter logic
+  // i don't think we need to dereference the session like this as the logic is different from MyActivity, but might as well just keep it cause we know it works
+
+  const userDataResponse = await getUserFromHandle(session.user!.handle)
+  const userDataEnvelope = await userDataResponse
+  const currentUser = userDataEnvelope!.data as User
+
+  console.log('current user in MyActivity: ' + JSON.stringify(currentUser));
+
+  
+
 
   // import activities array
   const activities = ref([] as Activity[])
-    getActivities()
-    .then((data) => {
-        if(data){
-            activities.value = data.data
-        }
-    })
+  const activityDataResponse = await getActivities()
+  const activityDataEnvelope = await activityDataResponse
+  activities.value = activityDataEnvelope!.data as Activity[]
 
-  const userActivitiesTest = getUserActivities(session.user!)
+  console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 
-  console.log('get user activities test: ' + userActivitiesTest);
+  // should definitely be a function but unfortunately im lazy right now
+  const filteredActivities = activities.value.filter( (item) =>  item.originalPoster != currentUser.handle)
+
 
   
 </script>
@@ -35,13 +38,11 @@ import { getActivities, type Activity } from '@/model/Activity';
   <Suspense>
     <div>
 
-      <div v-for="user in users" :key="user.id" >
-        <ActivityPost v-if="user!=session.user" v-for="activity in getUserActivities(user)" :key="activity.id"
-          :user="user"
-          :activity="activity"
-        />
-        <hr>
-      </div>
+      <ActivityPost v-for="activity in filteredActivities" :key="activity.id"
+        :user="session.user!"
+        :activity="activity"
+      />
+      <hr>
     </div>
   </Suspense>
 </template>
