@@ -1,4 +1,4 @@
-import { getUserActivities, type User } from "./User";
+import {  type User } from "./User";
 import { api, refSession } from "@/viewModel/session";
 import { ref } from "vue"
 import activityData from "../../../server/data/activities.json";

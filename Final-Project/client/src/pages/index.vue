@@ -1,11 +1,12 @@
 <script setup lang="ts">
   import StatisticsBlock from '@/components/Activity-Components/StatisticsBlock.vue';
-  import { getUserActivities } from '@/model/User';
+  import {  } from '@/model/User';
   import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
   import { refSession } from '@/viewModel/session'
 
   const session = refSession()
-  const userActivities = getUserActivities(session.user!)
+  // this just doesnt work for now it'll take more effort to refactor than i thought
+  const userActivities = []
 
   const todaysActivities = getTodaysActivities(session.user!)
   const thisWeeksActivities = getWeeksActivities(session.user!)

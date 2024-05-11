@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { onMounted, ref } from 'vue';
-  import { type User, getUsers, getUserActivities, getUserFromHandle } from '@/model/User'
+  import { type User, getUsers, getUserFromHandle, filterFriendActivities } from '@/model/User'
   import { refSession } from '@/viewModel/session'
   import ActivityPost from '@/components/Activity-Components/ActivityPost.vue';
   import { getActivities, type Activity } from '@/model/Activity';
@@ -29,7 +29,7 @@
   console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 
   // should definitely be a function but unfortunately im lazy right now
-  const filteredActivities = activities.value.filter( (item) =>  item.originalPoster != currentUser.handle)
+  const filteredActivities = filterFriendActivities(currentUser, activities.value)
 
 
   

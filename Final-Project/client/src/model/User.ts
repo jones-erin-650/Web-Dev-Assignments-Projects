@@ -47,22 +47,14 @@ export function getUsers() {
 }
 
 // input a user and get a return of their activity array
-export function getUserActivities(user: User) {
-  // first get all the activities
-  const activities = ref([] as Activity[]);
-  onMounted(async () => {
-  try {
-    const activityResponse = await getActivities();
-    activities.value = activityResponse!.data;
-  } catch (error: any) {
-    console.error('Error loading activities:', error.message);
-  }
-})
+export function filterUserActivities(user: User, activities: Activity[]) {
+  // kind of a compromise; anything that uses this function still has to import the full activities themselves, but we don't have to duplicate the logic everywhere now. still would be better to have this function import the activities but doing it this way just lets us have one more place we don't have to bother with async functions
+  return activities.filter( (item) =>  item.originalPoster === user.handle)
+}
 
-  // then filter them according to the user handle
-  const filteredActivities = activities.value.filter( (item) =>  item.originalPoster === user.handle)
-  console.log('filtered activities: ' + JSON.stringify(filteredActivities));
-  return filteredActivities
+export function filterFriendActivities(user: User, activities: Activity[]) {
+  // gets all the activities except the user's; this is used for getting data for FriendActivities
+  return activities.filter( (item) =>  item.originalPoster != user.handle)
 }
 
 // this code should probably be moved to a folder in viewmodel

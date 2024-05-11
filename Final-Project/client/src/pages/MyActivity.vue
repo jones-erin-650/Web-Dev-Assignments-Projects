@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
   import {  ref } from 'vue';
-  import { getUserActivities, getUserFromHandle, type User } from '@/model/User'
+  import { filterUserActivities, getUserFromHandle, type User } from '@/model/User'
   import { refSession } from '@/viewModel/session'
   
   // components
@@ -12,10 +12,6 @@
 
   // want to first import the current user using refSession
   const session = refSession()
-
-  console.log("current user activities: " + getUserActivities(session.user!))
-  console.log("current user name: " + session.user!.firstName)
-
   
   // this is needed to prevent the bug where changing the current user changes what handle is displayed on the curent user's posts; it basically dereferences the ref variable
   // now when you change the currentuser variable it won't immediately switcht the handles on this page
@@ -37,7 +33,7 @@
   console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 
   // should definitely be a function but unfortunately im lazy right now
-  const filteredActivities = activities.value.filter( (item) =>  item.originalPoster === currentUser.handle)
+  const filteredActivities = filterUserActivities(session.user!, activities.value)
 
   console.log('filtered activities in MyActivity: ' + JSON.stringify(filteredActivities));
   
