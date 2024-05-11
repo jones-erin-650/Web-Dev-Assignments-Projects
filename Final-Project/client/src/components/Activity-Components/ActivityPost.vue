@@ -101,7 +101,7 @@
                   @modalToggled="toggleModal()"
                   />
                   
-                <a class="dropdown-item" @click="deleteActivity(user!, activity!)">
+                <a class="dropdown-item" @click="deleteActivity(activity!)">
                   Delete
                 </a>
               </div>
