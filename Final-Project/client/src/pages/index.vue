@@ -1,15 +1,25 @@
 <script setup lang="ts">
   import StatisticsBlock from '@/components/Activity-Components/StatisticsBlock.vue';
-  import {  } from '@/model/User';
+  import { getActivities, type Activity } from '@/model/Activity';
+  import { filterUserActivities } from '@/model/User';
   import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
   import { refSession } from '@/viewModel/session'
+  import { ref } from 'vue';
 
   const session = refSession()
-  // this just doesnt work for now it'll take more effort to refactor than i thought
-  const userActivities = []
+  // import activities array
+  const activities = ref([] as Activity[])
+  const activityDataResponse = await getActivities()
+  const activityDataEnvelope = await activityDataResponse
+  activities.value = activityDataEnvelope!.data as Activity[]
 
-  const todaysActivities = getTodaysActivities(session.user!)
-  const thisWeeksActivities = getWeeksActivities(session.user!)
+  console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
+
+  // filter them to be the currentUser's activities
+  const filteredActivities = filterUserActivities(session.user!, activities.value)
+
+  const todaysActivities = getTodaysActivities(filteredActivities)
+  const thisWeeksActivities = getWeeksActivities(filteredActivities)
   console.log("This weeks activities: " + thisWeeksActivities)
 </script>
 <template>
@@ -19,7 +29,7 @@
     <hr>
     <StatisticsBlock :text="'This Week'" :activities="thisWeeksActivities"/>
     <hr>
-    <StatisticsBlock :text="'All Time'" :activities="userActivities"/>
+    <StatisticsBlock :text="'All Time'" :activities="filteredActivities"/>
   </div>
 </body>
 </template>../components/Activity-Components/ActivityPost.vue

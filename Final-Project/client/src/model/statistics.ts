@@ -3,12 +3,8 @@ import type { User } from "./User";
 import type { Activity } from "./Activity";
 import { getUserActivities } from "./User";
 
-
 // functions to get activities within a certain time period
-export function getTodaysActivities(user: User) {
-  // gets that user's activities
-  const userActivities = getUserActivities(user)
-
+export function getTodaysActivities(userActivities: Activity[]) {
   //   for this we only care about the year, month and day, so we splice the rest, cut everything after the day
   //   format: YYYY-MM-DDTZH:MM.SS.SSS
   const d = new Date();
@@ -20,11 +16,8 @@ export function getTodaysActivities(user: User) {
   return filteredActivities
 }
 
-export function getWeeksActivities(user: User) {
+export function getWeeksActivities(userActivities: Activity[]) {
   // THIS IS MOST LIKELY TEMPORARY; it would be much better to use a preexisting library for this
-
-  // gets that user's activities
-  const userActivities = getUserActivities(user)
 
 // get the current day of the week 0-7
   const currentDate = new Date();

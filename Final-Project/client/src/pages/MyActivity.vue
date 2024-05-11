@@ -32,7 +32,6 @@
 
   console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 
-  // should definitely be a function but unfortunately im lazy right now
   const filteredActivities = filterUserActivities(session.user!, activities.value)
 
   console.log('filtered activities in MyActivity: ' + JSON.stringify(filteredActivities));
