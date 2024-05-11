@@ -17,10 +17,13 @@ async function save() {
 }
 
 async function getAll() {
+    console.log('getAll in activities model called!');
     const data = await dataPromises;
-    return data.items.map(x=> ({
+    const buffer = data.items.map(x=> ({
         ...x, 
     }))
+    console.log('data.items in getAll() activities: ' + JSON.stringify(data.items));
+    return buffer
 }
 
 async function get(id) {

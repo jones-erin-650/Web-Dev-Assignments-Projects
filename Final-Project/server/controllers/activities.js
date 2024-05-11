@@ -6,6 +6,7 @@ const app = express.Router();
 app
     // gets all activities
     .get('/', (req, res, next) => {
+        console.log('.get activities/ called (should import the activities)');
         model.getAll()
         .then(all => {
            

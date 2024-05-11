@@ -31,20 +31,25 @@
 
   // import activities array
   const activities = ref([] as Activity[])
-  getActivities()
-  .then((data) => {
-      if(data){
-          activities.value = data.data
-      }
-      else if(data === undefined || data === null){
-        console.log('activities is empty and i am crying');
-      }
-  })
+  const activityDataResponse = await getActivities()
+  const activityDataEnvelope = await activityDataResponse
+  activities.value = activityDataEnvelope!.data as Activity[]
+  // getActivities()
+  // .then((data) => {
+  //     if(data){
+  //         activities.value = data.data
+  //     }
+  //     else if(data === undefined || data === null){
+  //       console.log('activities is empty and i am crying');
+  //     }
+  // })
 
-    console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
+  console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 
+  // should definitely be a function but unfortunately im lazy right now
   const filteredActivities = activities.value.filter( (item) =>  item.originalPoster === currentUser.handle)
 
+  console.log('filtered activities in MyActivity: ' + JSON.stringify(filteredActivities));
   
   
   // pass that in as props for the activity post
