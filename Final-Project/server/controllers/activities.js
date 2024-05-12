@@ -50,9 +50,8 @@ app
     // adds activity
     .post('/:currentUserHandle', (req, res, next) => {
         const activity = req.body;
-        // makes sure that the original poster of the activity is the current user in the session, this lets it be actually rendered
-        activity.originalPoster = req.params.currentUserHandle
-        model.add(activity)
+        
+        model.add(activity, req.params.currentUserHandle)
         .then(result => {
             const response = {
                 data: result,

@@ -39,7 +39,18 @@ async function search(q) {
         new RegExp(q, 'i').test(item.location) );
 }
 
-async function add(activity) {
+async function add(activity, userHandle) {
+    // makes sure that the original poster of the activity is the current user in the session, this lets it be actually rendered
+    activity.originalPoster = userHandle
+    // also need to make sure all the number variables are actual numbers and not strings
+
+    activity.distanceFeet = parseFloat(activity.distanceFeet)
+    activity.distanceMiles = parseFloat(activity.distanceMiles)
+    activity.durationHours = parseFloat(activity.durationHours)
+    activity.durationMinutes = parseFloat(activity.durationMinutes)
+    // activity.id = parseFloat(activity.id)
+
+
     const data = await dataPromises;
     activity.id = data.items.length + 1;
     data.items.push(activity);
