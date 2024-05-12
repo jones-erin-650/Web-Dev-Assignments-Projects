@@ -48,6 +48,11 @@ async function add(activity, userHandle) {
     activity.durationMinutes = parseFloat(activity.durationMinutes)
     // activity.id = parseFloat(activity.id)
 
+    // need to make a new date for the activity
+    const d = new Date();	
+    activity.date = d.toISOString();
+    console.log('new activity date: ' + activity.date);
+
 
     const data = await dataPromises;
     activity.id = data.items.length + 1;
