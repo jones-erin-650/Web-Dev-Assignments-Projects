@@ -51,7 +51,6 @@ export const setEmptyActivity = () => {
 export function getActivities() {
   return api<Activity[]>('activities/');
 }
-// appends inputted activity to the current user's activity array
 export async function addActivity(activity: Activity) {
   await api('activities', activity, 'POST')
   

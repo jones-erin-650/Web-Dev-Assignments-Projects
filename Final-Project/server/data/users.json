@@ -35,6 +35,15 @@
       "email": "stephens@gmail.com",
       "profilePicture": "https://preview.redd.it/does-anyone-remember-pikmin-4s-second-dog-moss-v0-y23wotyk4shb1.jpg?auto=webp&s=a48bd382f3ddf7d01413cb071ad58e3cff187d8c",
       "isAdmin": true
+    },
+    {
+      "id": 5,
+      "firstName": "dsf",
+      "lastName": "asfd",
+      "handle": "",
+      "email": "sadf",
+      "profilePicture": "ds",
+      "isAdmin": false
     }
   ]
 }
