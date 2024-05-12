@@ -53,27 +53,12 @@ export function getActivities() {
 }
 // appends inputted activity to the current user's activity array
 export async function addActivity(activity: Activity) {
-  // check if the user already exist, if it does then the input is patched in to edit the server data
-  const existingActivityResponse = await api<Activity>(`activities/${activity.id}`);
-  const existingActivityEnvelope = await existingActivityResponse;
-
-  // edit the user if it already exists
-  if (existingActivityEnvelope!.isSuccess) {
-    const updateActivityResponse = await api<Activity>(`activities/${activity.id}`, activity, "PATCH");
-
-    // Check if the update was successful
-    if (!updateActivityResponse!.isSuccess) {
-        throw new Error(updateActivityResponse!.message || 'Failed to update activity data');
-    }
-  } else {
-      // If the user doesn't exist, add it
-      const addActivityResponse = await api<User>("activities", activity, "POST");
-
-    // Check if the addition was successful
-    if (!addActivityResponse!.isSuccess) {
-        throw new Error(addActivityResponse!.message || 'Failed to add activity');
-    }
-  }
+  await api('activities', activity, 'POST')
+  
+} 
+export async function editActivity(activity: Activity) {
+  await api(`activities/${activity.id}`, activity, 'PATCH')
+  
 } 
   
   
