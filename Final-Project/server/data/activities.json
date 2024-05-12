@@ -47,54 +47,6 @@
       "id": 4,
       "picture": "https://www.stonybrook.edu/commcms/_resources/images/second-level/about/videos/we-go-far-beyond.jpg",
       "text": "Biked the class"
-    },
-    {
-      "date": "0000-00-00:00:00",
-      "distanceFeet": 0,
-      "distanceMiles": 0,
-      "durationHours": 0,
-      "durationMinutes": 0,
-      "location": "",
-      "id": 5,
-      "picture": "a",
-      "text": "a",
-      "originalPoster": "@eribrin"
-    },
-    {
-      "date": "0000-00-00:00:00",
-      "distanceFeet": 234,
-      "distanceMiles": 234,
-      "durationHours": 324,
-      "durationMinutes": 432,
-      "location": "Test",
-      "id": 6,
-      "picture": "aa",
-      "text": "Testing editing activities",
-      "originalPoster": "@eribrin"
-    },
-    {
-      "date": "0000-00-00:00:00",
-      "distanceFeet": 0,
-      "distanceMiles": 0,
-      "durationHours": 0,
-      "durationMinutes": 0,
-      "location": "",
-      "id": "8",
-      "picture": "",
-      "text": "",
-      "originalPoster": ""
-    },
-    {
-      "date": "2024-05-12T22:28:01.837Z",
-      "distanceFeet": 34,
-      "distanceMiles": 34,
-      "durationHours": 4,
-      "durationMinutes": 4,
-      "location": "a",
-      "id": 8,
-      "picture": "a",
-      "text": "testing new activities' dates",
-      "originalPoster": "@eribrin"
     }
   ]
 }
