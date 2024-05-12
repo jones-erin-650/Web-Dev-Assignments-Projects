@@ -32,7 +32,7 @@
       "durationHours": 0,
       "durationMinutes": 12,
       "location": "Islip",
-      "id": 1,
+      "id": 3,
       "picture": "https://lh3.googleusercontent.com/p/AF1QipP6duzjkL09FTrxEdH-1Zgmo3h1LGK15c596gsN=s1360-w1360-h1020",
       "text": "Ran to the beach"
     },
@@ -44,7 +44,7 @@
       "durationHours": 0,
       "durationMinutes": 7,
       "location": "Stony Brook University",
-      "id": 1,
+      "id": 4,
       "picture": "https://www.stonybrook.edu/commcms/_resources/images/second-level/about/videos/we-go-far-beyond.jpg",
       "text": "Biked the class"
     },
