@@ -56,13 +56,26 @@ async function add(user) {
 }
 
 async function update(user) {
+    console.log('update() called in model: ' + JSON.stringify(user));
+
     const data = await dataPromise
+    
+    console.log('user.id: ' + user.id);
+    
+    // the user.id works and is properly passed in from the client
+
     const index = data.items.findIndex(item => item.id == user.id);
+
+    // the index keeps being -1 for some reason even though users in the json data have the same id
+    console.log('index: ' + index);
+
     if (index >= 0) {
         data.items[index] = {
             ...data.items[index],
-            ...user
+            ...user,
         };
+        // just so it doesn't cause type errors
+        user.id = parseInt(user.id)
         await save()
         return user;
     }
@@ -81,9 +94,7 @@ async function remove(id) {
 }
 
 async function login(email) {
-    const data = await dataPromise;
-    console.log('data.items: ' + data.items);
-    
+    const data = await dataPromise;    
         
     const user = data.items.find(item => item.email === email);
 

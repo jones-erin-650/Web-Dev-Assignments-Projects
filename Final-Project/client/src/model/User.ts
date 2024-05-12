@@ -86,8 +86,9 @@ export async function addUser(user: User) {
   await api('users/', user, 'POST')
   
 } 
-export async function editUser(user: User) {
-  await api(`activities/${user.id}`, user, 'PATCH')
+export async function editUser(user: User, originalUserId: Number) {
+  console.log('user in editUser(): ' + JSON.stringify(user))
+  await api(`users/${originalUserId}`, user, 'PATCH')
   
 } 
 

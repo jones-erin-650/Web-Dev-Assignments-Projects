@@ -6,7 +6,6 @@ const app = express.Router();
 app
     // gets all activities
     .get('/', (req, res, next) => {
-        console.log('.get activities/ called (should import the activities)');
         model.getAll()
         .then(all => {
            
@@ -77,7 +76,6 @@ app
     })
     // deletes an activity
     .delete('/:id', (req, res, next) => {
-        console.log('.delete activity called');
         const id = req.params.id;
         model.remove(+id)
         .then(result => {

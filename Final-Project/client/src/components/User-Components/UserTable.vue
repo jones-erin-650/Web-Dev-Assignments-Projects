@@ -77,6 +77,7 @@
               <UserModal 
                 :isActive="isActive" 
                 :submitType="'Edit User'" 
+                :originalUserId="user.id"
                 @modalToggled="toggleModal()"
           
               />

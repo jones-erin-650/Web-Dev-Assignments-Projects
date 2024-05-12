@@ -8,7 +8,6 @@ const app = express.Router();
 app
     // getting all users
     .get('/', (req, res, next) => {
-        console.log('user/ called');
         users.getAll()
         .then(all => {
             const response = {
@@ -49,7 +48,6 @@ app
     })
     // adding to users
     .post('/', (req, res, next) => {
-        console.log('post / in user called. req.body: ' + req.body);
         const user = req.body;
         console.log("1: About to add user");
         users.add(user)
@@ -64,8 +62,10 @@ app
     })
     // editting a user
     .patch('/:id', (req, res, next) => {
+        console.log('.patch user called in controller: ' + JSON.stringify(req.body))
         const user = req.body;
         user.id = req.params.id;
+        console.log('user.id in controller: ' + user.id);
         users.update(user)
         .then(result => {
             const response = {
@@ -80,7 +80,6 @@ app
     .delete('/:id', (req, res, next) => {
         
         const id = req.params.id;
-        console.log('.delete user in server called. id: ' + id);
         users.remove(+id)
         .then(result => {
             const response = {
@@ -91,9 +90,7 @@ app
         }).catch(next);
     })
     .post('/login', (req, res, next) => {
-        console.log('/login called');
         const { email } = req.body;
-        console.log('email: ' + email);
         users.login(email)
         .then(result => {
             const response = {

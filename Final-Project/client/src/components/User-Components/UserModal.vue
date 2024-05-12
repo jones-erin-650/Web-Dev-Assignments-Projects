@@ -90,7 +90,7 @@
           <BasicButton v-if="submitType === 'Edit User'"
             :text="submitType" 
             :color="'is-link'" 
-            @click="editUser(newUser), $emit('modalToggled')"/>
+            @click="editUser(newUser, originalUserId!), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 
