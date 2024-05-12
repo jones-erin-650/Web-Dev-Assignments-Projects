@@ -82,7 +82,13 @@ async function update(newActivity) {
         };
 
         // done to avoid type errors
-        data.items[index].id = toInt(data.items[index].id)
+        data.items[index].id = parseInt(data.items[index].id)
+        // also need to make sure all the number variables are actual numbers and not strings
+
+        data.items[index].distanceFeet = parseFloat(data.items[index].distanceFeet)
+        data.items[index].distanceMiles = parseFloat(data.items[index].distanceMiles)
+        data.items[index].durationHours = parseFloat(data.items[index].durationHours)
+        data.items[index].durationMinutes = parseFloat(data.items[index].durationMinutes)
 
         await save()
         return newActivity;
