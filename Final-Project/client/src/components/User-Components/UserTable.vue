@@ -45,13 +45,15 @@
               <BasicButton text="Add User" color="is-dark" @click="toggleModal"/>
               <UserModal 
                 :isActive="isActive" 
-                :submitType="'Create'" 
+                :submitType="'Add User'" 
                 @modalToggled="toggleModal()"
           
               />
             </div>
           </th>
-          <th></th>
+          <th>
+
+          </th>
         </tr>
         <!-- each user in the array should make a new table row  -->
         <tr v-for="(user, index) in users" :key="user.id">
@@ -68,6 +70,17 @@
           <th>{{user.isAdmin}}</th>
           <th>
             <BasicButton text="Delete User" color="is-dark" @click="deleteUser(user.id)"/>
+          </th>
+          <th>
+            <div>
+              <BasicButton text="Edit User" color="is-dark" @click="toggleModal"/>
+              <UserModal 
+                :isActive="isActive" 
+                :submitType="'Edit User'" 
+                @modalToggled="toggleModal()"
+          
+              />
+            </div>
           </th>
           
         </tr>

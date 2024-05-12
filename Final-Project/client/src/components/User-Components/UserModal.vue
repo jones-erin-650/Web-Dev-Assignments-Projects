@@ -1,7 +1,7 @@
 <script setup lang="ts">
  
   import type { PropType } from 'vue'
-  import { refNewUser, setEmptyUser, type User, addUser } from '@/model/User'
+  import { refNewUser, setEmptyUser, type User, addUser, editUser } from '@/model/User'
   import BasicButton from '../BasicButton.vue';
 
 
@@ -81,10 +81,16 @@
       <div class="field is-grouped">
         <!-- passes in the newActivity to be added or edited, text determines which action it does -->
         <div class="control">
-          <BasicButton 
-            :text="submitType"
+          <BasicButton v-if="submitType === 'Add User'"
+            :text="submitType" 
             :color="'is-link'" 
             @click="addUser(newUser), $emit('modalToggled')"/>
+        </div>
+        <div class="control">
+          <BasicButton v-if="submitType === 'Edit User'"
+            :text="submitType" 
+            :color="'is-link'" 
+            @click="editUser(newUser), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 
