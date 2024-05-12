@@ -39,7 +39,7 @@
       <BasicButton text="Add Activity" color="is-dark" @click="isActive = !isActive"/>
       <ActivityModal 
         :isActive="isActive" 
-        :submitType="'Create Activity'" 
+        :submitType="'Add Activity'" 
         @modalToggled="toggleModal()"
         
         />

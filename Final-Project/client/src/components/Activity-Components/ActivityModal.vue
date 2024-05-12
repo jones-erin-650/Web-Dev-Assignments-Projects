@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import BasicButton from '../BasicButton.vue';
-  import { addActivity, refNewActivity, setEmptyActivity } from '@/model/Activity';
+  import { addActivity, refNewActivity, setEmptyActivity, editActivity } from '@/model/Activity';
   import type { PropType } from 'vue'
   import type { Activity } from '@/model/Activity'
   import type { User } from '@/model/User'
@@ -103,10 +103,16 @@
       <div class="field is-grouped">
         <!-- passes in the newActivity to be added or edited, text determines which action it does -->
         <div class="control">
-          <BasicButton 
+          <BasicButton v-if="submitType === 'Add Activity'"
             :text="submitType" 
             :color="'is-link'" 
             @click="addActivity(newActivity), $emit('modalToggled')"/>
+        </div>
+        <div class="control">
+          <BasicButton v-if="submitType === 'Edit Activity'"
+            :text="submitType" 
+            :color="'is-link'" 
+            @click="editActivity(newActivity), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 

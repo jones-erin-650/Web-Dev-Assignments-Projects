@@ -56,6 +56,7 @@ export async function addActivity(activity: Activity) {
   
 } 
 export async function editActivity(activity: Activity) {
+  console.log('editActivity() called');
   await api(`activities/${activity.id}`, activity, 'PATCH')
   
 } 
