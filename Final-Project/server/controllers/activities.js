@@ -75,6 +75,7 @@ app
     })
     // deletes an activity
     .delete('/:id', (req, res, next) => {
+        console.log('.delete activity called');
         const id = req.params.id;
         model.remove(+id)
         .then(result => {

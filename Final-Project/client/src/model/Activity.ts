@@ -77,6 +77,7 @@ export async function addActivity(activity: Activity) {
 } 
   
   
-  export async function deleteActivity(activity : Activity) {
-    await api(`activity/${activity.id}`, null, "DELETE");
-}
+  export async function deleteActivity(activityId : number) {
+    console.log('deleteActivity() called: ' + activityId);
+    await api(`activities/${activityId}`, null, "DELETE");
+  }
