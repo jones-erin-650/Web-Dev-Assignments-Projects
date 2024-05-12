@@ -52,7 +52,7 @@ export function getActivities() {
   return api<Activity[]>('activities/');
 }
 export async function addActivity(activity: Activity) {
-  await api('activities', activity, 'POST')
+  await api(`activities/${session.user!.handle}`, activity, 'POST')
   
 } 
 export async function editActivity(activity: Activity) {

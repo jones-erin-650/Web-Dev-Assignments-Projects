@@ -48,8 +48,10 @@ app
         }).catch(next);
     })
     // adds activity
-    .post('/', (req, res, next) => {
+    .post('/:currentUserHandle', (req, res, next) => {
         const activity = req.body;
+        // makes sure that the original poster of the activity is the current user in the session, this lets it be actually rendered
+        activity.originalPoster = req.params.currentUserHandle
         model.add(activity)
         .then(result => {
             const response = {
@@ -63,6 +65,7 @@ app
     .patch('/:id', (req, res, next) => {
         const activity = req.body;
         activity.id = req.params.id;
+        activity.originalPoster = req.params.currentUser
         model.update(activity)
         .then(result => {
             const response = {

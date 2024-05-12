@@ -50,15 +50,27 @@
     },
     {
       "date": "0000-00-00:00:00",
-      "distanceFeet": "0sdaf",
-      "distanceMiles": "0dsfsdf",
+      "distanceFeet": 0,
+      "distanceMiles": 0,
       "durationHours": 0,
       "durationMinutes": 0,
       "location": "",
       "id": 5,
-      "picture": "",
-      "text": "",
-      "originalPoster": ""
+      "picture": "a",
+      "text": "a",
+      "originalPoster": "@eribrin"
+    },
+    {
+      "date": "0000-00-00:00:00",
+      "distanceFeet": "23123",
+      "distanceMiles": "1212",
+      "durationHours": "213",
+      "durationMinutes": "0321",
+      "location": "aaaaa",
+      "id": 6,
+      "picture": "aaa",
+      "text": "aa",
+      "originalPoster": "@eribrin"
     }
   ]
 }
