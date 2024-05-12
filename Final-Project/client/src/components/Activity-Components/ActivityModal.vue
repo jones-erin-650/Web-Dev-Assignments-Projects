@@ -112,7 +112,7 @@
           <BasicButton v-if="submitType === 'Edit Activity'"
             :text="submitType" 
             :color="'is-link'" 
-            @click="editActivity(newActivity), $emit('modalToggled')"/>
+            @click="editActivity(newActivity, originalActivityID!), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 

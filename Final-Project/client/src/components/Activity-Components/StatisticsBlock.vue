@@ -12,9 +12,9 @@ const props = defineProps({
 
 // the ! tells typescript that even if it looks like it could be null or undefined it isn't
 // the + just makes sure that toFixed returns a number and not a string
-const totalDistance = +getTotalDistance(props.activities!).toFixed(2)
-const totalDuration = +getTotalDuration(props.activities!).toFixed(2)
-const averagePace = +getAveragePace(totalDistance, totalDuration).toFixed(2)
+const totalDistance = +getTotalDistance(props.activities!)//.toFixed(2)
+const totalDuration = +getTotalDuration(props.activities!)//.toFixed(2)
+const averagePace = +getAveragePace(totalDistance, totalDuration)//.toFixed(2)
 const totalCalories = getTotalCalories(props.activities!)
 
 

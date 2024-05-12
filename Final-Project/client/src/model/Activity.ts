@@ -55,9 +55,10 @@ export async function addActivity(activity: Activity) {
   await api(`activities/${session.user!.handle}`, activity, 'POST')
   
 } 
-export async function editActivity(activity: Activity) {
-  console.log('editActivity() called');
-  await api(`activities/${activity.id}`, activity, 'PATCH')
+export async function editActivity(activity: Activity, originalActivityId: Number) {
+  // originalActivityId isn't undefined and is passed in right
+  console.log('editActivity() called, originalActivityId: ' + originalActivityId);
+  await api(`activities/${originalActivityId}`, activity, 'PATCH')
   
 } 
   

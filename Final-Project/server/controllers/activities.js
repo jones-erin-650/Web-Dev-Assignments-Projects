@@ -60,10 +60,16 @@ app
         }).catch(next);
     })
     // edits an activity
-    .patch('/:id', (req, res, next) => {
+    .patch('/:activityId', (req, res, next) => {
+        console.log('.patch activity called in controller');
         const activity = req.body;
-        activity.id = req.params.id;
-        activity.originalPoster = req.params.currentUser
+
+
+        const originalActivityId = req.params.activityId
+        console.log('originalActivityId: ' + originalActivityId );
+
+        activity.id = req.params.activityId;
+        
         model.update(activity)
         .then(result => {
             const response = {

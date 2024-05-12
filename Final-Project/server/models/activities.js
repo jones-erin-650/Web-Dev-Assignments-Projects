@@ -61,16 +61,31 @@ async function add(activity, userHandle) {
     return activity;
 }
 
-async function update(activity) {
+async function update(newActivity) {
+    console.log('update() called in model: ' + JSON.stringify(newActivity));
+
     const data = await dataPromises;
-    const index = data.items.findIndex(item => item.id == activity.id);
+
+    const index = data.items.findIndex(item => item.id == newActivity.id);
+
+    console.log('index: ' + index);
+
     if (index >= 0) {
+        // need to make sure this is preserved
+        newActivity.originalPoster = data.items[index].originalPoster
+
+        console.log('newActivity.originalPoster: ' + newActivity.originalPoster);
+
         data.items[index] = {
             ...data.items[index],
-            ...activity
+            ...newActivity
         };
+
+        // done to avoid type errors
+        data.items[index].id = toInt(data.items[index].id)
+
         await save()
-        return activity;
+        return newActivity;
     }
     return null;
 }
