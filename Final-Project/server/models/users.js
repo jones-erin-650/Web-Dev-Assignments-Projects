@@ -107,7 +107,7 @@ async function login(email) {
 async function typeahead(currentUserInput) {
     // need to filter the user data with values that start with the same character
     const data = await dataPromise
-    const filteredUsers = data.filter(item => item.handle.startsWith(currentUserInput))
+    const filteredUsers = data.filter(item => item.firstName.toString().toLowerCase().startsWith(currentUserInput))
 
     return filteredUsers
 }

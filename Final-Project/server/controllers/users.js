@@ -47,7 +47,7 @@ app
         }).catch(next);
     })
     .get('/typeahead/:currentUserInput', (req, res, next) => {
-      users.typeahead(req.params.currentUserInput)
+      users.typeahead(req.params.currentUserInput.toString().toLowerCase())
       .then(result => {
         const response = {
             data: result,
