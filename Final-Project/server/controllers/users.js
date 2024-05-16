@@ -47,7 +47,15 @@ app
         }).catch(next);
     })
     .get('/typeahead/:currentUserInput', (req, res, next) => {
-      
+      users.typeahead(req.params.currentUserInput)
+      .then(result => {
+        const response = {
+            data: result,
+            totalCount: result.length,
+            isSuccess: true,
+        }
+        res.send(response);
+      }).catch(next);
     }) 
     // adding to users
     .post('/', (req, res, next) => {
