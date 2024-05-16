@@ -94,3 +94,7 @@ export async function editUser(user: User, originalUserId: Number) {
 export async function deleteUser(userId: number) {
   await api(`users/${userId}`, null, "DELETE");
 }
+
+export async function typeaheadSearch(currentInputValue: String) {
+  await api(`users/typeahead/${currentInputValue}`, null, "SEARCH");
+}

@@ -46,6 +46,9 @@ app
             res.send(response);
         }).catch(next);
     })
+    .get('/typeahead/:currentUserInput', (req, res, next) => {
+      
+    }) 
     // adding to users
     .post('/', (req, res, next) => {
         const user = req.body;

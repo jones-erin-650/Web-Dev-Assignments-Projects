@@ -1,4 +1,21 @@
 <script setup lang="ts">
+  
+// prop functions
+  function itemProjection() {
+
+  }
+  function selectItemEventHandler() {
+
+  }
+  function onInputEventHandler() {
+
+  }
+  function onFocusEventHandler() {
+
+  }
+  function onBlurEventHandler() {
+    
+  }
 
 </script>
 
@@ -8,7 +25,7 @@
         placeholder="Search User Activities"
         :items="['One','Two','Three']"
         :minInputLength="1"
-        :itemProjection="itemProjectionFunction"
+        :itemProjection="itemProjection()"
         @selectItem="selectItemEventHandler"
         @onInput="onInputEventHandler"
         @onFocus="onFocusEventHandler"
