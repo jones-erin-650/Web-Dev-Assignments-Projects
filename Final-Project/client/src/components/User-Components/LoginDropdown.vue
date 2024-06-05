@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
-  import { ref } from 'vue';
-  import { refCurrentUser, setRefCurrentUser, logOut } from '@/viewModel/currentuser';
+  import { onMounted, ref } from 'vue';
+  import { refSession, useLogin } from '@/viewModel/session'
 
   // this needs to be imported in order to refresh the page when there's a new login
   import { useRouter } from 'vue-router';
@@ -10,12 +10,28 @@
 
 
   // bringing in the user array
-  const users = ref([] as User[]) 
-  users.value = getUsers()
+  const users = ref([] as User[]);
+  onMounted(async () => {
+  try {
+    const usersResponse = await getUsers();
+    users.value = usersResponse!.data;
+  } catch (error: any) {
+    console.error('Error loading users:', error.message);
+  }
+})
 
   // bringing in the current user variable
-  const currentUser = ref()
-  currentUser.value = refCurrentUser()
+  const session = refSession()
+
+  const { login, logout } = useLogin();
+
+    function doLogin(user: User) {
+        login(user);
+    }
+
+    function doLogout() {
+        logout();
+    }
 
   const props = defineProps({
     text: String,
@@ -42,11 +58,11 @@
     </div>
     <div class="dropdown-menu" id="dropdown-menu" role="menu">
       <div class="dropdown-content">
-        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="setRefCurrentUser( user )">
+        <a href="#" class="dropdown-item" v-for="user in users" :key="user.id" @click="doLogin( user )">
           {{user.firstName}} {{ user.lastName }}
         </a>
         <hr class="dropdown-divider">
-        <a href="#" class="dropdown-item" @click="logOut()">
+        <a href="#" class="dropdown-item" @click="doLogout()">
           Log Out
         </a>
       </div>
