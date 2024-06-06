@@ -24,6 +24,8 @@
     activities: Object as PropType<Activity[]>,
   })
 
+  const filteredActivities = filterUserActivities(session.user!, props.activities!)
+
 </script>
 
 <template>
