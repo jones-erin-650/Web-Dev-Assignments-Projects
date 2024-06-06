@@ -47,6 +47,18 @@
       "id": 4,
       "picture": "https://www.stonybrook.edu/commcms/_resources/images/second-level/about/videos/we-go-far-beyond.jpg",
       "text": "Biked the class"
+    },
+    {
+      "date": "2024-06-06T00:26:41.923Z",
+      "distanceFeet": 0,
+      "distanceMiles": 0,
+      "durationHours": 0,
+      "durationMinutes": 0,
+      "location": "",
+      "id": 5,
+      "picture": "",
+      "text": "",
+      "originalPoster": "@eribrin"
     }
   ]
 }

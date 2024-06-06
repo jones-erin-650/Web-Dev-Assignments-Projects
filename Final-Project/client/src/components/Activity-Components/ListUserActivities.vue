@@ -12,13 +12,9 @@
   // want to first import the current user using refSession
   const session = refSession()
 
-  // import activities array
-  const activities = ref([] as Activity[])
-  const activityDataResponse = await getActivities()
-  const activityDataEnvelope = await activityDataResponse
-  activities.value = activityDataEnvelope!.data as Activity[]
+  
 
-  console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
+  console.log('activities in MyActivity: ' + JSON.stringify(props.activities.value));
 
   const filteredActivities = filterUserActivities(session.user!, activities.value)
 
@@ -31,6 +27,12 @@
   function toggleModal() {
     isActive.value = !isActive.value
   }
+
+  const props = defineProps({
+    // passes in the activities from the server so that whenever that info is updated it updates a prop and reloads the component to match the new data
+    activities: Object as PropType<Activity[]>,
+  })
+
 </script>
 
 <template>
