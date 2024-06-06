@@ -5,17 +5,6 @@
   import { deleteUser } from '@/model/User';
   import UserModal from './UserModal.vue';
 
-  // importing the users
-  const users = ref([] as User[]);
-  onMounted(async () => {
-  try {
-    const usersResponse = await getUsers();
-    users.value = usersResponse!.data;
-  } catch (error: any) {
-    console.error('Error loading users:', error.message);
-  }
-})
-
    // pass that in as props for the activity post
   //modal functionality
   let isActive = ref(false);

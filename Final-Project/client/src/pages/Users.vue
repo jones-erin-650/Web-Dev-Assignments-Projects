@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import UserTable from '@/components/User-Components/UserTable.vue'
+  import UserBuffer from '@/components/User-Components/UserBuffer.vue'
 
 </script>
 
 <template>
   <div>
-    <UserTable />
+    <UserBuffer />
   </div>
 
 </template>
