@@ -1,34 +1,34 @@
-<!-- <script setup lang="ts">
-  import { refNewUser, typeaheadSearch, type User } from '@/model/User';
-  import { ref } from 'vue';
+<script setup lang="ts">
+  // import { refNewUser, typeaheadSearch, type User } from '@/model/User';
+  // import { ref } from 'vue';
 
-  const selected = ref()
-  const keepFirst = ref(false);
-  const openOnFocus = ref(false);
-  const isFetching = ref(false)
+  // const selected = ref()
+  // const keepFirst = ref(false);
+  // const openOnFocus = ref(false);
+  // const isFetching = ref(false)
 
-  // used for v-model stuff
-  const dummyUser = ref()
+  // // used for v-model stuff
+  // const dummyUser = ref()
   
-  // getting the filtered users
-  const filteredData = ref()
+  // // getting the filtered users
+  // const filteredData = ref()
 
-  async function getAsyncData(currentInput: String) {
-    // on input we need to send a request to the server  to get the new filtered data
-    isFetching.value = true
+  // async function getAsyncData(currentInput: String) {
+  //   // on input we need to send a request to the server  to get the new filtered data
+  //   isFetching.value = true
     
-    const response = await typeaheadSearch(currentInput)
-    if(response!) {
-      filteredData.value = response.data
-    }
-    isFetching.value = false
-  }
+  //   const response = await typeaheadSearch(currentInput)
+  //   if(response!) {
+  //     filteredData.value = response.data
+  //   }
+  //   isFetching.value = false
+  // }
 
 
 </script>
 
 <template>
-  <section>
+  <!-- <section>
     <o-field grouped>
         <o-switch v-model="openOnFocus">Open dropdown on focus</o-switch>
         <o-switch> </o-switch>
@@ -53,5 +53,5 @@
         </o-autocomplete>
     </o-field>
     <p><b>Selected:</b> {{ selected }}</p>
-  </section>
-</template> -->
+  </section> -->
+</template>
