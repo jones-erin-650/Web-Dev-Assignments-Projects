@@ -20,10 +20,14 @@
     isActive.value = !isActive.value
   }
 
+  
+
   const props = defineProps({
     // passes in the activities from the server so that whenever that info is updated it updates a prop and reloads the component to match the new data
     activities: Object as PropType<Activity[]>,
   })
+
+  const filteredActivities = filterUserActivities(session.user!, props.activities!)
 
 </script>
 
