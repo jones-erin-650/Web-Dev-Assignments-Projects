@@ -11,10 +11,13 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
-    "bulma": "^0.9.4",
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "@oruga-ui/oruga-next": "^0.8.9",
+    "@oruga-ui/theme-oruga": "^0.2.2",
+    "bulma": "^0.9.4",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue3-simple-typeahead": "^1.0.11"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
@@ -23,6 +26,7 @@
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/tsconfig": "^0.5.1",
     "npm-run-all2": "^6.1.1",
+    "sass": "^1.77.1",
     "typescript": "~5.3.0",
     "unplugin-vue-router": "^0.8.4",
     "vite": "^5.0.11",
