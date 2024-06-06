@@ -4,6 +4,7 @@
   import {ref, onMounted} from 'vue'
   import { getUsers, type User } from '@/model/User'
   import UserTable from './UserTable.vue'
+  
 
   // importing the users
   const users = ref([] as User[]);
