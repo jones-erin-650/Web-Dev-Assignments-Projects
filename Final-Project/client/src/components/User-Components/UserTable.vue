@@ -4,6 +4,8 @@
   import BasicButton from '../BasicButton.vue';
   import { deleteUser } from '@/model/User';
   import UserModal from './UserModal.vue';
+  import type { PropType } from 'vue'
+
 
    // pass that in as props for the activity post
   //modal functionality

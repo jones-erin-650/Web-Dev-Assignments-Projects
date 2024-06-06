@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
   import { refNewUser, typeaheadSearch, type User } from '@/model/User';
   import { ref } from 'vue';
 
@@ -54,4 +54,4 @@
     </o-field>
     <p><b>Selected:</b> {{ selected }}</p>
   </section>
-</template>
+</template> -->
