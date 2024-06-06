@@ -11,15 +11,6 @@
 
   // want to first import the current user using refSession
   const session = refSession()
-
-  
-
-  console.log('activities in MyActivity: ' + JSON.stringify(props.activities.value));
-
-  const filteredActivities = filterUserActivities(session.user!, activities.value)
-
-  console.log('filtered activities in MyActivity: ' + JSON.stringify(filteredActivities));
-  
   
   // pass that in as props for the activity post
   //modal functionality

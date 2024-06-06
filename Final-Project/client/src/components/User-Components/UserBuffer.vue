@@ -16,10 +16,6 @@
     }
   })
 
-  const props = defineProps({
-    users: Object as PropType<User[]>,
-  })
-
 </script>
 
 <template>

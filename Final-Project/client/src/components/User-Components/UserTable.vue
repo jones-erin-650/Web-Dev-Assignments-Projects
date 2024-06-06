@@ -12,6 +12,10 @@
     isActive.value = !isActive.value
   }
 
+  const props = defineProps({
+    users: Object as PropType<User[]>,
+  })
+
 
 </script>
 
