@@ -10,6 +10,7 @@
   const activityDataEnvelope = await activityDataResponse
   activities.value = activityDataEnvelope!.data as Activity[]
 
+  const activities.value = filterUserActivities(session.user!, props.activities!)
   
 </script>
 

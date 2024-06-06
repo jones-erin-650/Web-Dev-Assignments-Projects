@@ -27,7 +27,7 @@
     activities: Object as PropType<Activity[]>,
   })
 
-  const filteredActivities = filterUserActivities(session.user!, props.activities!)
+  
 
 </script>
 
@@ -44,7 +44,7 @@
       <hr>
       <!-- this is needed when using promises -->
      
-      <ActivityPost v-for="(activity) in filteredActivities" :key="activity.id"
+      <ActivityPost v-for="(activity) in activities" :key="activity.id"
         :activity="activity"
       />
 
