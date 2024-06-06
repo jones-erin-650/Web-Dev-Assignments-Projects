@@ -46,6 +46,10 @@ async function add(user) {
     // make sure they have a unique id
     user.id = data.items.length + 1;
     data.items.push(user);
+
+    // there are some weird type errors happening
+    user.id = parseInt(user.id)
+
     console.log("2: About to save");
     
     await save()        
@@ -104,6 +108,14 @@ async function login(email) {
     return user
 }
 
+async function typeahead(currentUserInput) {
+    // need to filter the user data with values that start with the same character
+    const data = await dataPromise
+    const filteredUsers = data.filter(item => item.firstName.toString().toLowerCase().startsWith(currentUserInput))
+
+    return filteredUsers
+}
+
 module.exports = {
-    getAll, get, search, add, update, remove, login
+    getAll, get, search, add, update, remove, login, typeahead
 }

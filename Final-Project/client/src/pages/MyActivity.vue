@@ -4,7 +4,7 @@
 
   
   // components
-  import ListUserActivities from '@/components/Activity-Components/ListUserActivities.vue';
+  import MyActivityBuffer from '@/components/Activity-Components/MyActivityBuffer.vue';
 
   //modal functionality
   let isActive = ref(false);
@@ -15,6 +15,6 @@
 
 <template>
   <div>
-    <ListUserActivities />  
+    <MyActivityBuffer />  
   </div>
 </template>
