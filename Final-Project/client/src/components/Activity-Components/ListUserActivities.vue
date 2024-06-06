@@ -44,7 +44,7 @@
       <hr>
       <!-- this is needed when using promises -->
      
-      <ActivityPost v-for="(activity) in activities" :key="activity.id"
+      <ActivityPost v-for="(activity) in filteredActivities" :key="activity.id"
         :activity="activity"
       />
 
