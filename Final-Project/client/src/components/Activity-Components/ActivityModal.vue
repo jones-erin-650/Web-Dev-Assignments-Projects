@@ -6,7 +6,7 @@
   import type { User } from '@/model/User'
 
 
-  // clears out the newActivity object in new-Activity.ts to be filled with new values, then imports it by using refNewActivity
+  // clears out the newActivity object in new-Activity.ts to be filled with new values then imports it by using refNewActivity
   setEmptyActivity()
   const newActivity = refNewActivity()
 
