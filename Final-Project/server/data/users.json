@@ -20,11 +20,11 @@
     },
     {
       "id": "3",
-      "firstName": "aa",
-      "lastName": "",
-      "handle": "",
-      "email": "",
-      "profilePicture": "",
+      "firstName": "Stephen",
+      "lastName": "Alphano",
+      "handle": "@enderburgery",
+      "email": "stephens@gmail.com",
+      "profilePicture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqwx4OFy1jrxmOmPEbYF13FSPGebl0KoALmQ&s",
       "isAdmin": false
     }
   ]

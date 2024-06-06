@@ -17,6 +17,7 @@
   })
 
 
+
 </script>
 
 <!-- should be a table of all the registered users with the variable at the top then each row being the user's variable -->
