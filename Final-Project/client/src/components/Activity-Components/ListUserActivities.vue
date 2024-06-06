@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import {  onMounted, ref } from 'vue';
   import { filterUserActivities, getUserFromHandle, type User } from '@/model/User'
+  import type {PropType} from 'vue'
   import { refSession } from '@/viewModel/session'
   
   // components
