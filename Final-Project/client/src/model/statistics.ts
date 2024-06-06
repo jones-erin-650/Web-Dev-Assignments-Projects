@@ -1,22 +1,22 @@
-// a collection of functions related to calculating statistics about the current user's recent workouts
+// a collection of functions related to calculating statistics about the current user's recent activities
 import type { User } from "./User";
-import type { Workout } from "./Workout";
-
+import type { Activity } from "./Activity";
+import { getUserActivities } from "./User";
 
 // functions to get activities within a certain time period
-export function getTodaysWorkouts(user: User) {
+export function getTodaysActivities(userActivities: Activity[]) {
   //   for this we only care about the year, month and day, so we splice the rest, cut everything after the day
   //   format: YYYY-MM-DDTZH:MM.SS.SSS
   const d = new Date();
   const currentDate = d.toISOString().slice(0, 10);
 
-  //   filter out the userWorkouts and only return the ones with today's date
+  //   filter out the userActivities and only return the ones with today's date
   // Filter activities for the current day
-  const filteredWorkouts =  user.userWorkouts.filter(workout => workout.date.slice(0, 10) === currentDate)
-  return filteredWorkouts
+  const filteredActivities =  userActivities.filter(activity => activity.date.slice(0, 10) === currentDate)
+  return filteredActivities
 }
 
-export function getWeeksWorkouts(user: User) {
+export function getWeeksActivities(userActivities: Activity[]) {
   // THIS IS MOST LIKELY TEMPORARY; it would be much better to use a preexisting library for this
 
 // get the current day of the week 0-7
@@ -31,21 +31,21 @@ export function getWeeksWorkouts(user: User) {
   endDate.setDate(endDate.getDate() + 6);
 
 
-  // Filter workouts between start and end date
-  return user.userWorkouts.filter(workout => {
-      const workoutDate = new Date(workout.date);
-      return workoutDate >= startDate && workoutDate <= endDate;
+  // Filter Activities between start and end date
+  return userActivities.filter(activity => {
+      const activityDate = new Date(activity.date);
+      return activityDate >= startDate && activityDate <= endDate;
   });
 }
 
-export function getTotalDistance(workouts: Workout[]) {
+export function getTotalDistance(activities: Activity[]) {
   let totalMiles = 0
   let totalFeet = 0
-
-  for (let i = 0; i < workouts.length; i++) {
-    totalMiles += workouts[i].distanceMiles
-    totalFeet += workouts[i].distanceFeet
-  }
+  for (let i = 0; i < activities.length; i++) {
+    totalMiles += activities[i].distanceMiles
+    totalFeet += activities[i].distanceFeet
+  } 
+  
 
   // convert feet to miles
   totalFeet /= 5280
@@ -66,15 +66,16 @@ export function getAveragePace(distance: number, time: number) {
   return distance / time
 }
 
-export function getTotalDuration(workouts: Workout[]) {
+export function getTotalDuration(activities: Activity[]) {
   // adds all the hours together, then add all the minutes together and convert them to hours
   let totalHours = 0
   let totalMinutes = 0
+  for (let i = 0; i < activities.length; i++) {
+    totalHours += activities[i].durationHours
+    totalMinutes += activities[i].durationMinutes
 
-  for (let i = 0; i < workouts.length; i++) {
-    totalHours += workouts[i].durationHours
-    totalMinutes += workouts[i].durationMinutes
   }
+  
   
   // convert minutes to hours
   totalMinutes /= 60
@@ -86,6 +87,6 @@ export function getTotalDuration(workouts: Workout[]) {
   
 }
 
-export function getTotalCalories(workouts: Workout[]) {
+export function getTotalCalories(activities: Activity[]) {
 
 }

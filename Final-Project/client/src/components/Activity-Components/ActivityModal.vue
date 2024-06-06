@@ -1,14 +1,14 @@
 <script setup lang="ts">
   import BasicButton from '../BasicButton.vue';
-  import { addWorkout, editWorkout, refNewWorkout, setEmptyWorkout } from '@/model/User';
+  import { addActivity, refNewActivity, setEmptyActivity, editActivity } from '@/model/Activity';
   import type { PropType } from 'vue'
-  import type { Workout } from '@/model/Workout';
-  import type { User } from '@/model/User';
+  import type { Activity } from '@/model/Activity'
+  import type { User } from '@/model/User'
 
 
-  // clears out the newWorkout object in new-workout.ts to be filled with new values, then imports it by using refNewWorkout
-  setEmptyWorkout()
-  const newWorkout = refNewWorkout()
+  // clears out the newActivity object in new-Activity.ts to be filled with new values, then imports it by using refNewActivity
+  setEmptyActivity()
+  const newActivity = refNewActivity()
 
   // tells the parent component when the modal is toggled so it can activate and deactivate it
   defineEmits(['modalToggled'])
@@ -17,12 +17,12 @@
   const props = defineProps({
     isActive: Boolean,
 
-    // this gets passed down to the submit button to determine whether you're adding a new workout or editing a preexisting one
-    // 'Edit Workout' makes it call editWorkout, and 'Add Workout' makes it call addWorkout
+    // this gets passed down to the submit button to determine whether you're adding a new Activity or editing a preexisting one
+    // 'Edit Activity' makes it call editActivity, and 'Add Activity' makes it call addActivity
     submitType: String,
     user: Object as PropType<User>,
-    originalWorkout: Object as PropType<Workout>,
-    originalWorkoutID: Number
+    originalActivity: Object as PropType<Activity>,
+    originalActivityID: Number
   })
 
   // debugging
@@ -35,7 +35,7 @@
     <div class="modal-content has-background-white">
       
       <div class="field">
-        <label class="label">Workout Type</label>
+        <label class="label">Activity Type</label>
         <div class="select">
           <select>
             <option>Walking</option>
@@ -51,8 +51,8 @@
           <div class="column is-one-fifth">
             <label class="label">Distance</label>
             <div class="control">
-              <input class="input" placeholder="Miles" v-model="newWorkout.distanceMiles" >
-              <input class="input" placeholder="Feet" v-model="newWorkout.distanceFeet" >
+              <input class="input" placeholder="Miles" v-model="newActivity.distanceMiles" >
+              <input class="input" placeholder="Feet" v-model="newActivity.distanceFeet" >
           </div>
             
           </div>
@@ -63,8 +63,8 @@
         <div class="column is-one-fifth">
           <label class="label">Duration</label>
           <div class="control">
-            <input class="input" placeholder="Hours" v-model="newWorkout.durationHours">
-            <input class="input" placeholder="Minutes" v-model="newWorkout.durationMinutes">
+            <input class="input" placeholder="Hours" v-model="newActivity.durationHours">
+            <input class="input" placeholder="Minutes" v-model="newActivity.durationMinutes">
         </div>
           
         </div>
@@ -75,7 +75,7 @@
           <div class="column is-half">
             <label class="label">Location</label>
             <div class="control">
-              <input class="input" placeholder="Location" v-model="newWorkout.location">
+              <input class="input" placeholder="Location" v-model="newActivity.location">
           </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
           <div class="column is-half">
             <label class="label">Post Image</label>
             <div class="control">
-              <input class="input" placeholder="Image URL" v-model="newWorkout.picture">
+              <input class="input" placeholder="Image URL" v-model="newActivity.picture">
           </div>
           </div>
         </div>
@@ -96,22 +96,23 @@
       <div class="field">
         <label class="label">Post Text</label>
         <div class="control">
-          <textarea class="textarea" placeholder="Textarea" v-model="newWorkout.text"></textarea>
+          <textarea class="textarea" placeholder="Textarea" v-model="newActivity.text"></textarea>
         </div>
       </div>
       
       <div class="field is-grouped">
-        <!-- passes in the newWorkout to be added or edited, text determines which action it does -->
+        <!-- passes in the newActivity to be added or edited, text determines which action it does -->
         <div class="control">
-          <BasicButton 
-            v-if="submitType === 'Create Workout'"   :text="submitType" 
-            :color="'is-link'" 
-            @click="addWorkout(newWorkout), $emit('modalToggled')"/>
-          <BasicButton 
-            v-else-if="submitType === 'Edit Workout' && originalWorkout!=undefined && user!=undefined" 
+          <BasicButton v-if="submitType === 'Add Activity'"
             :text="submitType" 
             :color="'is-link'" 
-            @click="editWorkout(user, originalWorkout, newWorkout), $emit('modalToggled')"/>
+            @click="addActivity(newActivity), $emit('modalToggled')"/>
+        </div>
+        <div class="control">
+          <BasicButton v-if="submitType === 'Edit Activity'"
+            :text="submitType" 
+            :color="'is-link'" 
+            @click="editActivity(newActivity, originalActivityID!), $emit('modalToggled')"/>
         </div>
         <div class="control">
           <button 

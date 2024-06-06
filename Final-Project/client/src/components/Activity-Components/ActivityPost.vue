@@ -1,13 +1,17 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { refCurrentUser } from '@/viewModel/currentuser';
-  import type { Workout } from '@/model/Workout';
-  import {type User, deleteWorkout } from '@/model/User';
+  import { refSession } from '@/viewModel/session'
+  import type { Activity } from '@/model/Activity';
+  import { deleteActivity } from '@/model/Activity';
+  import {getUserFromHandle, type User } from '@/model/User';
   import type { PropType } from 'vue'
-  import WorkoutModal from './WorkoutModal.vue';
+  import ActivityModal from './ActivityModal.vue';
 
   // this is needed for the check to see if the edit and delete button should show up
-  const currentUser = refCurrentUser()
+  const session = refSession()
+
+  
+
 
   // dropdown functionality
   let isActive = ref(false);
@@ -21,41 +25,43 @@
 
 
   const props = defineProps({
-    user: Object as PropType<User>,
-    // pass in the current workout in the for loop
-    workout: Object as PropType<Workout>,
-    userWorkouts: Object as PropType<Workout[]>
+    // pass in the current Activity in the for loop
+    activity: Object as PropType<Activity>,
   })
+  // need to get the user information from the handle of the original poster that way we dont need a prop passing in the User
+  const userDataResponse = await getUserFromHandle(props.activity!.originalPoster)
+  const userDataEnvelope = await userDataResponse
+  const activityPoster = userDataEnvelope!.data as User
 </script>
 
 <template>
-    <article class="media" v-if="user != undefined && workout != undefined">
+    <article class="media" v-if="activityPoster != undefined && activity != undefined">
         <figure class="media-left">
           <p class="image is-64x64 is-rounded">
-            <img :src="user.profilePicture">
+            <img :src="activityPoster.profilePicture">
           </p>
         </figure>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>{{user.firstName}} {{user.lastName}}</strong> 
+              <strong>{{activityPoster.firstName}} {{activityPoster.lastName}}</strong> 
               <span>&nbsp;</span>
-              <small>{{user.userName}}</small>
+              <small>{{activityPoster.handle}}</small>
               <span>&nbsp;</span>
               <span>&#183;</span> 
               <span>&nbsp;</span>
-              <small>{{workout.date.slice(0, 10)}}</small>
+              <small>{{activity.date.slice(0, 10)}}</small>
             </p>
-            <p>{{workout.text}}</p>
+            <p>{{activity.text}}</p>
             <div class="columns">
               
               <div class="column is-1">
-                <h3>{{ workout.durationHours }}:{{ workout.durationMinutes }}</h3>
+                <h3>{{ activity.durationHours }}:{{ activity.durationMinutes }}</h3>
                 <small>Time</small>
               </div>
               <div class="column">
                 <h3>&#183;
-                  {{ workout.distanceMiles }}:{{ workout.distanceFeet }} Mi</h3>
+                  {{ activity.distanceMiles }}:{{ activity.distanceFeet }} Mi</h3>
                 <small>&#183; Distance</small>
               </div>
               <div class="column is-auto"></div>
@@ -64,11 +70,11 @@
             
             <!-- post image -->
             <p class="image" width="200" height="200">
-              <img :src="workout.picture">
+              <img :src="activity.picture">
             </p>
             <p>
               <span class="icon is-small"><i class="fas fa-location-dot"></i></span>
-              <small>{{workout.location}}</small>
+              <small>{{activity.location}}</small>
             </p>
             
 
@@ -76,8 +82,8 @@
           
         </div>
         <div class="media-right">
-          <!-- only appears if the current user posted the workout -->
-          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="currentUser.userName === user.userName">
+          <!-- only appears if the current user posted the Activity -->
+          <div class="dropdown post-options" :class="{ 'is-active': isActive }" v-if="session.user!.handle === activityPoster.handle">
             <div class="dropdown-trigger">
               <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-post" @click="toggleMenu">
                 <span class="icon is-small">
@@ -91,15 +97,16 @@
                   Edit
                 </a>
                 <!-- listens for the modalToggled event and calls the function when it hears it -->
-                <WorkoutModal 
-                  :isActive="modalIsActive" :originalWorkout="workout"
-                  :originalWorkoutID="workout.workoutID" 
-                  :user="user"
-                  :submitType="'Edit Workout'"
+                <ActivityModal 
+                  :isActive="modalIsActive" 
+                  :originalActivity="activity"
+                  :originalActivityID="activity.id" 
+                  :user="activityPoster"
+                  :submitType="'Edit Activity'"
                   @modalToggled="toggleModal()"
                   />
                   
-                <a class="dropdown-item" @click="deleteWorkout(user, workout)">
+                <a class="dropdown-item" @click="deleteActivity(activity.id!)">
                   Delete
                 </a>
               </div>

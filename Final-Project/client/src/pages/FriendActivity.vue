@@ -1,32 +1,38 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
-  import { type User, getUsers } from '@/model/User'
-  import { refCurrentUser } from '@/viewModel/currentuser';
-  
-  // used to make sure that the current user's workouts aren't being shown with the friends' workouts
-  const currentUser = refCurrentUser()
-
-  //imports user array
-  const users = ref([] as User[]) 
-  users.value = getUsers()
-
-  // components
-  import WorkoutPost from '@/components/Workout-Components/WorkoutPost.vue';
-</script>
-
-<template>
-
-  <div>
+  import { onMounted, ref } from 'vue';
+  import { type User, getUsers, getUserFromHandle, filterFriendActivities } from '@/model/User'
+  import { refSession } from '@/viewModel/session'
+  import ActivityPost from '@/components/Activity-Components/ActivityPost.vue';
+  import { getActivities, type Activity } from '@/model/Activity';
     
-    <div v-for="user in users" :key="user.id">
-      <WorkoutPost v-if="user!=currentUser" v-for="workout in user.userWorkouts" :key="workout.workoutID"
-        :user="user"
-        :workout="workout"
+  // want to first import the current user using refSession
+  const session = refSession()
+
+  // import current user for the filter logic
+
+
+  // import activities array
+  const activities = ref([] as Activity[])
+  const activityDataResponse = await getActivities()
+  const activityDataEnvelope = await activityDataResponse
+  activities.value = activityDataEnvelope!.data as Activity[]
+
+  console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
+
+  // should definitely be a function but unfortunately im lazy right now
+  const filteredActivities = filterFriendActivities(session.user!, activities.value)
+
+
+  
+</script>
+<template>
+  <Suspense>
+    <div>
+
+      <ActivityPost v-for="activity in filteredActivities" :key="activity.id"
+        :activity="activity"
       />
       <hr>
     </div>
-  </div>
-
+  </Suspense>
 </template>
-
-

@@ -1,14 +1,28 @@
 <script setup lang="ts">
   import { getUsers, type User } from '@/model/User'
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
   import BasicButton from '../BasicButton.vue';
+  import { deleteUser } from '@/model/User';
+  import UserModal from './UserModal.vue';
 
-  const users = ref([] as User[]) 
-  users.value = getUsers()
+  // importing the users
+  const users = ref([] as User[]);
+  onMounted(async () => {
+  try {
+    const usersResponse = await getUsers();
+    users.value = usersResponse!.data;
+  } catch (error: any) {
+    console.error('Error loading users:', error.message);
+  }
+})
 
-  function deleteUser(index: number) {
-    users.value.splice(index, 1);
-}
+   // pass that in as props for the activity post
+  //modal functionality
+  let isActive = ref(false);
+  function toggleModal() {
+    isActive.value = !isActive.value
+  }
+
 
 </script>
 
@@ -26,7 +40,20 @@
           <th>User Name</th>
           <th>ID</th>
           <th>isAdmin</th>
-          <th></th>
+          <th>
+            <div>
+              <BasicButton text="Add User" color="is-dark" @click="toggleModal"/>
+              <UserModal 
+                :isActive="isActive" 
+                :submitType="'Add User'" 
+                @modalToggled="toggleModal()"
+          
+              />
+            </div>
+          </th>
+          <th>
+
+          </th>
         </tr>
         <!-- each user in the array should make a new table row  -->
         <tr v-for="(user, index) in users" :key="user.id">
@@ -38,12 +65,25 @@
           <th>{{user.firstName}}</th>
           <th>{{user.lastName}}</th>
           <th>{{user.email}}</th>
-          <th>{{user.userName}}</th>
+          <th>{{user.handle}}</th>
           <th>{{user.id}}</th>
           <th>{{user.isAdmin}}</th>
-          <th> 
-            <BasicButton :color="'is-Alert'" :text="'Delete User'" @click="deleteUser(index)"/>
+          <th>
+            <BasicButton text="Delete User" color="is-dark" @click="deleteUser(user.id)"/>
           </th>
+          <th>
+            <div>
+              <BasicButton text="Edit User" color="is-dark" @click="toggleModal"/>
+              <UserModal 
+                :isActive="isActive" 
+                :submitType="'Edit User'" 
+                :originalUserId="user.id"
+                @modalToggled="toggleModal()"
+          
+              />
+            </div>
+          </th>
+          
         </tr>
       </thead>
     </table>

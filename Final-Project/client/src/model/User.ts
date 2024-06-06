@@ -1,106 +1,96 @@
-import data from "../data/users.json";
-import type { Workout } from "./Workout";
-import { refCurrentUser } from "@/viewModel/currentuser";
-import { ref } from "vue";
+import userData from "../../../server/data/users.json";
+import { onMounted, ref } from "vue";
+import { api } from "../viewModel/session";
+import { getActivities, type Activity } from "./Activity";
 
+// importing activities data from the server
+const activitiesData = ref([] as Activity[])
+const activityDataResponse = await getActivities()
+const activityDataEnvelope = await activityDataResponse
+activitiesData.value = activityDataEnvelope!.data as Activity[]
 
 export interface User {
   id: number,
   firstName: string,
   lastName: string,
-  userName: string,
+  handle: string,
   email: string,
   profilePicture: string,
   isAdmin: boolean,
-  userWorkouts: Workout[]
   
-}
-  
-// gets the data out of the user.json file and returns an array of users
-export function getUsers(): User[] {
-  return data.items;
 }
 
+// this is just a simple way to get an empty user template to add and edit new users
+export const newUser = ref()
+// to import to other files
+export const refNewUser = () => newUser
+// 
+export const setRefNewUser = (input: User ) => {
+  newUser.value = input
+}
+
+export const setEmptyUser = () => {
+  const activityToSetNewUser: User = {
+    id: 0,
+    firstName: '',
+    lastName: '',
+    handle: '',
+    email: '',
+    profilePicture: '',
+    isAdmin: false,
+  }
+  // replaces the current newActivity value with the empty one
+  setRefNewUser(activityToSetNewUser)
+}
+  
+//sends a request to the server to return the users from the json files
+export function getUsers() {
+  console.log('get users test: ' + api<User[]>('users'));
+  return api<User[]>('users/');
+}
+
+// input a user and get a return of their activity array
+export function filterUserActivities(user: User, activities: Activity[]) {
+  // kind of a compromise; anything that uses this function still has to import the full activities themselves, but we don't have to duplicate the logic everywhere now. still would be better to have this function import the activities but doing it this way just lets us have one more place we don't have to bother with async functions
+  return activities.filter( (item) =>  item.originalPoster === user.handle)
+}
+
+export function filterFriendActivities(user: User, activities: Activity[]) {
+  // gets all the activities except the user's; this is used for getting data for FriendActivities
+  return activities.filter( (item) =>  item.originalPoster != user.handle)
+}
+
+export async function getUserActivities(user: User) {
+  // this should import the activities for whatever calls it to make there be less repeated code
+  const filteredActivities = filterUserActivities(user, activitiesData.value)
+
+  return filteredActivities
+}
 
 // this code should probably be moved to a folder in viewmodel
 
-// input a user and get a return of their workout array
-export const getUserWorkouts = (user: User) => user.userWorkouts
+export async function getUserFromHandle(handle: String) {
+  try {
+    const response = await api(`users/${handle}`, null, "GET");
 
+    console.log('getUserFromHandle response: ' + JSON.stringify(response));
 
-// this is a workout object that can be called and edited when a new workout is being made
-
-// necessary to add to the current user's workout array
-const currentUser = refCurrentUser()
-
-// export const refNewWorkout
-export const newWorkout = ref()
-
-// to import to other files
-export const refNewWorkout = () => newWorkout
-
-// 
-export const setRefNewWorkout = (input: Workout) => {
-  newWorkout.value = input
-}
-
-// this is used to make a new workout that has empty values for all its fields; made so that the files that import the newWorkout object don't have to make an empty workout themselves
-export const setEmptyWorkout = () => {
-  const workoutToSetNewWorkout: Workout = {
-    date: '0000-00-00:00:00',
-    distanceFeet: 0,
-    distanceMiles: 0,
-    durationHours: 0,
-    durationMinutes: 0,
-    location: '',
-    workoutID: 0,
-    picture: '',
-    text: '',
+    return response;
+  } catch (error) {
+      throw new Error('Failed to fetch user by handle');
   }
-  // replaces the current newWorkout value with the empty one
-  setRefNewWorkout(workoutToSetNewWorkout)
 }
 
-// appends inputted workout to the current user's workout array
-export const addWorkout = (input: Workout) => {
-  // first need to get the last element of the array to take that workoutID and make a new ID from it
-  const last = currentUser.value.userWorkouts[currentUser.value.userWorkouts.length - 1];
-  input.workoutID = last.workoutID+1
 
-  // need to create a new date for the workout
-  const d = new Date();
-  input.date = d.toISOString();
-
-  // adds new workout to array
-  currentUser.value.userWorkouts.push(input)
-
-  // after the workout is added the newWorkout object should be cleared out for the next workout to be added
-  setEmptyWorkout()
-} 
+export async function addUser(user: User) {
+  await api('users/', user, 'POST')
   
-  // replaces the data of a specific workout
-  // should take the newWorkout in and replace every orgiinalWorkout value spot with it, everything except the date and id
-  export const editWorkout = (user: User, originalWorkout: Workout, newWorkout: Workout) => {
-    // the original Id needs to be preserved 
-    const originalID = originalWorkout.workoutID
-    
-    // first finds the index of the user in the original data.items array
-    const index = data.items.findIndex(u => u.id === user?.id);
+} 
+export async function editUser(user: User, originalUserId: Number) {
+  await api(`users/${originalUserId}`, user, 'PATCH')
+  
+} 
 
-    // then finds the index of the original workout in that user's workoutArray
-    const workoutIndex = data.items[index].userWorkouts.findIndex(a => a.workoutID === originalWorkout.workoutID)
-
-    // replaces the value at that index with the new workout
-    data.items[index].userWorkouts[workoutIndex] = newWorkout
-
-    // preserve the original id
-    data.items[index].userWorkouts[workoutIndex].workoutID = originalID
-    
-  }
-
-  export function deleteWorkout(user : User | null, workout : Workout) {
-    // finds the index of the index of the original workout according to the user id, then splices it
-    const index = data.items.findIndex(u => u.id === user?.id);
-    const workoutIndex = data.items[index].userWorkouts.findIndex(a => a.workoutID === workout.workoutID);
-    data.items[index].userWorkouts.splice(workoutIndex, 1);
+export async function deleteUser(userId: number) {
+  await api(`users/${userId}`, null, "DELETE");
 }

@@ -1,28 +1,35 @@
 <script setup lang="ts">
-  import StatisticsBlock from '@/components/Workout-Components/StatisticsBlock.vue';
-  import { getTodaysWorkouts, getWeeksWorkouts } from '@/model/statistics';
-  import { refCurrentUser } from '@/viewModel/currentuser';
+  import StatisticsBlock from '@/components/Activity-Components/StatisticsBlock.vue';
+  import { getActivities, type Activity } from '@/model/Activity';
+  import { filterUserActivities } from '@/model/User';
+  import { getTodaysActivities, getWeeksActivities } from '@/model/statistics';
+  import { refSession } from '@/viewModel/session'
+  import { ref } from 'vue';
 
-  const currentUser = refCurrentUser()
+  const session = refSession()
+  // import activities array
+  const activities = ref([] as Activity[])
+  const activityDataResponse = await getActivities()
+  const activityDataEnvelope = await activityDataResponse
+  activities.value = activityDataEnvelope!.data as Activity[]
 
-  const todaysWorkouts = getTodaysWorkouts(currentUser.value)
-  const thisWeeksWorkouts = getWeeksWorkouts(currentUser.value)
-  console.log("This weeks workouts: " + thisWeeksWorkouts)
+  console.log('activities in MyActivity: ' + JSON.stringify(activities.value));
 
+  // filter them to be the currentUser's activities
+  const filteredActivities = filterUserActivities(session.user!, activities.value)
 
-
+  const todaysActivities = getTodaysActivities(filteredActivities)
+  const thisWeeksActivities = getWeeksActivities(filteredActivities)
+  console.log("This weeks activities: " + thisWeeksActivities)
 </script>
-
 <template>
-
 <body>
   <div>
-    <StatisticsBlock :text="'Today'" :workouts="todaysWorkouts"/>
+    <StatisticsBlock :text="'Today'" :activities="todaysActivities"/>
     <hr>
-    <StatisticsBlock :text="'This Week'" :workouts="thisWeeksWorkouts"/>
+    <StatisticsBlock :text="'This Week'" :activities="thisWeeksActivities"/>
     <hr>
-    <StatisticsBlock :text="'All Time'" :workouts="currentUser.userWorkouts"/>
+    <StatisticsBlock :text="'All Time'" :activities="filteredActivities"/>
   </div>
 </body>
-
-</template>../components/Workout-Components/WorkoutPost.vue
+</template>../components/Activity-Components/ActivityPost.vue
