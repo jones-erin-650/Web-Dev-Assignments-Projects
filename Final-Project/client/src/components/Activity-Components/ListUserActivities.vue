@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import {  onMounted, ref } from 'vue';
   import { filterUserActivities, getUserFromHandle, type User } from '@/model/User'
+  import type { PropType } from 'vue'
   import { refSession } from '@/viewModel/session'
   
   // components
@@ -18,6 +19,8 @@
   function toggleModal() {
     isActive.value = !isActive.value
   }
+
+  
 
   const props = defineProps({
     // passes in the activities from the server so that whenever that info is updated it updates a prop and reloads the component to match the new data
@@ -41,7 +44,7 @@
       <hr>
       <!-- this is needed when using promises -->
      
-      <ActivityPost v-for="(activity) in filteredActivities" :key="activity.id"
+      <ActivityPost v-for="(activity) in activities" :key="activity.id"
         :activity="activity"
       />
 
