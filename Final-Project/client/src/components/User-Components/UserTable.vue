@@ -6,7 +6,6 @@
   import UserModal from './UserModal.vue';
   import type { PropType } from 'vue'
 
-
    // pass that in as props for the activity post
   //modal functionality
   let isActive = ref(false);

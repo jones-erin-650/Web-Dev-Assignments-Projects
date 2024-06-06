@@ -3,6 +3,7 @@
   import {ref} from 'vue'
   import  ListUserActivities  from "./ListUserActivities.vue";
   import { getActivities, type Activity } from '@/model/Activity';
+  import type { PropType } from 'vue'
 // import activities array
   const activities = ref([] as Activity[])
   const activityDataResponse = await getActivities()
