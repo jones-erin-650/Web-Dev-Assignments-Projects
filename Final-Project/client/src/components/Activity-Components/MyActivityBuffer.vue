@@ -4,14 +4,23 @@
   import  ListUserActivities  from "./ListUserActivities.vue";
   import { getActivities, type Activity } from '@/model/Activity';
   import type { PropType } from 'vue'
-// import activities array
+  import { refSession } from '@/viewModel/session'
+  import { filterUserActivities, getUserFromHandle, type User } from '@/model/User'
+
+
+
+  
+  // want to first import the current user using refSession
+  const session = refSession()
+
+  // import activities array
   const activities = ref([] as Activity[])
   const activityDataResponse = await getActivities()
   const activityDataEnvelope = await activityDataResponse
-  activities.value = activityDataEnvelope!.data as Activity[]
+  activities.value = activityDataEnvelope!.data as Activity[]  
 
-  const activities.value = filterUserActivities(session.user!, props.activities!)
-  
+  activities.value = filterUserActivities(session.user!, activities.value!)
+
 </script>
 
 <template>

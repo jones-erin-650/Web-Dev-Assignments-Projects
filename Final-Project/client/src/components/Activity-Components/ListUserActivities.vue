@@ -2,7 +2,6 @@
   import {  onMounted, ref } from 'vue';
   import { filterUserActivities, getUserFromHandle, type User } from '@/model/User'
   import type { PropType } from 'vue'
-  import { refSession } from '@/viewModel/session'
   
   // components
   import ActivityPost from '@/components/Activity-Components/ActivityPost.vue';
@@ -10,8 +9,6 @@
   import BasicButton from '@/components/BasicButton.vue';
   import { getActivities, type Activity } from '@/model/Activity';
 
-  // want to first import the current user using refSession
-  const session = refSession()
   
   // pass that in as props for the activity post
   //modal functionality
